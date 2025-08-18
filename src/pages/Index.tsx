@@ -194,30 +194,30 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
             {[
               {
                 step: "1",
                 title: "Vertel over jezelf",
-                description: "Vul je gegevens in en vertel wat je zoekt in een rijschool."
+                description: "Vul gegevens in"
               },
               {
                 step: "2", 
                 title: "Ontvang advies",
-                description: "Binnen 24 uur krijg je persoonlijk advies met de beste opties."
+                description: "Binnen 24 uur advies"
               },
               {
                 step: "3",
                 title: "Begin met lessen",
-                description: "Neem direct contact op met jouw gekozen rijschool en start!"
+                description: "Start direct!"
               }
             ].map((item, index) => (
               <div key={index} className="text-center relative">
-                <div className="mx-auto mb-6 h-16 w-16 rounded-full bg-gradient-primary flex items-center justify-center text-white text-xl font-bold">
+                <div className="mx-auto mb-3 md:mb-6 h-12 w-12 md:h-16 md:w-16 rounded-full bg-gradient-primary flex items-center justify-center text-white text-lg md:text-xl font-bold">
                   {item.step}
                 </div>
-                <h3 className="text-lg font-semibold mb-3">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.description}</p>
+                <h3 className="text-sm md:text-lg font-semibold mb-2 md:mb-3">{item.title}</h3>
+                <p className="text-muted-foreground text-xs md:text-sm">{item.description}</p>
                 {index < 2 && (
                   <ArrowRight className="hidden md:block absolute top-8 -right-4 h-6 w-6 text-muted-foreground" />
                 )}
@@ -293,22 +293,22 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="shadow-smooth">
-                <CardContent className="pt-6">
-                  <div className="flex items-center gap-1 mb-4">
+                <CardContent className="pt-4 md:pt-6 p-3 md:p-6">
+                  <div className="flex items-center gap-1 mb-3 md:mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+                      <Star key={i} className="h-3 w-3 md:h-4 md:w-4 fill-accent text-accent" />
                     ))}
                   </div>
-                  <p className="text-muted-foreground mb-6 italic">
+                  <p className="text-muted-foreground mb-4 md:mb-6 italic text-xs md:text-sm">
                     "{testimonial.text}"
                   </p>
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="font-semibold">{testimonial.name}</div>
-                      <div className="text-sm text-muted-foreground">{testimonial.location}</div>
+                      <div className="font-semibold text-xs md:text-sm">{testimonial.name}</div>
+                      <div className="text-xs text-muted-foreground">{testimonial.location}</div>
                     </div>
                     <div className="text-xs bg-muted px-2 py-1 rounded">
                       {testimonial.type}
@@ -356,13 +356,13 @@ const Index = () => {
                 Vind jouw perfecte rijschool. Start vandaag!
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button asChild variant="hero" size="lg">
+              <div className="flex gap-3 justify-center">
+                <Button asChild variant="hero" size="sm" className="flex-1 max-w-[200px]">
                   <Link to="/aanvraag">
                     Start aanvraag - €40
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="outline" size="sm" className="flex-1 max-w-[200px]">
                   <Link to="/contact">
                     Stel een vraag
                   </Link>

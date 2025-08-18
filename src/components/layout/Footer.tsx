@@ -66,16 +66,16 @@ export const Footer = () => {
           </div>
 
           {/* Navigation links - horizontal layout for mobile too */}
-          <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="col-span-2 grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-6">
             {/* Quick links */}
-            <div className="space-y-3">
-              <h3 className="font-semibold">Snelle links</h3>
-              <nav className="flex flex-wrap gap-x-4 gap-y-1 md:flex-col md:space-y-2">
+            <div className="space-y-2 md:space-y-3">
+              <h3 className="font-semibold text-sm md:text-base">Snelle links</h3>
+              <nav className="flex flex-col space-y-1 md:space-y-2">
                 {quickLinks.map((link) => (
                   <Link
                     key={link.name}
                     to={link.href}
-                    className="text-sm text-background/80 hover:text-background transition-colors"
+                    className="text-xs md:text-sm text-background/80 hover:text-background transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -84,14 +84,14 @@ export const Footer = () => {
             </div>
 
             {/* Services */}
-            <div className="space-y-3">
-              <h3 className="font-semibold">Onze diensten</h3>
-              <nav className="flex flex-wrap gap-x-4 gap-y-1 md:flex-col md:space-y-2">
+            <div className="space-y-2 md:space-y-3">
+              <h3 className="font-semibold text-sm md:text-base">Onze diensten</h3>
+              <nav className="flex flex-col space-y-1 md:space-y-2">
                 {serviceLinks.map((link) => (
                   <Link
                     key={link.name}
                     to={link.href}
-                    className="text-sm text-background/80 hover:text-background transition-colors"
+                    className="text-xs md:text-sm text-background/80 hover:text-background transition-colors"
                   >
                     {link.name}
                   </Link>
