@@ -101,14 +101,14 @@ const Index = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button asChild variant="hero" size="default" className="group sm:flex-1">
+              <div className="flex gap-3">
+                <Button asChild variant="hero" size="sm" className="group flex-1">
                   <Link to="/aanvraag">
                     Start aanvraag
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="default" className="sm:flex-1">
+                <Button asChild variant="outline" size="sm" className="flex-1">
                   <Link to="/over-ons">
                     Meer info
                   </Link>
@@ -162,17 +162,17 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8">
             {features.map((feature, index) => (
               <Card key={index} className="shadow-smooth hover:shadow-xl transition-all duration-300 group">
-                <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 h-12 w-12 rounded-lg bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <feature.icon className="h-6 w-6 text-white" />
+                <CardHeader className="text-center p-3 md:p-6">
+                  <div className="mx-auto mb-3 md:mb-4 h-8 w-8 md:h-12 md:w-12 rounded-lg bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon className="h-4 w-4 md:h-6 md:w-6 text-white" />
                   </div>
-                  <CardTitle className="text-lg">{feature.title}</CardTitle>
+                  <CardTitle className="text-sm md:text-lg">{feature.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-center text-sm">
+                <CardContent className="p-3 md:p-6 pt-0">
+                  <p className="text-muted-foreground text-center text-xs md:text-sm">
                     {feature.description}
                   </p>
                 </CardContent>
