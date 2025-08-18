@@ -44,8 +44,8 @@ const OverOnsPage = () => {
             <span className="text-primary"> vinden?</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Wij verbinden jou met de goedkoopste én beste rijscholen én helpen je persoonlijk bij de aanmelding. 
-            Ons team is 24/7 bereikbaar op +31 685719049 - binnen 30 minuten heb je antwoord!
+            Wij verbinden U met de goedkoopste én beste rijscholen én helpen U persoonlijk bij de aanmelding. 
+            Ons professionele team is 24/7 bereikbaar op +31 685719049!
           </p>
         </div>
 

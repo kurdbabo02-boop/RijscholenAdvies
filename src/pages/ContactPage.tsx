@@ -23,7 +23,7 @@ const ContactPage = () => {
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4">Contact opnemen</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Heb je vragen over ons advies? We helpen je graag verder!
+              Heeft U vragen over ons advies? Wij helpen U graag verder!
             </p>
           </div>
 
@@ -37,7 +37,7 @@ const ContactPage = () => {
                     Contactgegevens
                   </CardTitle>
                   <CardDescription>
-                    Neem direct contact op of plan een telefoongesprek
+                    Neem direct contact op - wij zijn 24/7 bereikbaar
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -48,7 +48,7 @@ const ContactPage = () => {
                       </div>
                       <div>
                         <div className="font-medium">Telefoon</div>
-                        <div className="text-muted-foreground">085 - 123 4567</div>
+                        <div className="text-muted-foreground">+31 685719049</div>
                       </div>
                     </div>
                     
@@ -63,27 +63,14 @@ const ContactPage = () => {
                     </div>
                     
                     <div className="flex items-center gap-4">
-                      <div className="h-10 w-10 rounded-lg bg-accent/10 flex items-center justify-center">
-                        <MapPin className="h-5 w-5 text-accent" />
-                      </div>
-                      <div>
-                        <div className="font-medium">Adres</div>
-                        <div className="text-muted-foreground">
-                          Rijschoolstraat 123<br />
-                          1234 AB Amsterdam
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-4">
                       <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
                         <Clock className="h-5 w-5 text-primary" />
                       </div>
                       <div>
-                        <div className="font-medium">Openingstijden</div>
+                        <div className="font-medium">Bereikbaarheid</div>
                         <div className="text-muted-foreground">
-                          Maandag - Vrijdag: 09:00 - 18:00<br />
-                          Zaterdag: 10:00 - 16:00
+                          Dagelijks 24/7 beschikbaar voor persoonlijk advies<br />
+                          Telefonisch en digitaal bereikbaar
                         </div>
                       </div>
                     </div>
@@ -97,21 +84,21 @@ const ContactPage = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <div className="font-medium mb-2">Hoe snel krijg ik advies?</div>
+                    <div className="font-medium mb-2">Hoe snel krijgt U advies?</div>
                     <div className="text-sm text-muted-foreground">
-                      Binnen 24 uur na je aanvraag en betaling ontvang je ons advies.
+                      Binnen 24 uur na Uw aanvraag en betaling ontvangt U ons professioneel advies.
                     </div>
                   </div>
                   <div>
-                    <div className="font-medium mb-2">Welke rijscholen adviseren jullie?</div>
+                    <div className="font-medium mb-2">Welke rijscholen adviseren wij?</div>
                     <div className="text-sm text-muted-foreground">
-                      Alleen gecertificeerde rijscholen met minimaal 4,5 sterren beoordeling.
+                      Uitsluitend gecertificeerde rijscholen met de beste kwaliteit én goedkoopste prijzen.
                     </div>
                   </div>
                   <div>
-                    <div className="font-medium mb-2">Kan ik mijn geld terugkrijgen?</div>
+                    <div className="font-medium mb-2">Kunt U Uw geld terugkrijgen?</div>
                     <div className="text-sm text-muted-foreground">
-                      Ja, binnen 14 dagen volledige geld-terug-garantie zonder vragen.
+                      Ja, binnen 14 dagen volledige geld-terug-garantie zonder vragen gesteld.
                     </div>
                   </div>
                 </CardContent>
@@ -123,7 +110,7 @@ const ContactPage = () => {
               <CardHeader>
                 <CardTitle>Stuur ons een bericht</CardTitle>
                 <CardDescription>
-                  We beantwoorden je vraag binnen 24 uur
+                  Wij beantwoorden Uw vraag binnen 24 uur
                 </CardDescription>
               </CardHeader>
               <CardContent>

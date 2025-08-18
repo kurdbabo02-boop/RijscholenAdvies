@@ -26,7 +26,7 @@ export const Header = () => {
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span>085 - 123 4567</span>
+                <span>+31 685719049</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
@@ -34,7 +34,7 @@ export const Header = () => {
               </div>
             </div>
             <div className="text-xs opacity-90">
-              Maandag - Vrijdag: 09:00 - 18:00
+              24/7 beschikbaar voor persoonlijk advies
             </div>
           </div>
         </div>
@@ -124,7 +124,7 @@ export const Header = () => {
                 <div className="pt-6 border-t space-y-4">
                   <div className="flex items-center gap-3">
                     <Phone className="h-5 w-5 text-primary" />
-                    <span>085 - 123 4567</span>
+                    <span>+31 685719049</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail className="h-5 w-5 text-primary" />

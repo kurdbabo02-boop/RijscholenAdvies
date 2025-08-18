@@ -40,16 +40,16 @@ const BevestigingPage = () => {
               <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-gradient-secondary flex items-center justify-center">
                 <CheckCircle className="h-8 w-8 text-white" />
               </div>
-              <CardTitle className="text-2xl">Bevestig je aanvraag</CardTitle>
+              <CardTitle className="text-2xl">Bevestig Uw aanvraag</CardTitle>
               <CardDescription>
-                Je bent bijna klaar! Controleer je gegevens en betaal €40 voor persoonlijk rijschooladvies.
+                U bent bijna klaar! Controleer Uw gegevens en betaal veilig €40 voor persoonlijk rijschooladvies.
               </CardDescription>
             </CardHeader>
             
             <CardContent className="space-y-6">
               {/* Order summary */}
               <div className="bg-muted/50 rounded-lg p-6">
-                <h3 className="font-semibold mb-4">Jouw aanvraag</h3>
+                <h3 className="font-semibold mb-4">Uw aanvraag</h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
@@ -67,7 +67,7 @@ const BevestigingPage = () => {
 
               {/* Contact details */}
               <div className="bg-muted/50 rounded-lg p-6">
-                <h3 className="font-semibold mb-4">Jouw gegevens</h3>
+                <h3 className="font-semibold mb-4">Uw gegevens</h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <div className="h-8 w-8 rounded-full bg-secondary/10 flex items-center justify-center">
@@ -140,7 +140,7 @@ const BevestigingPage = () => {
                   className="w-full"
                 >
                   <CreditCard className="h-5 w-5 mr-2" />
-                  Betaal nu €40 (iDEAL/Creditcard)
+                  Veilig betalen met iDEAL of creditcard - €40
                 </Button>
                 
                 <Button 

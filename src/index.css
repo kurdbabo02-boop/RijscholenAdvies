@@ -47,6 +47,10 @@
     --success: 142 76% 45%;
     --success-foreground: 0 0% 100%;
     
+    /* Override default selection colors to primary blue */
+    --selection-bg: 210 84% 45%;
+    --selection-fg: 0 0% 100%;
+    
     --warning: 45 93% 47%;
     --warning-foreground: 0 0% 100%;
 
@@ -125,5 +129,16 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Make selection colors blue instead of orange */
+  ::selection {
+    background-color: hsl(var(--selection-bg));
+    color: hsl(var(--selection-fg));
+  }
+
+  ::-moz-selection {
+    background-color: hsl(var(--selection-bg));
+    color: hsl(var(--selection-fg));
   }
 }

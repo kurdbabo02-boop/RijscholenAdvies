@@ -47,7 +47,7 @@ export const Footer = () => {
             </Link>
             <p className="text-sm text-background/80 leading-relaxed">
               Al sinds 2014 helpen wij mensen bij het vinden van de beste rijschool. 
-              Persoonlijk advies voor jouw perfecte match.
+              Professioneel advies voor Uw perfecte match.
             </p>
             
             {/* Social links */}
@@ -106,24 +106,17 @@ export const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-background/60" />
-                <span className="text-sm text-background/80">085 - 123 4567</span>
+                <span className="text-sm text-background/80">+31 685719049</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-background/60" />
                 <span className="text-sm text-background/80">info@rijschooladvies.nl</span>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="h-4 w-4 text-background/60 mt-0.5" />
-                <div className="text-sm text-background/80">
-                  Rijschoolstraat 123<br />
-                  1234 AB Amsterdam
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
                 <Clock className="h-4 w-4 text-background/60 mt-0.5" />
                 <div className="text-sm text-background/80">
-                  Ma-Vr: 09:00 - 18:00<br />
-                  Zat: 10:00 - 16:00
+                  Dagelijks 24/7 bereikbaar<br />
+                  Voor persoonlijk advies en ondersteuning
                 </div>
               </div>
             </div>
@@ -158,9 +151,9 @@ export const Footer = () => {
               Vertrouwd door 10,000+ tevreden klanten
             </div>
             <div className="flex justify-center items-center gap-8 opacity-60">
-              <div className="text-xs">⭐⭐⭐⭐⭐ 4.9/5 op Trustpilot</div>
               <div className="text-xs">Gecertificeerd KVK</div>
               <div className="text-xs">SSL beveiligd</div>
+              <div className="text-xs">24/7 bereikbaar</div>
             </div>
           </div>
         </div>

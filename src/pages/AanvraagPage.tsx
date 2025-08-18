@@ -102,10 +102,10 @@ const AanvraagPage = () => {
         return (
           <div className="space-y-6">
             <div className="space-y-2">
-              <Label>Stad of dorp *</Label>
+              <Label>Stad *</Label>
               <Select value={formData.stad} onValueChange={(value) => handleInputChange("stad", value)}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Selecteer jouw stad of dorp" />
+                  <SelectValue placeholder="Selecteer Uw stad" />
                 </SelectTrigger>
                 <SelectContent>
                   {stedenDorpen.map((stad) => (
@@ -166,16 +166,16 @@ const AanvraagPage = () => {
       case 3:
         return (
           <div className="space-y-6">
-            <div className="bg-muted/30 rounded-lg p-6 border">
-              <h3 className="font-semibold mb-4 text-foreground">Controleer jouw gegevens</h3>
-              <div className="space-y-2 text-sm">
+              <div className="bg-muted/30 rounded-lg p-6 border">
+              <h3 className="font-semibold mb-4 text-foreground">Controleer Uw gegevens</h3>
+                <div className="space-y-2 text-sm">
                 <div><span className="font-medium text-foreground">Naam:</span> <span className="text-muted-foreground">{formData.naam}</span></div>
                 <div><span className="font-medium text-foreground">E-mail:</span> <span className="text-muted-foreground">{formData.email}</span></div>
                 <div><span className="font-medium text-foreground">Telefoon:</span> <span className="text-muted-foreground">{formData.telefoon}</span></div>
-                <div><span className="font-medium text-foreground">Stad/dorp:</span> <span className="text-muted-foreground">{formData.stad}</span></div>
+                <div><span className="font-medium text-foreground">Stad:</span> <span className="text-muted-foreground">{formData.stad}</span></div>
                 <div><span className="font-medium text-foreground">Rijbewijs:</span> <span className="text-muted-foreground">{formData.rijbewijsType}</span></div>
                 <div><span className="font-medium text-foreground">Type rijles:</span> <span className="text-muted-foreground">{formData.typeRijles}</span></div>
-              </div>
+                </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -191,15 +191,15 @@ const AanvraagPage = () => {
                 <Clock className="h-8 w-8 text-secondary" />
                 <div>
                   <div className="font-medium text-foreground">Snel advies</div>
-                  <div className="text-sm text-muted-foreground">Binnen 24 uur reactie</div>
+                  <div className="text-sm text-muted-foreground">Binnen 24 uur persoonlijk advies</div>
                 </div>
               </div>
               
               <div className="flex items-center gap-3 p-4 bg-accent/5 rounded-lg border border-accent/10">
                 <Star className="h-8 w-8 text-accent" />
                 <div>
-                  <div className="font-medium text-foreground">Top kwaliteit</div>
-                  <div className="text-sm text-muted-foreground">Alleen 5-sterren rijscholen</div>
+                  <div className="font-medium text-foreground">Beste kwaliteit</div>
+                  <div className="text-sm text-muted-foreground">Goedkoopste én beste rijscholen</div>
                 </div>
               </div>
             </div>
@@ -232,7 +232,7 @@ const AanvraagPage = () => {
         <div className="max-w-2xl mx-auto">
           {/* Progress indicator */}
           <div className="mb-8">
-            <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center justify-between mb-2 mt-8">
               <span className="text-sm font-medium text-foreground">Stap {currentStep} van {totalSteps}</span>
               <span className="text-sm text-muted-foreground">{Math.round((currentStep / totalSteps) * 100)}% voltooid</span>
             </div>
@@ -250,14 +250,14 @@ const AanvraagPage = () => {
                 <Car className="h-6 w-6 text-primary-foreground" />
               </div>
               <CardTitle className="text-2xl text-foreground">
-                {currentStep === 1 && "Jouw gegevens"}
+                {currentStep === 1 && "Uw gegevens"}
                 {currentStep === 2 && "Rijles voorkeuren"}
                 {currentStep === 3 && "Bevestiging"}
               </CardTitle>
               <CardDescription>
-                {currentStep === 1 && "Deel jouw contactgegevens met ons zodat wij je persoonlijk kunnen helpen"}
-                {currentStep === 2 && "Vertel ons over jouw rijlesvoorkeuren en wensen"}
-                {currentStep === 3 && "Controleer en bevestig je aanvraag voor persoonlijk advies"}
+                {currentStep === 1 && "Deel Uw contactgegevens met ons zodat wij U persoonlijk kunnen helpen"}
+                {currentStep === 2 && "Vertel ons over Uw rijlesvoorkeuren en wensen"}
+                {currentStep === 3 && "Controleer en bevestig Uw aanvraag voor persoonlijk advies"}
               </CardDescription>
             </CardHeader>
             

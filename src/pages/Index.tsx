@@ -16,30 +16,30 @@ import {
   Target,
   Heart
 } from "lucide-react";
-import heroImage from "@/assets/hero-driving-modern.jpg";
+import heroImage from "@/assets/real-instructor-photo.jpg";
 
 const Index = () => {
   const features = [
-    {
-      icon: Search,
-      title: "Persoonlijk zoeken",
-      description: "We vinden de perfect passende rijschool op basis van jouw wensen en locatie."
-    },
-    {
-      icon: Shield,
-      title: "Alleen kwaliteit",
-      description: "Alle rijscholen in ons netwerk zijn gecertificeerd met minimaal 4,5 sterren."
-    },
-    {
-      icon: Clock,
-      title: "Snel advies",
-      description: "Binnen 24 uur ontvang je ons persoonlijke advies met de beste opties."
-    },
-    {
-      icon: Target,
-      title: "Doelgericht",
-      description: "Ons doel is jouw rijbewijs: snel, efficiënt en met plezier leren rijden."
-    }
+      {
+        icon: Search,
+        title: "Persoonlijk zoeken",
+        description: "Wij vinden de perfect passende rijschool op basis van Uw wensen en locatie."
+      },
+      {
+        icon: Shield,
+        title: "Alleen kwaliteit",
+        description: "Alle rijscholen in ons netwerk zijn gecertificeerd en goedkoopste én beste."
+      },
+      {
+        icon: Clock,
+        title: "Snel advies",
+        description: "Binnen 24 uur ontvangt U ons persoonlijke advies met de beste opties."
+      },
+      {
+        icon: Target,
+        title: "Doelgericht",
+        description: "Ons doel is Uw rijbewijs: snel, efficiënt en met plezier leren rijden."
+      }
   ];
 
   const benefits = [
@@ -54,14 +54,14 @@ const Index = () => {
     {
       name: "Emma van Dijk",
       location: "Amsterdam",
-      text: "Dankzij hun advies heb ik de perfecte rijschool gevonden. In 6 weken geslaagd!",
+      text: "Dankzij hun professionele advies heb ik de perfecte rijschool gevonden. In 6 weken geslaagd!",
       rating: 5,
       type: "Automaat"
     },
     {
       name: "Lars Bakker",
       location: "Rotterdam", 
-      text: "Super service! Ze hebben echt tijd genomen om mijn wensen te begrijpen.",
+      text: "Uitstekende service! Ze hebben echt tijd genomen om mijn wensen te begrijpen.",
       rating: 5,
       type: "Schakel"
     },
@@ -71,14 +71,21 @@ const Index = () => {
       text: "Eerlijk advies zonder commerciële belangen. Precies wat ik zocht!",
       rating: 5,
       type: "Automaat"
+    },
+    {
+      name: "Mike de Jong",
+      location: "Eindhoven",
+      text: "Snelle reactie en deskundig advies. Binnen 2 dagen had ik contact met mijn ideale rijschool!",
+      rating: 5,
+      type: "Schakel"
     }
   ];
 
   const stats = [
-    { number: "24/7", label: "Beschikbaar +31 685719049" },
-    { number: "30min", label: "Reactietijd gegarandeerd" },
-    { number: "Goedkoopste", label: "Rijscholen geselecteerd" },
-    { number: "Direct contact", label: "Met rijschool hulp" }
+    { number: "24/7", label: "Professioneel beschikbaar" },
+    { number: "Beste", label: "Rijscholen geselecteerd" },
+    { number: "Goedkoopste", label: "Prijzen gegarandeerd" },
+    { number: "Direct hulp", label: "Bij aanmelding" }
   ];
 
   return (
@@ -91,20 +98,20 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-slide-up">
               <div className="space-y-6">
-                <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                  Vind de beste
+                <h1 className="text-4xl md:text-6xl font-bold leading-tight mt-8">
+                  <span className="text-primary">Vind</span> de beste
                   <span className="text-primary"> rijschool</span>
-                  <br />die bij jou past
+                  <br />die bij U past
                 </h1>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  24/7 persoonlijk advies voor de goedkoopste én beste rijschool. Wij helpen je ook direct bij aanmelding. Bel +31 685719049
+                  24/7 persoonlijk advies voor de goedkoopste én beste rijschool. Wij helpen U ook direct bij aanmelding.
                 </p>
               </div>
 
               <div className="flex gap-3">
                 <Button asChild variant="hero" size="sm" className="group flex-1">
                   <Link to="/aanvraag">
-                    Start aanvraag
+                    Start offerte
                     <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
@@ -140,8 +147,8 @@ const Index = () => {
                     <Star className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <div className="font-semibold">95% slaagkans</div>
-                    <div className="text-sm text-muted-foreground">Met ons advies</div>
+                    <div className="font-semibold">Goedkoopste én beste</div>
+                    <div className="text-sm text-muted-foreground">Rijscholen voor U</div>
                   </div>
                 </div>
               </div>
@@ -194,22 +201,22 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-3 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
             {[
               {
                 step: "1",
-                title: "Vertel over jezelf",
-                description: "Vul gegevens in"
+                title: "Vertel over uzelf",
+                description: "Deel Uw voorkeuren"
               },
               {
                 step: "2", 
-                title: "Ontvang advies",
-                description: "Binnen 24 uur advies"
+                title: "Ontvangt advies",
+                description: "Binnen 24 uur persoonlijk advies"
               },
               {
                 step: "3",
-                title: "Begin met lessen",
-                description: "Start direct!"
+                title: "Begint met lessen",
+                description: "Direct starten bij beste rijschool!"
               }
             ].map((item, index) => (
               <div key={index} className="text-center relative">
@@ -234,10 +241,10 @@ const Index = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  Wat krijg je voor €40?
+                  Wat bieden wij aan?
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  Persoonlijk advies van experts voor de beste rijscholen.
+                  Professioneel en persoonlijk advies van rijschoolexperts voor de goedkoopste én beste rijscholen.
                 </p>
                 
                 <div className="space-y-4">
@@ -293,7 +300,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="shadow-smooth">
                 <CardContent className="pt-4 md:pt-6 p-3 md:p-6">
@@ -322,22 +329,30 @@ const Index = () => {
       </section>
 
       {/* Stats - moved above footer */}
-      <section className="py-12 bg-secondary text-white">
-        <div className="container mx-auto px-4">
+      <section className="py-12 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="/src/assets/real-team-photo.jpg" 
+            alt="Professioneel rijschool adviesteam" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/80"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">
               24/7 Bereikbaar op +31 685719049
             </h2>
-            <p className="opacity-90">
-              Ons team staat altijd voor je klaar
+            <p className="opacity-90 text-white">
+              Ons professionele team staat altijd voor U klaar
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-2xl md:text-3xl font-bold mb-1">{stat.number}</div>
-                <div className="text-sm opacity-80">{stat.label}</div>
+                <div className="text-2xl md:text-3xl font-bold mb-1 text-white">{stat.number}</div>
+                <div className="text-sm opacity-80 text-white">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -350,21 +365,21 @@ const Index = () => {
           <Card className="max-w-3xl mx-auto shadow-hero">
             <CardContent className="py-12 text-center">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Klaar om te beginnen?
+                Klaar om de beste rijschool te vinden?
               </h2>
               <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-                Vind jouw perfecte rijschool. Start vandaag!
+                Ontdek Uw perfecte rijschool. Start vandaag nog!
               </p>
               
               <div className="flex gap-3 justify-center">
                 <Button asChild variant="hero" size="sm" className="flex-1 max-w-[200px]">
                   <Link to="/aanvraag">
-                    Start aanvraag - €40
+                    Start offerte
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="sm" className="flex-1 max-w-[200px]">
                   <Link to="/contact">
-                    Stel een vraag
+                    Direct contact
                   </Link>
                 </Button>
               </div>
