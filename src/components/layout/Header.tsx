@@ -43,14 +43,25 @@ export const Header = () => {
       {/* Main navigation */}
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 font-bold text-xl">
-            <div className="h-8 w-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-              <Car className="h-5 w-5 text-white" />
+          {/* Logo and mobile CTA */}
+          <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-2 font-bold text-xl">
+              <div className="h-8 w-8 rounded-lg bg-gradient-primary flex items-center justify-center">
+                <Car className="h-5 w-5 text-white" />
+              </div>
+              <span className="hidden sm:inline">Rijschool Adviesbureau</span>
+              <span className="sm:hidden">RijAdvies</span>
+            </Link>
+            
+            {/* Mobile CTA Button next to logo */}
+            <div className="md:hidden">
+              <Button asChild variant="hero" size="sm">
+                <Link to="/aanvraag">
+                  Aanvragen
+                </Link>
+              </Button>
             </div>
-            <span className="hidden sm:inline">Rijschool Adviesbureau</span>
-            <span className="sm:hidden">RijAdvies</span>
-          </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">

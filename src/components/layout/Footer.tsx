@@ -36,7 +36,7 @@ export const Footer = () => {
     <footer className="bg-foreground text-background">
       <div className="container mx-auto px-4">
         {/* Main footer content */}
-        <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="py-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Company info */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2 font-bold text-xl">
@@ -65,41 +65,44 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Quick links */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Snelle links</h3>
-            <nav className="space-y-2">
-              {quickLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className="block text-sm text-background/80 hover:text-background transition-colors"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-          </div>
+          {/* Navigation links - horizontal layout for mobile too */}
+          <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Quick links */}
+            <div className="space-y-3">
+              <h3 className="font-semibold">Snelle links</h3>
+              <nav className="flex flex-wrap gap-x-4 gap-y-1 md:flex-col md:space-y-2">
+                {quickLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    className="text-sm text-background/80 hover:text-background transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </nav>
+            </div>
 
-          {/* Services */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Onze diensten</h3>
-            <nav className="space-y-2">
-              {serviceLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className="block text-sm text-background/80 hover:text-background transition-colors"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
+            {/* Services */}
+            <div className="space-y-3">
+              <h3 className="font-semibold">Onze diensten</h3>
+              <nav className="flex flex-wrap gap-x-4 gap-y-1 md:flex-col md:space-y-2">
+                {serviceLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    className="text-sm text-background/80 hover:text-background transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </nav>
+            </div>
           </div>
 
           {/* Contact info */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Contact</h3>
+          <div className="space-y-3">
+            <h3 className="font-semibold">Contact</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-background/60" />

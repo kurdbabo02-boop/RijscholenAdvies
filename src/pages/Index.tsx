@@ -16,7 +16,7 @@ import {
   Target,
   Heart
 } from "lucide-react";
-import heroImage from "@/assets/hero-driving-school.jpg";
+import heroImage from "@/assets/hero-driving-modern.jpg";
 
 const Index = () => {
   const features = [
@@ -93,25 +93,24 @@ const Index = () => {
               <div className="space-y-6">
                 <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                   Vind de beste
-                  <span className="bg-gradient-hero bg-clip-text text-transparent"> rijschool</span>
+                  <span className="text-primary"> rijschool</span>
                   <br />die bij jou past
                 </h1>
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  Persoonlijk advies voor de perfecte rijschool in jouw regio. 
-                  Binnen 24 uur weet je precies waar je het best kunt leren rijden.
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Snel advies voor jouw ideale rijschool. Binnen 24 uur weet je waar je het best leert rijden.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild variant="hero" size="lg" className="group">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button asChild variant="hero" size="default" className="group sm:flex-1">
                   <Link to="/aanvraag">
-                    Start je aanvraag
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    Start aanvraag
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="outline" size="default" className="sm:flex-1">
                   <Link to="/over-ons">
-                    Meer informatie
+                    Meer info
                   </Link>
                 </Button>
               </div>
@@ -123,7 +122,7 @@ const Index = () => {
                   <div className="text-sm text-muted-foreground">Tevreden klanten</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-secondary">4.9/5</div>
+                  <div className="text-2xl font-bold text-primary">4.9/5</div>
                   <div className="text-sm text-muted-foreground">Beoordeling</div>
                 </div>
               </div>
@@ -132,8 +131,8 @@ const Index = () => {
             <div className="relative animate-float">
               <img
                 src={heroImage}
-                alt="Gelukkige mensen met hun rijbewijs"
-                className="rounded-2xl shadow-hero object-cover w-full h-[500px]"
+                alt="Professionele rijinstructeur tijdens rijles"
+                className="rounded-2xl shadow-hero object-cover w-full h-[400px]"
               />
               <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl">
                 <div className="flex items-center gap-3">
@@ -158,12 +157,12 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Waarom kiezen voor ons advies?
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Wij maken het vinden van de juiste rijschool eenvoudig en betrouwbaar
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Snel en betrouwbaar de juiste rijschool vinden
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {features.map((feature, index) => (
               <Card key={index} className="shadow-smooth hover:shadow-xl transition-all duration-300 group">
                 <CardHeader className="text-center">
@@ -173,7 +172,7 @@ const Index = () => {
                   <CardTitle className="text-lg">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground text-center text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-center text-sm">
                     {feature.description}
                   </p>
                 </CardContent>
@@ -190,12 +189,12 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Zo werkt het
             </h2>
-            <p className="text-xl text-muted-foreground">
-              In 3 eenvoudige stappen naar jouw ideale rijschool
+            <p className="text-lg text-muted-foreground">
+              3 stappen naar jouw rijschool
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
               {
                 step: "1",
@@ -217,8 +216,8 @@ const Index = () => {
                 <div className="mx-auto mb-6 h-16 w-16 rounded-full bg-gradient-primary flex items-center justify-center text-white text-xl font-bold">
                   {item.step}
                 </div>
-                <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
+                <h3 className="text-lg font-semibold mb-3">{item.title}</h3>
+                <p className="text-muted-foreground text-sm">{item.description}</p>
                 {index < 2 && (
                   <ArrowRight className="hidden md:block absolute top-8 -right-4 h-6 w-6 text-muted-foreground" />
                 )}
@@ -237,9 +236,8 @@ const Index = () => {
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">
                   Wat krijg je voor €40?
                 </h2>
-                <p className="text-muted-foreground mb-8 leading-relaxed">
-                  Ons advies is meer dan alleen een lijst met rijscholen. 
-                  Je krijgt persoonlijk advies van experts die de markt door en door kennen.
+                <p className="text-muted-foreground mb-8">
+                  Persoonlijk advies van experts voor de beste rijscholen.
                 </p>
                 
                 <div className="space-y-4">
@@ -290,12 +288,12 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Wat zeggen onze klanten?
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Lees waarom meer dan 10,000 mensen ons vertrouwen
+            <p className="text-lg text-muted-foreground">
+              Meer dan 10,000 tevreden klanten
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="shadow-smooth">
                 <CardContent className="pt-6">
@@ -323,22 +321,22 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-16 bg-gradient-hero text-white">
+      {/* Stats - moved above footer */}
+      <section className="py-12 bg-primary text-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">
               Vertrouwd door duizenden
             </h2>
-            <p className="text-lg opacity-90">
-              Onze resultaten spreken voor zich
+            <p className="opacity-90">
+              Onze resultaten
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold mb-2">{stat.number}</div>
+                <div className="text-2xl md:text-3xl font-bold mb-1">{stat.number}</div>
                 <div className="text-sm opacity-80">{stat.label}</div>
               </div>
             ))}
@@ -346,23 +344,22 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-background">
+      {/* CTA Section - moved higher */}
+      <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
-          <Card className="max-w-4xl mx-auto shadow-hero">
-            <CardContent className="py-16 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <Card className="max-w-3xl mx-auto shadow-hero">
+            <CardContent className="py-12 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
                 Klaar om te beginnen?
               </h2>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Laat ons je helpen bij het vinden van de perfecte rijschool. 
-                Start vandaag nog en rijd binnen een paar maanden met je eigen auto!
+              <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+                Vind jouw perfecte rijschool. Start vandaag!
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button asChild variant="hero" size="lg">
                   <Link to="/aanvraag">
-                    Start je aanvraag - €40
+                    Start aanvraag - €40
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
@@ -372,8 +369,8 @@ const Index = () => {
                 </Button>
               </div>
 
-              <p className="text-sm text-muted-foreground mt-6">
-                ✓ Geen verborgen kosten ✓ 14 dagen geld terug ✓ Persoonlijk advies
+              <p className="text-xs text-muted-foreground mt-4">
+                ✓ Geen verborgen kosten ✓ 14 dagen geld terug
               </p>
             </CardContent>
           </Card>
