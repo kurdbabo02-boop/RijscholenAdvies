@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -14,8 +15,9 @@ interface FormData {
   naam: string;
   email: string;
   telefoon: string;
-  regio: string;
+  stad: string;
   typeRijles: string;
+  rijbewijsType: string;
 }
 
 const AanvraagPage = () => {
@@ -24,8 +26,9 @@ const AanvraagPage = () => {
     naam: "",
     email: "",
     telefoon: "",
-    regio: "",
-    typeRijles: ""
+    stad: "",
+    typeRijles: "",
+    rijbewijsType: ""
   });
 
   const [currentStep, setCurrentStep] = useState(1);
@@ -46,10 +49,12 @@ const AanvraagPage = () => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const regiOptions = [
-    "Noord-Holland", "Zuid-Holland", "Utrecht", "Gelderland", 
-    "Noord-Brabant", "Limburg", "Zeeland", "Friesland", 
-    "Groningen", "Drenthe", "Overijssel", "Flevoland"
+  const stedenDorpen = [
+    "Amsterdam", "Rotterdam", "Den Haag", "Utrecht", "Eindhoven", "Groningen",
+    "Tilburg", "Almere", "Breda", "Nijmegen", "Apeldoorn", "Haarlem",
+    "Arnhem", "Zaanstad", "Haarlemmermeer", "Enschede", "Amersfoort", "Zwolle",
+    "Leiden", "Maastricht", "Dordrecht", "Zoetermeer", "Emmen", "Venlo",
+    "Deventer", "Delft", "Leeuwarden", "Alkmaar", "Heerlen", "Hilversum"
   ];
 
   const renderStep = () => {
@@ -97,17 +102,37 @@ const AanvraagPage = () => {
         return (
           <div className="space-y-6">
             <div className="space-y-2">
-              <Label>Regio *</Label>
-              <Select value={formData.regio} onValueChange={(value) => handleInputChange("regio", value)}>
+              <Label>Stad of dorp *</Label>
+              <Select value={formData.stad} onValueChange={(value) => handleInputChange("stad", value)}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Selecteer jouw provincie" />
+                  <SelectValue placeholder="Selecteer jouw stad of dorp" />
                 </SelectTrigger>
                 <SelectContent>
-                  {regiOptions.map((regio) => (
-                    <SelectItem key={regio} value={regio}>
-                      {regio}
+                  {stedenDorpen.map((stad) => (
+                    <SelectItem key={stad} value={stad}>
+                      {stad}
                     </SelectItem>
                   ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
+              <Label>Type rijbewijs *</Label>
+              <Select value={formData.rijbewijsType} onValueChange={(value) => handleInputChange("rijbewijsType", value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Selecteer het type rijbewijs" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="B">Rijbewijs B - Personenauto</SelectItem>
+                  <SelectItem value="AM">Rijbewijs AM - Bromfiets</SelectItem>
+                  <SelectItem value="A1">Rijbewijs A1 - Lichte motorfiets</SelectItem>
+                  <SelectItem value="A2">Rijbewijs A2 - Middelzware motorfiets</SelectItem>
+                  <SelectItem value="A">Rijbewijs A - Zware motorfiets</SelectItem>
+                  <SelectItem value="C1">Rijbewijs C1 - Lichte vrachtwagen</SelectItem>
+                  <SelectItem value="C">Rijbewijs C - Vrachtwagen</SelectItem>
+                  <SelectItem value="D1">Rijbewijs D1 - Minibus</SelectItem>
+                  <SelectItem value="D">Rijbewijs D - Bus</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -119,17 +144,17 @@ const AanvraagPage = () => {
                 onValueChange={(value) => handleInputChange("typeRijles", value)}
                 className="grid grid-cols-1 gap-4 sm:grid-cols-2"
               >
-                <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-muted transition-colors">
+                <div className="flex items-center space-x-3 border-2 rounded-lg p-4 hover:border-primary/50 transition-all duration-200">
                   <RadioGroupItem value="automaat" id="automaat" />
                   <Label htmlFor="automaat" className="flex-1 cursor-pointer">
-                    <div className="font-medium">Automaat</div>
+                    <div className="font-medium text-foreground">Automaat</div>
                     <div className="text-sm text-muted-foreground">Eenvoudiger te leren, geen koppeling</div>
                   </Label>
                 </div>
-                <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-muted transition-colors">
+                <div className="flex items-center space-x-3 border-2 rounded-lg p-4 hover:border-primary/50 transition-all duration-200">
                   <RadioGroupItem value="schakel" id="schakel" />
                   <Label htmlFor="schakel" className="flex-1 cursor-pointer">
-                    <div className="font-medium">Schakel</div>
+                    <div className="font-medium text-foreground">Schakel</div>
                     <div className="text-sm text-muted-foreground">Traditioneel, meer controle</div>
                   </Label>
                 </div>
@@ -141,38 +166,39 @@ const AanvraagPage = () => {
       case 3:
         return (
           <div className="space-y-6">
-            <div className="bg-muted/50 rounded-lg p-6">
-              <h3 className="font-semibold mb-4">Controleer jouw gegevens</h3>
+            <div className="bg-muted/30 rounded-lg p-6 border">
+              <h3 className="font-semibold mb-4 text-foreground">Controleer jouw gegevens</h3>
               <div className="space-y-2 text-sm">
-                <div><span className="font-medium">Naam:</span> {formData.naam}</div>
-                <div><span className="font-medium">E-mail:</span> {formData.email}</div>
-                <div><span className="font-medium">Telefoon:</span> {formData.telefoon}</div>
-                <div><span className="font-medium">Regio:</span> {formData.regio}</div>
-                <div><span className="font-medium">Type rijles:</span> {formData.typeRijles}</div>
+                <div><span className="font-medium text-foreground">Naam:</span> <span className="text-muted-foreground">{formData.naam}</span></div>
+                <div><span className="font-medium text-foreground">E-mail:</span> <span className="text-muted-foreground">{formData.email}</span></div>
+                <div><span className="font-medium text-foreground">Telefoon:</span> <span className="text-muted-foreground">{formData.telefoon}</span></div>
+                <div><span className="font-medium text-foreground">Stad/dorp:</span> <span className="text-muted-foreground">{formData.stad}</span></div>
+                <div><span className="font-medium text-foreground">Rijbewijs:</span> <span className="text-muted-foreground">{formData.rijbewijsType}</span></div>
+                <div><span className="font-medium text-foreground">Type rijles:</span> <span className="text-muted-foreground">{formData.typeRijles}</span></div>
               </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="flex items-center gap-3 p-4 bg-primary/5 rounded-lg">
+              <div className="flex items-center gap-3 p-4 bg-primary/5 rounded-lg border border-primary/10">
                 <Shield className="h-8 w-8 text-primary" />
                 <div>
-                  <div className="font-medium">Betrouwbaar</div>
+                  <div className="font-medium text-foreground">Betrouwbaar</div>
                   <div className="text-sm text-muted-foreground">Gecertificeerde rijscholen</div>
                 </div>
               </div>
               
-              <div className="flex items-center gap-3 p-4 bg-secondary/5 rounded-lg">
+              <div className="flex items-center gap-3 p-4 bg-secondary/5 rounded-lg border border-secondary/10">
                 <Clock className="h-8 w-8 text-secondary" />
                 <div>
-                  <div className="font-medium">Snel advies</div>
+                  <div className="font-medium text-foreground">Snel advies</div>
                   <div className="text-sm text-muted-foreground">Binnen 24 uur reactie</div>
                 </div>
               </div>
               
-              <div className="flex items-center gap-3 p-4 bg-accent/5 rounded-lg">
+              <div className="flex items-center gap-3 p-4 bg-accent/5 rounded-lg border border-accent/10">
                 <Star className="h-8 w-8 text-accent" />
                 <div>
-                  <div className="font-medium">Top kwaliteit</div>
+                  <div className="font-medium text-foreground">Top kwaliteit</div>
                   <div className="text-sm text-muted-foreground">Alleen 5-sterren rijscholen</div>
                 </div>
               </div>
@@ -190,7 +216,7 @@ const AanvraagPage = () => {
       case 1:
         return formData.naam && formData.email && formData.telefoon;
       case 2:
-        return formData.regio && formData.typeRijles;
+        return formData.stad && formData.typeRijles && formData.rijbewijsType;
       case 3:
         return true;
       default:
@@ -207,23 +233,23 @@ const AanvraagPage = () => {
           {/* Progress indicator */}
           <div className="mb-8">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium">Stap {currentStep} van {totalSteps}</span>
+              <span className="text-sm font-medium text-foreground">Stap {currentStep} van {totalSteps}</span>
               <span className="text-sm text-muted-foreground">{Math.round((currentStep / totalSteps) * 100)}% voltooid</span>
             </div>
             <div className="w-full bg-muted rounded-full h-2">
               <div 
-                className="bg-gradient-primary h-2 rounded-full transition-all duration-500 ease-out"
+                className="bg-primary h-2 rounded-full transition-all duration-500 ease-out"
                 style={{ width: `${(currentStep / totalSteps) * 100}%` }}
               ></div>
             </div>
           </div>
 
-          <Card className="shadow-smooth animate-fade-in">
+          <Card className="shadow-lg border animate-fade-in">
             <CardHeader className="text-center">
-              <div className="mx-auto mb-4 h-12 w-12 rounded-full bg-gradient-primary flex items-center justify-center">
-                <Car className="h-6 w-6 text-white" />
+              <div className="mx-auto mb-4 h-12 w-12 rounded-full bg-primary flex items-center justify-center">
+                <Car className="h-6 w-6 text-primary-foreground" />
               </div>
-              <CardTitle className="text-2xl">
+              <CardTitle className="text-2xl text-foreground">
                 {currentStep === 1 && "Jouw gegevens"}
                 {currentStep === 2 && "Rijles voorkeuren"}
                 {currentStep === 3 && "Bevestiging"}
@@ -254,7 +280,7 @@ const AanvraagPage = () => {
                     type="submit" 
                     disabled={!isStepValid()}
                     className="flex-1"
-                    variant={currentStep === totalSteps ? "hero" : "default"}
+                    variant={currentStep === totalSteps ? "default" : "default"}
                   >
                     {currentStep === totalSteps ? "Naar bevestiging" : "Volgende"}
                   </Button>
