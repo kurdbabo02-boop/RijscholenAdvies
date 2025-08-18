@@ -255,9 +255,9 @@ const AanvraagPage = () => {
                 {currentStep === 3 && "Bevestiging"}
               </CardTitle>
               <CardDescription>
-                {currentStep === 1 && "Laat ons weten wie je bent"}
-                {currentStep === 2 && "Wat voor rijles zoek je?"}
-                {currentStep === 3 && "Controleer en bevestig je aanvraag"}
+                {currentStep === 1 && "Deel jouw contactgegevens met ons zodat wij je persoonlijk kunnen helpen"}
+                {currentStep === 2 && "Vertel ons over jouw rijlesvoorkeuren en wensen"}
+                {currentStep === 3 && "Controleer en bevestig je aanvraag voor persoonlijk advies"}
               </CardDescription>
             </CardHeader>
             

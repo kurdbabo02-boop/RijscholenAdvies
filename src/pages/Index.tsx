@@ -75,10 +75,10 @@ const Index = () => {
   ];
 
   const stats = [
-    { number: "10,000+", label: "Tevreden klanten" },
-    { number: "500+", label: "Rijscholen in netwerk" },
-    { number: "4.9/5", label: "Klantbeoordeling" },
-    { number: "95%", label: "Slaagkans verbetering" }
+    { number: "24/7", label: "Beschikbaar +31 685719049" },
+    { number: "30min", label: "Reactietijd gegarandeerd" },
+    { number: "Goedkoopste", label: "Rijscholen geselecteerd" },
+    { number: "Direct contact", label: "Met rijschool hulp" }
   ];
 
   return (
@@ -97,7 +97,7 @@ const Index = () => {
                   <br />die bij jou past
                 </h1>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Snel advies voor jouw ideale rijschool. Binnen 24 uur weet je waar je het best leert rijden.
+                  24/7 persoonlijk advies voor de goedkoopste én beste rijschool. Wij helpen je ook direct bij aanmelding. Bel +31 685719049
                 </p>
               </div>
 
@@ -118,12 +118,12 @@ const Index = () => {
               {/* Quick stats */}
               <div className="grid grid-cols-2 gap-4 pt-8">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">10,000+</div>
-                  <div className="text-sm text-muted-foreground">Tevreden klanten</div>
+                  <div className="text-2xl font-bold text-primary">24/7</div>
+                  <div className="text-sm text-muted-foreground">+31 685719049</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">4.9/5</div>
-                  <div className="text-sm text-muted-foreground">Beoordeling</div>
+                  <div className="text-2xl font-bold text-primary">30min</div>
+                  <div className="text-sm text-muted-foreground">Reactietijd</div>
                 </div>
               </div>
             </div>
@@ -322,14 +322,14 @@ const Index = () => {
       </section>
 
       {/* Stats - moved above footer */}
-      <section className="py-12 bg-primary text-white">
+      <section className="py-12 bg-secondary text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">
-              Vertrouwd door duizenden
+              24/7 Bereikbaar op +31 685719049
             </h2>
             <p className="opacity-90">
-              Onze resultaten
+              Ons team staat altijd voor je klaar
             </p>
           </div>
 
