@@ -73,12 +73,10 @@ const Index = () => {
               <div className="space-y-6">
                 <h1 className="text-4xl md:text-6xl font-bold leading-tight mt-8">
                   <span className="text-primary">Wij</span> de beste
-                  <span className="text-primary"> rijscholen</span>
+                  <span className="text-primary"> rijscholen  </span>
                   <br />die bij U past
                 </h1>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  24/7 persoonlijk advies voor de goedkoopste én beste rijschool. Wij helpen U ook direct bij aanmelding.
-                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">Persoonlijk advies voor de goedkoopste én beste rijschool in uw buurt. Wij helpen u ook direct bij aanmelding.</p>
               </div>
 
               <div className="flex gap-3">
@@ -98,12 +96,12 @@ const Index = () => {
               {/* Quick stats */}
               <div className="grid grid-cols-2 gap-4 pt-8">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">24/7</div>
-                  <div className="text-sm text-muted-foreground">+31 685719049</div>
+                  <div className="text-2xl font-bold text-primary">Goedkoopste</div>
+                  <div className="text-sm text-muted-foreground">Rijscholen </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">30min</div>
-                  <div className="text-sm text-muted-foreground">Reactietijd</div>
+                  <div className="text-2xl font-bold text-primary">Beste</div>
+                  <div className="text-sm text-muted-foreground">Rijscholen</div>
                 </div>
               </div>
             </div>
@@ -163,9 +161,7 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Zo werkt het
             </h2>
-            <p className="text-lg text-muted-foreground">
-              3 stappen naar jouw rijschool
-            </p>
+            <p className="text-lg text-muted-foreground">3 stappen naar het best passend rijschool</p>
           </div>
 
           <div className="grid grid-cols-3 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
@@ -185,7 +181,7 @@ const Index = () => {
                 <div className="mx-auto mb-3 md:mb-6 h-12 w-12 md:h-16 md:w-16 rounded-full bg-gradient-primary flex items-center justify-center text-white text-lg md:text-xl font-bold">
                   {item.step}
                 </div>
-                <h3 className="text-sm md:text-lg font-semibold mb-2 md:mb-3">{item.title}</h3>
+                <h3 className="text-sm font-semibold mb-2 md:mb-3 mx-0 md:text-lg">{item.title}</h3>
                 <p className="text-muted-foreground text-xs md:text-sm">{item.description}</p>
                 {index < 2 && <ArrowRight className="hidden md:block absolute top-8 -right-4 h-6 w-6 text-muted-foreground" />}
               </div>)}
@@ -214,9 +210,7 @@ const Index = () => {
                 </div>
 
                 <Button asChild variant="hero" size="lg" className="mt-8">
-                  <Link to="/aanvraag">
-                    Start nu voor €40
-                  </Link>
+                  <Link to="/aanvraag">Vraag offerte aan</Link>
                 </Button>
               </div>
 
@@ -289,12 +283,8 @@ const Index = () => {
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">
-              24/7 Bereikbaar op +31 685719049
-            </h2>
-            <p className="opacity-90 text-white">
-              Ons professionele team staat altijd voor U klaar
-            </p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">Onze team </h2>
+            <p className="opacity-90 text-white">Ons team staat altijd voor U klaar</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -311,9 +301,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <Card className="max-w-3xl mx-auto shadow-hero">
             <CardContent className="py-12 text-center">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Klaar om de beste rijschool te vinden?
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Zullen wij uw rijsch</h2>
               <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
                 Ontdek Uw perfecte rijschool. Start vandaag nog!
               </p>

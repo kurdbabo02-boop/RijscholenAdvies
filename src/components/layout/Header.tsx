@@ -3,22 +3,24 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Car, Phone, Mail } from "lucide-react";
-
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-
-  const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Aanvraag", href: "/aanvraag" },
-    { name: "Over ons", href: "/over-ons" },
-    { name: "Contact", href: "/contact" }
-  ];
-
+  const navigation = [{
+    name: "Home",
+    href: "/"
+  }, {
+    name: "Aanvraag",
+    href: "/aanvraag"
+  }, {
+    name: "Over ons",
+    href: "/over-ons"
+  }, {
+    name: "Contact",
+    href: "/contact"
+  }];
   const isActive = (path: string) => location.pathname === path;
-
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+  return <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
       {/* Top contact bar */}
       <div className="bg-gradient-primary text-white py-2 hidden md:block">
         <div className="container mx-auto px-4">
@@ -33,9 +35,7 @@ export const Header = () => {
                 <span>info@rijschooladvies.nl</span>
               </div>
             </div>
-            <div className="text-xs opacity-90">
-              24/7 beschikbaar voor persoonlijk advies
-            </div>
+            <div className="text-xs opacity-90">Maandag-Vrijdag  8:00/17:00</div>
           </div>
         </div>
       </div>
@@ -65,27 +65,15 @@ export const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(item.href) 
-                    ? "text-primary border-b-2 border-primary pb-1" 
-                    : "text-muted-foreground"
-                }`}
-              >
+            {navigation.map(item => <Link key={item.name} to={item.href} className={`text-sm font-medium transition-colors hover:text-primary ${isActive(item.href) ? "text-primary border-b-2 border-primary pb-1" : "text-muted-foreground"}`}>
                 {item.name}
-              </Link>
-            ))}
+              </Link>)}
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button asChild variant="hero">
-              <Link to="/aanvraag">
-                Start je aanvraag
-              </Link>
+              <Link to="/aanvraag">Vraag offerte aan</Link>
             </Button>
           </div>
 
@@ -106,18 +94,9 @@ export const Header = () => {
                 </Link>
                 
                 <nav className="flex flex-col gap-4">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className={`text-lg font-medium transition-colors hover:text-primary ${
-                        isActive(item.href) ? "text-primary" : "text-muted-foreground"
-                      }`}
-                    >
+                  {navigation.map(item => <Link key={item.name} to={item.href} onClick={() => setIsOpen(false)} className={`text-lg font-medium transition-colors hover:text-primary ${isActive(item.href) ? "text-primary" : "text-muted-foreground"}`}>
                       {item.name}
-                    </Link>
-                  ))}
+                    </Link>)}
                 </nav>
 
                 {/* Mobile contact info */}
@@ -142,6 +121,5 @@ export const Header = () => {
           </Sheet>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
