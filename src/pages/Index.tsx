@@ -3,93 +3,66 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { 
-  Car, 
-  Shield, 
-  Star, 
-  Clock, 
-  CheckCircle, 
-  Users, 
-  Award, 
-  ArrowRight,
-  Search,
-  Target,
-  Heart
-} from "lucide-react";
+import { Car, Shield, Star, Clock, CheckCircle, Users, Award, ArrowRight, Search, Target, Heart } from "lucide-react";
 import heroImage from "@/assets/real-instructor-photo.jpg";
-
 const Index = () => {
-  const features = [
-      {
-        icon: Search,
-        title: "Persoonlijk zoeken",
-        description: "Wij vinden de perfect passende rijschool op basis van Uw wensen en locatie."
-      },
-      {
-        icon: Shield,
-        title: "Alleen kwaliteit",
-        description: "Alle rijscholen in ons netwerk zijn gecertificeerd en goedkoopste én beste."
-      },
-      {
-        icon: Clock,
-        title: "Snel advies",
-        description: "Binnen 24 uur ontvangt U ons persoonlijke advies met de beste opties."
-      },
-      {
-        icon: Target,
-        title: "Doelgericht",
-        description: "Ons doel is Uw rijbewijs: snel, efficiënt en met plezier leren rijden."
-      }
-  ];
-
-  const benefits = [
-    "Vergelijking van prijzen en lesaanbod",
-    "Gecertificeerde rijscholen met hoge slaagkans",
-    "Persoonlijk advies op maat",
-    "Gratis nazorg en ondersteuning",
-    "Direct contact met rijscholen"
-  ];
-
-  const testimonials = [
-    {
-      name: "Emma van Dijk",
-      location: "Amsterdam",
-      text: "Dankzij hun professionele advies heb ik de perfecte rijschool gevonden. In 6 weken geslaagd!",
-      rating: 5,
-      type: "Automaat"
-    },
-    {
-      name: "Lars Bakker",
-      location: "Rotterdam", 
-      text: "Uitstekende service! Ze hebben echt tijd genomen om mijn wensen te begrijpen.",
-      rating: 5,
-      type: "Schakel"
-    },
-    {
-      name: "Sophie Vermeer",
-      location: "Utrecht",
-      text: "Eerlijk advies zonder commerciële belangen. Precies wat ik zocht!",
-      rating: 5,
-      type: "Automaat"
-    },
-    {
-      name: "Mike de Jong",
-      location: "Eindhoven",
-      text: "Snelle reactie en deskundig advies. Binnen 2 dagen had ik contact met mijn ideale rijschool!",
-      rating: 5,
-      type: "Schakel"
-    }
-  ];
-
-  const stats = [
-    { number: "24/7", label: "Professioneel beschikbaar" },
-    { number: "Beste", label: "Rijscholen geselecteerd" },
-    { number: "Goedkoopste", label: "Prijzen gegarandeerd" },
-    { number: "Direct hulp", label: "Bij aanmelding" }
-  ];
-
-  return (
-    <div className="min-h-screen bg-gradient-subtle">
+  const features = [{
+    icon: Search,
+    title: "Persoonlijk zoeken",
+    description: "Wij vinden de perfect passende rijschool op basis van Uw wensen en locatie."
+  }, {
+    icon: Shield,
+    title: "Alleen kwaliteit",
+    description: "Alle rijscholen in ons netwerk zijn gecertificeerd en goedkoopste én beste."
+  }, {
+    icon: Clock,
+    title: "Snel advies",
+    description: "Binnen 24 uur ontvangt U ons persoonlijke advies met de beste opties."
+  }, {
+    icon: Target,
+    title: "Doelgericht",
+    description: "Ons doel is Uw rijbewijs: snel, efficiënt en met plezier leren rijden."
+  }];
+  const benefits = ["Vergelijking van prijzen en lesaanbod", "Gecertificeerde rijscholen met hoge slaagkans", "Persoonlijk advies op maat", "Gratis nazorg en ondersteuning", "Direct contact met rijscholen"];
+  const testimonials = [{
+    name: "Emma van Dijk",
+    location: "Amsterdam",
+    text: "Dankzij hun professionele advies heb ik de perfecte rijschool gevonden. In 6 weken geslaagd!",
+    rating: 5,
+    type: "Automaat"
+  }, {
+    name: "Lars Bakker",
+    location: "Rotterdam",
+    text: "Uitstekende service! Ze hebben echt tijd genomen om mijn wensen te begrijpen.",
+    rating: 5,
+    type: "Schakel"
+  }, {
+    name: "Sophie Vermeer",
+    location: "Utrecht",
+    text: "Eerlijk advies zonder commerciële belangen. Precies wat ik zocht!",
+    rating: 5,
+    type: "Automaat"
+  }, {
+    name: "Mike de Jong",
+    location: "Eindhoven",
+    text: "Snelle reactie en deskundig advies. Binnen 2 dagen had ik contact met mijn ideale rijschool!",
+    rating: 5,
+    type: "Schakel"
+  }];
+  const stats = [{
+    number: "24/7",
+    label: "Professioneel beschikbaar"
+  }, {
+    number: "Beste",
+    label: "Rijscholen geselecteerd"
+  }, {
+    number: "Goedkoopste",
+    label: "Prijzen gegarandeerd"
+  }, {
+    number: "Direct hulp",
+    label: "Bij aanmelding"
+  }];
+  return <div className="min-h-screen bg-gradient-subtle">
       <Header />
       
       {/* Hero Section */}
@@ -99,8 +72,8 @@ const Index = () => {
             <div className="space-y-8 animate-slide-up">
               <div className="space-y-6">
                 <h1 className="text-4xl md:text-6xl font-bold leading-tight mt-8">
-                  <span className="text-primary">Vind</span> de beste
-                  <span className="text-primary"> rijschool</span>
+                  <span className="text-primary">Wij</span> de beste
+                  <span className="text-primary"> rijscholen</span>
                   <br />die bij U past
                 </h1>
                 <p className="text-lg text-muted-foreground leading-relaxed">
@@ -136,11 +109,7 @@ const Index = () => {
             </div>
 
             <div className="relative animate-float">
-              <img
-                src={heroImage}
-                alt="Professionele rijinstructeur tijdens rijles"
-                className="rounded-2xl shadow-hero object-cover w-full h-[400px]"
-              />
+              <img src={heroImage} alt="Professionele rijinstructeur tijdens rijles" className="rounded-2xl shadow-hero object-cover w-full h-[400px]" />
               <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl">
                 <div className="flex items-center gap-3">
                   <div className="h-12 w-12 rounded-full bg-gradient-secondary flex items-center justify-center">
@@ -170,8 +139,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="shadow-smooth hover:shadow-xl transition-all duration-300 group">
+            {features.map((feature, index) => <Card key={index} className="shadow-smooth hover:shadow-xl transition-all duration-300 group">
                 <CardHeader className="text-center p-3 md:p-6">
                   <div className="mx-auto mb-3 md:mb-4 h-8 w-8 md:h-12 md:w-12 rounded-lg bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <feature.icon className="h-4 w-4 md:h-6 md:w-6 text-white" />
@@ -183,8 +151,7 @@ const Index = () => {
                     {feature.description}
                   </p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -202,34 +169,26 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-3 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
-            {[
-              {
-                step: "1",
-                title: "Vertel over uzelf",
-                description: "Deel Uw voorkeuren"
-              },
-              {
-                step: "2", 
-                title: "Ontvangt advies",
-                description: "Binnen 24 uur persoonlijk advies"
-              },
-              {
-                step: "3",
-                title: "Begint met lessen",
-                description: "Direct starten bij beste rijschool!"
-              }
-            ].map((item, index) => (
-              <div key={index} className="text-center relative">
+            {[{
+            step: "1",
+            title: "Vertel over uzelf",
+            description: "Deel Uw voorkeuren"
+          }, {
+            step: "2",
+            title: "Ontvangt advies",
+            description: "Binnen 24 uur persoonlijk advies"
+          }, {
+            step: "3",
+            title: "Begint met lessen",
+            description: "Direct starten bij beste rijschool!"
+          }].map((item, index) => <div key={index} className="text-center relative">
                 <div className="mx-auto mb-3 md:mb-6 h-12 w-12 md:h-16 md:w-16 rounded-full bg-gradient-primary flex items-center justify-center text-white text-lg md:text-xl font-bold">
                   {item.step}
                 </div>
                 <h3 className="text-sm md:text-lg font-semibold mb-2 md:mb-3">{item.title}</h3>
                 <p className="text-muted-foreground text-xs md:text-sm">{item.description}</p>
-                {index < 2 && (
-                  <ArrowRight className="hidden md:block absolute top-8 -right-4 h-6 w-6 text-muted-foreground" />
-                )}
-              </div>
-            ))}
+                {index < 2 && <ArrowRight className="hidden md:block absolute top-8 -right-4 h-6 w-6 text-muted-foreground" />}
+              </div>)}
           </div>
         </div>
       </section>
@@ -248,12 +207,10 @@ const Index = () => {
                 </p>
                 
                 <div className="space-y-4">
-                  {benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-center gap-3">
+                  {benefits.map((benefit, index) => <div key={index} className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-success" />
                       <span>{benefit}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
 
                 <Button asChild variant="hero" size="lg" className="mt-8">
@@ -301,13 +258,10 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="shadow-smooth">
+            {testimonials.map((testimonial, index) => <Card key={index} className="shadow-smooth">
                 <CardContent className="pt-4 md:pt-6 p-3 md:p-6">
                   <div className="flex items-center gap-1 mb-3 md:mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-3 w-3 md:h-4 md:w-4 fill-accent text-accent" />
-                    ))}
+                    {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="h-3 w-3 md:h-4 md:w-4 fill-accent text-accent" />)}
                   </div>
                   <p className="text-muted-foreground mb-4 md:mb-6 italic text-xs md:text-sm">
                     "{testimonial.text}"
@@ -322,8 +276,7 @@ const Index = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -331,11 +284,7 @@ const Index = () => {
       {/* Stats - moved above footer */}
       <section className="py-12 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src="/src/assets/real-team-photo.jpg" 
-            alt="Professioneel rijschool adviesteam" 
-            className="w-full h-full object-cover"
-          />
+          <img src="/src/assets/real-team-photo.jpg" alt="Professioneel rijschool adviesteam" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-primary/80"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
@@ -349,12 +298,10 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
+            {stats.map((stat, index) => <div key={index} className="text-center">
                 <div className="text-2xl md:text-3xl font-bold mb-1 text-white">{stat.number}</div>
                 <div className="text-sm opacity-80 text-white">{stat.label}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -393,8 +340,6 @@ const Index = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
