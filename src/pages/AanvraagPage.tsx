@@ -129,10 +129,6 @@ const AanvraagPage = () => {
                   <SelectItem value="A1">Rijbewijs A1 - Lichte motorfiets</SelectItem>
                   <SelectItem value="A2">Rijbewijs A2 - Middelzware motorfiets</SelectItem>
                   <SelectItem value="A">Rijbewijs A - Zware motorfiets</SelectItem>
-                  <SelectItem value="C1">Rijbewijs C1 - Lichte vrachtwagen</SelectItem>
-                  <SelectItem value="C">Rijbewijs C - Vrachtwagen</SelectItem>
-                  <SelectItem value="D1">Rijbewijs D1 - Minibus</SelectItem>
-                  <SelectItem value="D">Rijbewijs D - Bus</SelectItem>
                 </SelectContent>
               </Select>
             </div>

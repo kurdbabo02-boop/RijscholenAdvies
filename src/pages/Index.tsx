@@ -196,7 +196,7 @@ const Index = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  Wat bieden wij aan?
+                  Waarom kiezen voor ons advies?
                 </h2>
                 <p className="text-muted-foreground mb-8">
                   Professioneel en persoonlijk advies van rijschoolexperts voor de goedkoopste én beste rijscholen.

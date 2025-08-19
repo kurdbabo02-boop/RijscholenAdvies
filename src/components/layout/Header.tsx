@@ -13,8 +13,14 @@ export const Header = () => {
     name: "Aanvraag",
     href: "/aanvraag"
   }, {
+    name: "Diensten",
+    href: "/diensten"
+  }, {
     name: "Over ons",
     href: "/over-ons"
+  }, {
+    name: "FAQ",
+    href: "/faq"
   }, {
     name: "Contact",
     href: "/contact"
