@@ -221,18 +221,18 @@ const Index = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Heart className="h-5 w-5 text-accent" />
-                    Geld-terug-garantie
+                    Persoonlijke begeleiding
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    Niet tevreden met ons advies? Binnen 14 dagen krijg je 
-                    je geld volledig terug, zonder vragen.
+                    Ons team staat altijd voor U klaar met persoonlijk advies 
+                    en volledige ondersteuning bij het vinden van de perfecte rijschool.
                   </p>
                   <div className="bg-muted/50 rounded-lg p-4">
                     <div className="text-center">
                       <div className="text-2xl font-bold text-primary mb-2">100%</div>
-                      <div className="text-sm text-muted-foreground">Tevredenheidsgarantie</div>
+                      <div className="text-sm text-muted-foreground">Persoonlijke service</div>
                     </div>
                   </div>
                 </CardContent>
@@ -250,7 +250,7 @@ const Index = () => {
               Wat zeggen onze klanten?
             </h2>
             <p className="text-lg text-muted-foreground">
-              Meer dan 10,000 tevreden klanten
+              Meer dan 2,500 tevreden klanten
             </p>
           </div>
 
@@ -286,7 +286,7 @@ const Index = () => {
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">Wij zoeken de beste rijschool voor U</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">Professioneel adviesteam</h2>
             <p className="opacity-90 text-white">Maandag t/m vrijdag 8:00-17:30 voor U beschikbaar</p>
           </div>
 
@@ -295,11 +295,11 @@ const Index = () => {
               number: "Persoonlijk",
               label: "Advies op maat"
             }, {
-              number: "Snel",
-              label: "Binnen 24 uur reactie"
+              number: "Kwaliteit",
+              label: "Gecertificeerde rijscholen"
             }, {
-              number: "Goedkoopste",
-              label: "Rijscholen geselecteerd"
+              number: "Betrouwbaar",
+              label: "Expertise sinds 2014"
             }, {
               number: "Direct hulp",
               label: "Bij aanmelding"
@@ -320,7 +320,7 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <Card className="max-w-3xl mx-auto shadow-hero bg-background/95">
             <CardContent className="py-12 text-center">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Wij zoeken de beste rijschool voor U!</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Klaar om te starten?</h2>
               <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
                 Ons professionele team helpt U persoonlijk bij het vinden van de perfecte rijschool in uw omgeving.
               </p>
@@ -339,7 +339,7 @@ const Index = () => {
               </div>
 
               <p className="text-xs text-muted-foreground mt-4">
-                ✓ Geen verborgen kosten ✓ 14 dagen geld terug
+                ✓ Geen verborgen kosten ✓ Persoonlijke service
               </p>
             </CardContent>
           </Card>

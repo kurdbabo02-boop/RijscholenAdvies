@@ -5,12 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Shield, Users, Award, Target, Heart, Star, Clock, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import calmingBackground from "@/assets/calming-background.jpg";
+import teamBackground from "@/assets/team-background.jpg";
 
 const OverOnsPage = () => {
   const stats = [
-    { number: "24/7", label: "Beschikbaar +31 685719049", icon: Phone },
-    { number: "30min", label: "Reactietijd gegarandeerd", icon: Clock },
-    { number: "Goedkoopste", label: "Rijscholen geselecteerd", icon: Award },
+    { number: "Persoonlijk", label: "Advies op maat", icon: Phone },
+    { number: "Kwaliteit", label: "Gecertificeerde rijscholen", icon: Clock },
+    { number: "Betrouwbaar", label: "Expertise sinds 2014", icon: Award },
     { number: "Direct hulp", label: "Bij aanmelding", icon: Target }
   ];
 
@@ -40,12 +41,12 @@ const OverOnsPage = () => {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            De beste rijschool
-            <span className="text-primary"> vinden?</span>
+            Wij zoeken de beste
+            <span className="text-primary"> rijschool voor U</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Wij verbinden U met de goedkoopste én beste rijscholen én helpen U persoonlijk bij de aanmelding. 
-            Ons professionele team is 24/7 bereikbaar op +31 685719049!
+            Ons professionele team helpt U graag verder.
           </p>
         </div>
 
@@ -75,17 +76,18 @@ const OverOnsPage = () => {
             </CardHeader>
             <CardContent className="space-y-6">
               <p className="text-muted-foreground leading-relaxed">
-                In 2014 startten we Rijschool Adviesbureau vanuit een simpele frustratie: 
+                In 2014 startten we Rijscholen Adviesbureau vanuit een simpele frustratie: 
                 het was veel te moeilijk om een goede rijschool te vinden. Te veel keuzes, 
                 onduidelijke prijzen en geen objectief advies.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 We besloten dit probleem op te lossen door een onafhankelijk platform te creëren 
-                waar iedereen snel en eenvoudig de beste rijschool voor hun situatie kan vinden. 
-                Geen verborgen kosten, geen commerciële belangen - gewoon eerlijk advies.
+                waar wij voor mensen de beste rijschool zoeken en hen persoonlijk begeleiden. 
+                Veel rijscholen proberen mensen op te lichten met verborgen kosten en valse beloften - 
+                daarom bieden wij eerlijk, onafhankelijk advies zonder commerciële belangen.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Vandaag de dag hebben we meer dan 10.000 mensen geholpen bij het behalen van 
+                Vandaag de dag hebben we meer dan 2.500 mensen geholpen bij het behalen van 
                 hun rijbewijs. En daar zijn we trots op!
               </p>
             </CardContent>
@@ -164,21 +166,28 @@ const OverOnsPage = () => {
           <Card className="relative overflow-hidden shadow-hero">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-30"
-              style={{ backgroundImage: `url(${calmingBackground})` }}
+              style={{ backgroundImage: `url(${teamBackground})` }}
             />
             <div className="absolute inset-0 bg-gradient-primary opacity-90" />
             <CardContent className="relative py-12 text-white">
               <h2 className="text-3xl font-bold mb-4">
-                Klaar om de beste rijschool te vinden?
+                Klaar om te starten?
               </h2>
               <p className="text-lg mb-8 opacity-90">
-                Bel direct +31 685719049 of start online - binnen 30 minuten heb je persoonlijk advies
+                Ons professionele team staat voor U klaar met persoonlijk advies en volledige begeleiding.
               </p>
-              <Button asChild variant="secondary" size="lg">
-                <Link to="/aanvraag">
-                  Start je aanvraag
-                </Link>
-              </Button>
+              <div className="flex gap-3 justify-center">
+                <Button asChild variant="secondary" size="lg">
+                  <Link to="/aanvraag">
+                    Vraag offerte aan
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="text-white border-white hover:bg-white hover:text-primary">
+                  <Link to="/over-ons">
+                    Meer info
+                  </Link>
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>

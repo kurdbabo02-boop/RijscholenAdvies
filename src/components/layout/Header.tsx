@@ -56,16 +56,12 @@ export const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo and mobile CTA */}
           <div className="flex items-center gap-3">
-            <Link to="/" className="flex items-center gap-3 font-bold text-xl">
+            <Link to="/" className="flex items-center font-bold text-xl">
               <img 
-                src="/lovable-uploads/3d646941-28a3-4286-9f7e-3b181bf1ad74.png" 
+                src="/lovable-uploads/9d5189c0-637f-48f8-9867-db0fb78cbe94.png" 
                 alt="Rijscholen Advies Logo" 
-                className="h-8 w-auto"
+                className="h-12 w-auto"
               />
-              <div>
-                <span className="hidden sm:inline">Rijscholen Advies</span>
-                <span className="sm:hidden">Rijscholen Advies</span>
-              </div>
             </Link>
             
             {/* Mobile CTA Button next to logo */}
@@ -111,13 +107,12 @@ export const Header = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col gap-6 mt-6">
-                <Link to="/" className="flex items-center gap-3 font-bold text-xl">
+                <Link to="/" className="flex items-center font-bold text-xl">
                   <img 
-                    src="/lovable-uploads/3d646941-28a3-4286-9f7e-3b181bf1ad74.png" 
+                    src="/lovable-uploads/9d5189c0-637f-48f8-9867-db0fb78cbe94.png" 
                     alt="Rijscholen Advies Logo" 
-                    className="h-8 w-auto"
+                    className="h-12 w-auto"
                   />
-                  Rijscholen Advies
                 </Link>
                 
                 <nav className="flex flex-col gap-4">

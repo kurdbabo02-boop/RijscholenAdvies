@@ -61,7 +61,7 @@ const FAQPage = () => {
                 Veelgestelde Vragen
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Alle antwoorden op jouw vragen over ons rijschooladvies
+                Alle antwoorden op uw vragen over ons rijschooladvies
               </p>
             </div>
           </div>
@@ -94,14 +94,14 @@ const FAQPage = () => {
               Nog meer vragen?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Neem direct contact op - wij helpen je graag verder!
+              Neem direct contact op - wij helpen u graag verder!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="hero" size="lg">
                 <Link to="/contact">Direct contact</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link to="/aanvraag">Start je offerte</Link>
+                <Link to="/aanvraag">Vraag offerte aan</Link>
               </Button>
             </div>
           </div>

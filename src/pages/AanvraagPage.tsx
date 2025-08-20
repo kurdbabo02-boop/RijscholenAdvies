@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -184,35 +184,64 @@ const AanvraagPage = () => {
               </Select>
             </div>
             
+            
             <div className="space-y-4">
               <Label>Type rijles voorkeuren *</Label>
-              <RadioGroup 
-                value={formData.typeRijles} 
-                onValueChange={(value) => handleInputChange("typeRijles", value)}
-                className="grid grid-cols-1 gap-4"
-              >
-                <div className="flex items-center space-x-3 border-2 rounded-lg p-4 hover:border-primary/50 transition-all duration-200">
-                  <RadioGroupItem value="automaat" id="automaat" />
-                  <Label htmlFor="automaat" className="flex-1 cursor-pointer">
-                    <div className="font-medium text-foreground">Automaat</div>
-                    <div className="text-sm text-muted-foreground">Eenvoudiger te leren, geen koppeling</div>
-                  </Label>
+              {formData.rijbewijsType && ['B', 'BE'].includes(formData.rijbewijsType) && (
+                <RadioGroup 
+                  value={formData.typeRijles} 
+                  onValueChange={(value) => handleInputChange("typeRijles", value)}
+                  className="grid grid-cols-1 gap-4"
+                >
+                  <div className="flex items-center space-x-3 border-2 rounded-lg p-4 hover:border-primary/50 transition-all duration-200">
+                    <RadioGroupItem value="automaat" id="automaat" />
+                    <Label htmlFor="automaat" className="flex-1 cursor-pointer">
+                      <div className="font-medium text-foreground">Automaat</div>
+                      <div className="text-sm text-muted-foreground">Eenvoudiger te leren, geen koppeling</div>
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-3 border-2 rounded-lg p-4 hover:border-primary/50 transition-all duration-200">
+                    <RadioGroupItem value="schakel" id="schakel" />
+                    <Label htmlFor="schakel" className="flex-1 cursor-pointer">
+                      <div className="font-medium text-foreground">Schakel</div>
+                      <div className="text-sm text-muted-foreground">Traditioneel, meer controle</div>
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-3 border-2 rounded-lg p-4 hover:border-primary/50 transition-all duration-200">
+                    <RadioGroupItem value="nog-niet-zeker" id="nog-niet-zeker" />
+                    <Label htmlFor="nog-niet-zeker" className="flex-1 cursor-pointer">
+                      <div className="font-medium text-foreground">Nog niet zeker</div>
+                      <div className="text-sm text-muted-foreground">Neem contact op en wij helpen u kiezen welke het beste bij u past - gratis hulp</div>
+                    </Label>
+                  </div>
+                </RadioGroup>
+              )}
+              
+              {formData.rijbewijsType && !['B', 'BE'].includes(formData.rijbewijsType) && (
+                <div className="p-4 bg-muted/50 rounded-lg border">
+                  <p className="text-sm text-muted-foreground">
+                    Voor {formData.rijbewijsType} rijbewijs is er geen keuze tussen automaat en schakel. 
+                    Wij vinden automatisch de juiste rijschool voor u.
+                  </p>
                 </div>
-                <div className="flex items-center space-x-3 border-2 rounded-lg p-4 hover:border-primary/50 transition-all duration-200">
-                  <RadioGroupItem value="schakel" id="schakel" />
-                  <Label htmlFor="schakel" className="flex-1 cursor-pointer">
-                    <div className="font-medium text-foreground">Schakel</div>
-                    <div className="text-sm text-muted-foreground">Traditioneel, meer controle</div>
-                  </Label>
+              )}
+              
+              {!formData.rijbewijsType && (
+                <p className="text-sm text-muted-foreground">Selecteer eerst uw rijbewijstype om de opties te zien.</p>
+              )}
+              
+              {formData.typeRijles === "nog-niet-zeker" && (
+                <div className="mt-4 p-4 bg-primary/5 rounded-lg border border-primary/10">
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Twijfelt u tussen automaat of schakel? Ons team helpt u graag bij deze keuze!
+                  </p>
+                  <Button asChild variant="outline" size="sm">
+                    <Link to="/contact">
+                      Direct contact opnemen
+                    </Link>
+                  </Button>
                 </div>
-                <div className="flex items-center space-x-3 border-2 rounded-lg p-4 hover:border-primary/50 transition-all duration-200">
-                  <RadioGroupItem value="nog-niet-zeker" id="nog-niet-zeker" />
-                  <Label htmlFor="nog-niet-zeker" className="flex-1 cursor-pointer">
-                    <div className="font-medium text-foreground">Nog niet zeker</div>
-                    <div className="text-sm text-muted-foreground">Neem contact op en wij helpen u kiezen welke het beste bij u past - gratis hulp</div>
-                  </Label>
-                </div>
-              </RadioGroup>
+              )}
             </div>
           </div>
         );
@@ -281,7 +310,10 @@ const AanvraagPage = () => {
       case 1:
         return formData.naam && formData.email && formData.telefoon;
       case 2:
-        return formData.stad && formData.typeRijles && formData.rijbewijsType;
+        return formData.stad && formData.rijbewijsType && (
+          (['B', 'BE'].includes(formData.rijbewijsType) && formData.typeRijles) || 
+          !['B', 'BE'].includes(formData.rijbewijsType)
+        );
       case 3:
         return true;
       default:

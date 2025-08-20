@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Car, Shield, Clock, Users, CheckCircle, Star } from "lucide-react";
+import teamBackground from "@/assets/team-background.jpg";
 
 const DienstenPage = () => {
   const services = [
@@ -32,12 +33,12 @@ const DienstenPage = () => {
     {
       icon: <Clock className="h-8 w-8 text-accent" />,
       title: "Snelle Service",
-      description: "Binnen 24 uur ontvang je persoonlijk advies en directe contactmogelijkheden.",
+      description: "Maandag t/m vrijdag 8:00-17:30 bereikbaar voor persoonlijk advies en directe ondersteuning.",
       features: [
         "Maandag t/m vrijdag 8:00-17:30 bereikbaar",
-        "Snelle reactietijd",
-        "Directe doorverbinding",
-        "Geen wachtlijsten"
+        "Persoonlijke benadering",
+        "Directe ondersteuning",
+        "Deskundige begeleiding"
       ]
     },
     {
@@ -69,7 +70,7 @@ const DienstenPage = () => {
                 Professioneel advies en begeleiding bij het vinden van de perfecte rijschool
               </p>
               <Button asChild variant="hero" size="lg">
-                <Link to="/aanvraag">Start je offerte</Link>
+                <Link to="/aanvraag">Vraag offerte aan</Link>
               </Button>
             </div>
           </div>
@@ -145,17 +146,26 @@ const DienstenPage = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-primary text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-6">
+        <section className="py-16 relative overflow-hidden">
+          <div className="absolute inset-0">
+            <img src={teamBackground} alt="Professioneel rijschool adviesteam" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-primary/80"></div>
+          </div>
+          <div className="container mx-auto px-4 relative z-10 text-center">
+            <h2 className="text-3xl font-bold mb-6 text-white">
               Klaar om te starten?
             </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Krijg binnen 24 uur persoonlijk advies
+            <p className="text-xl mb-8 opacity-90 text-white">
+              Ons professionele team helpt u graag met persoonlijk advies
             </p>
-            <Button asChild variant="hero" size="lg">
-              <Link to="/aanvraag">Start nu je offerte</Link>
-            </Button>
+            <div className="flex gap-3 justify-center">
+              <Button asChild variant="secondary" size="lg">
+                <Link to="/aanvraag">Vraag offerte aan</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="text-white border-white hover:bg-white hover:text-primary">
+                <Link to="/over-ons">Meer info</Link>
+              </Button>
+            </div>
           </div>
         </section>
       </main>
