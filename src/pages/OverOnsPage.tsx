@@ -37,7 +37,7 @@ const OverOnsPage = () => {
     <div className="min-h-screen bg-gradient-subtle">
       <Header />
       
-      <main className="container mx-auto px-4 py-8 pt-16">
+      <main className="container mx-auto px-4 py-8 pt-32">
         {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -122,44 +122,6 @@ const OverOnsPage = () => {
           </div>
         </div>
 
-        {/* Team Section */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <Card className="shadow-smooth">
-            <CardHeader className="text-center">
-              <CardTitle className="text-3xl mb-4">Ons team</CardTitle>
-              <CardDescription className="text-lg">
-                Rijschoolexperts met jarenlange ervaring
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8">
-                <div className="text-center">
-                  <div className="h-24 w-24 mx-auto mb-4 rounded-full bg-gradient-primary flex items-center justify-center">
-                    <Users className="h-12 w-12 text-white" />
-                  </div>
-                  <h3 className="font-semibold text-lg mb-2">Sarah de Vries</h3>
-                  <p className="text-muted-foreground mb-4">Oprichter & Rijschoolexpert</p>
-                  <p className="text-sm text-muted-foreground">
-                    15+ jaar ervaring in de rijschoolbranche. Passie voor het helpen 
-                    van mensen bij hun rijbewijs.
-                  </p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="h-24 w-24 mx-auto mb-4 rounded-full bg-gradient-secondary flex items-center justify-center">
-                    <Users className="h-12 w-12 text-white" />
-                  </div>
-                  <h3 className="font-semibold text-lg mb-2">Mark Janssen</h3>
-                  <p className="text-muted-foreground mb-4">Senior Adviseur</p>
-                  <p className="text-sm text-muted-foreground">
-                    Expert in rijschoolkwaliteit en klantbegeleiding. Zorgt ervoor 
-                    dat elk advies perfect aansluit.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
 
         {/* CTA Section */}
         <div className="text-center">

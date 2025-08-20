@@ -60,7 +60,7 @@ export const Header = () => {
               <img 
                 src="/lovable-uploads/9d5189c0-637f-48f8-9867-db0fb78cbe94.png" 
                 alt="Rijscholen Advies Logo" 
-                className="h-16 w-auto"
+                className="h-24 w-auto"
               />
             </Link>
             
@@ -111,7 +111,7 @@ export const Header = () => {
                   <img 
                     src="/lovable-uploads/9d5189c0-637f-48f8-9867-db0fb78cbe94.png" 
                     alt="Rijscholen Advies Logo" 
-                    className="h-16 w-auto"
+                    className="h-24 w-auto"
                   />
                 </Link>
                 

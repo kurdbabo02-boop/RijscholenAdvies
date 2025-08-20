@@ -30,27 +30,27 @@ const Index = () => {
   const testimonials = [{
     name: "Emma van Dijk",
     location: "Amsterdam",
-    text: "Dankzij hun professionele advies heb ik de perfecte rijschool gevonden. In 6 weken geslaagd!",
+    text: "Dankzij hun professionele advies heb ik de perfecte rijschool gevonden. Binnen 7 weken geslaagd",
     rating: 5,
-    type: "Automaat"
+    type: "B - Automaat"
   }, {
     name: "Lars Bakker",
     location: "Rotterdam",
-    text: "Uitstekende service! Ze hebben echt tijd genomen om mijn wensen te begrijpen.",
-    rating: 5,
-    type: "Schakel"
+    text: "Goede service en zij hebben tijd genomen om mijn wensen te begrijpen",
+    rating: 4,
+    type: "B - Handschakeling"
   }, {
     name: "Sophie Vermeer",
     location: "Utrecht",
-    text: "Eerlijk advies zonder commerciële belangen. Precies wat ik zocht!",
-    rating: 5,
-    type: "Automaat"
+    text: "Eerlijk advies zonder commerciële belangen. Precies wat ik zocht",
+    rating: 4.5,
+    type: "B - Automaat"
   }, {
     name: "Mike de Jong",
     location: "Eindhoven",
-    text: "Snelle reactie en deskundig advies. Binnen 2 dagen had ik contact met mijn ideale rijschool!",
-    rating: 5,
-    type: "Schakel"
+    text: "Snelle reactie en deskundig advies. Kreeg binnen 2 dagen contact met een geschikte rijschool",
+    rating: 4,
+    type: "A2 - Motorfiets"
   }];
   const stats = [{
     number: "Kwaliteit",
@@ -75,8 +75,7 @@ const Index = () => {
             <div className="space-y-8 animate-slide-up">
               <div className="space-y-6">
                 <h1 className="text-4xl md:text-6xl font-bold leading-tight mt-8">
-                  <span className="text-primary">Ons team</span> zoekt
-                  <span className="text-primary"> de beste rijschool </span>
+                  Ons <span className="text-primary">team</span> zoekt de <span className="text-primary">beste</span> rijschool 
                   <br />voor U
                 </h1>
                 <p className="text-lg text-muted-foreground leading-relaxed">Persoonlijk advies voor de goedkoopste én beste rijschool in uw omgeving. Wij helpen u ook direct bij aanmelding.</p>
@@ -258,7 +257,8 @@ const Index = () => {
             {testimonials.map((testimonial, index) => <Card key={index} className="shadow-smooth">
                 <CardContent className="pt-4 md:pt-6 p-3 md:p-6">
                   <div className="flex items-center gap-1 mb-3 md:mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="h-3 w-3 md:h-4 md:w-4 fill-accent text-accent" />)}
+                    {[...Array(Math.floor(testimonial.rating))].map((_, i) => <Star key={i} className="h-3 w-3 md:h-4 md:w-4 fill-accent text-accent" />)}
+                    {testimonial.rating % 1 !== 0 && <Star className="h-3 w-3 md:h-4 md:w-4 fill-accent text-accent opacity-50" />}
                   </div>
                   <p className="text-muted-foreground mb-4 md:mb-6 italic text-xs md:text-sm">
                     "{testimonial.text}"
