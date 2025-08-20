@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Car, Phone, Mail } from "lucide-react";
+import { Menu, Phone, Mail } from "lucide-react";
+
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -26,22 +27,26 @@ export const Header = () => {
     href: "/contact"
   }];
   const isActive = (path: string) => location.pathname === path;
-  return <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+  
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
       {/* Top contact bar */}
-      <div className="bg-gradient-primary text-white py-2 hidden md:block">
+      <div className="bg-gradient-primary text-white py-3 hidden md:block">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span>+31 638901956</span>
+                <span className="font-medium">+31 638901956</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <span>info@rijscholenadvies.nl</span>
+                <span className="font-medium">info@rijscholenadvies.nl</span>
               </div>
             </div>
-            <div className="text-xs opacity-90">Maandag-Vrijdag  8:00/17:00</div>
+            <div className="flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full">
+              <span className="font-medium">Maandag-Vrijdag 8:00-17:30</span>
+            </div>
           </div>
         </div>
       </div>
@@ -51,12 +56,16 @@ export const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo and mobile CTA */}
           <div className="flex items-center gap-3">
-            <Link to="/" className="flex items-center gap-2 font-bold text-xl">
-              <div className="h-8 w-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-                <Car className="h-5 w-5 text-white" />
+            <Link to="/" className="flex items-center gap-3 font-bold text-xl">
+              <img 
+                src="/lovable-uploads/3d646941-28a3-4286-9f7e-3b181bf1ad74.png" 
+                alt="Rijscholen Advies Logo" 
+                className="h-8 w-auto"
+              />
+              <div>
+                <span className="hidden sm:inline">Rijscholen Advies</span>
+                <span className="sm:hidden">Rijscholen Advies</span>
               </div>
-              <span className="hidden sm:inline">Rijschool Adviesbureau</span>
-              <span className="sm:hidden">RijAdvies</span>
             </Link>
             
             {/* Mobile CTA Button next to logo */}
@@ -71,9 +80,19 @@ export const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            {navigation.map(item => <Link key={item.name} to={item.href} className={`text-sm font-medium transition-colors hover:text-primary ${isActive(item.href) ? "text-primary border-b-2 border-primary pb-1" : "text-muted-foreground"}`}>
+            {navigation.map(item => (
+              <Link 
+                key={item.name} 
+                to={item.href} 
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  isActive(item.href) 
+                    ? "text-primary border-b-2 border-primary pb-1" 
+                    : "text-muted-foreground"
+                }`}
+              >
                 {item.name}
-              </Link>)}
+              </Link>
+            ))}
           </nav>
 
           {/* CTA Button */}
@@ -92,17 +111,28 @@ export const Header = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col gap-6 mt-6">
-                <Link to="/" className="flex items-center gap-2 font-bold text-xl">
-                  <div className="h-8 w-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-                    <Car className="h-5 w-5 text-white" />
-                  </div>
-                  Rijschool Adviesbureau
+                <Link to="/" className="flex items-center gap-3 font-bold text-xl">
+                  <img 
+                    src="/lovable-uploads/3d646941-28a3-4286-9f7e-3b181bf1ad74.png" 
+                    alt="Rijscholen Advies Logo" 
+                    className="h-8 w-auto"
+                  />
+                  Rijscholen Advies
                 </Link>
                 
                 <nav className="flex flex-col gap-4">
-                  {navigation.map(item => <Link key={item.name} to={item.href} onClick={() => setIsOpen(false)} className={`text-lg font-medium transition-colors hover:text-primary ${isActive(item.href) ? "text-primary" : "text-muted-foreground"}`}>
+                  {navigation.map(item => (
+                    <Link 
+                      key={item.name} 
+                      to={item.href} 
+                      onClick={() => setIsOpen(false)} 
+                      className={`text-lg font-medium transition-colors hover:text-primary ${
+                        isActive(item.href) ? "text-primary" : "text-muted-foreground"
+                      }`}
+                    >
                       {item.name}
-                    </Link>)}
+                    </Link>
+                  ))}
                 </nav>
 
                 {/* Mobile contact info */}
@@ -127,5 +157,6 @@ export const Header = () => {
           </Sheet>
         </div>
       </div>
-    </header>;
+    </header>
+  );
 };

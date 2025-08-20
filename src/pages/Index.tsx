@@ -85,7 +85,7 @@ const Index = () => {
               <div className="flex gap-3">
                 <Button asChild variant="hero" size="sm" className="group flex-1">
                   <Link to="/aanvraag">
-                    Start offerte
+                    Vraag offerte aan
                     <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
@@ -286,12 +286,24 @@ const Index = () => {
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">Professioneel adviesteam</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">Wij zoeken de beste rijschool voor U</h2>
             <p className="opacity-90 text-white">Maandag t/m vrijdag 8:00-17:30 voor U beschikbaar</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => <div key={index} className="text-center">
+            {[{
+              number: "Persoonlijk",
+              label: "Advies op maat"
+            }, {
+              number: "Snel",
+              label: "Binnen 24 uur reactie"
+            }, {
+              number: "Goedkoopste",
+              label: "Rijscholen geselecteerd"
+            }, {
+              number: "Direct hulp",
+              label: "Bij aanmelding"
+            }].map((stat, index) => <div key={index} className="text-center">
                 <div className="text-2xl md:text-3xl font-bold mb-1 text-white">{stat.number}</div>
                 <div className="text-sm opacity-80 text-white">{stat.label}</div>
               </div>)}
@@ -302,15 +314,15 @@ const Index = () => {
       {/* CTA Section - moved higher */}
       <section className="py-12 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src={ctaBackground} alt="Professioneel rijschool advies" className="w-full h-full object-cover" />
+          <img src={teamBackground} alt="Professioneel rijschool advies" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/90"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <Card className="max-w-3xl mx-auto shadow-hero bg-background/95">
             <CardContent className="py-12 text-center">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Laat ons de beste rijschool voor U zoeken!</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Wij zoeken de beste rijschool voor U!</h2>
               <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-                Persoonlijk advies op maat. Start vandaag nog!
+                Ons professionele team helpt U persoonlijk bij het vinden van de perfecte rijschool in uw omgeving.
               </p>
               
               <div className="flex gap-3 justify-center">
