@@ -10,10 +10,10 @@ const DienstenPage = () => {
     {
       icon: <Car className="h-8 w-8 text-primary" />,
       title: "Persoonlijk Advies",
-      description: "Onze experts analyseren jouw wensen en vinden de perfecte rijschool die bij jou past.",
+      description: "Onze experts analyseren uw wensen en vinden de perfecte rijschool die bij u past.",
       features: [
         "Volledig op maat gemaakt advies",
-        "Analyse van jouw specifieke behoeften",
+        "Analyse van uw specifieke behoeften",
         "Vergelijking van meerdere rijscholen",
         "Transparante prijs-kwaliteit verhouding"
       ]
@@ -34,7 +34,7 @@ const DienstenPage = () => {
       title: "Snelle Service",
       description: "Binnen 24 uur ontvang je persoonlijk advies en directe contactmogelijkheden.",
       features: [
-        "24/7 bereikbaarheid",
+        "Maandag t/m vrijdag 8:00-17:30 bereikbaar",
         "Snelle reactietijd",
         "Directe doorverbinding",
         "Geen wachtlijsten"
@@ -43,7 +43,7 @@ const DienstenPage = () => {
     {
       icon: <Users className="h-8 w-8 text-primary" />,
       title: "Begeleiding bij Aanmelding",
-      description: "Wij helpen je niet alleen met kiezen, maar ook bij het complete aanmeldingsproces.",
+      description: "Wij helpen u niet alleen met kiezen, maar ook bij het complete aanmeldingsproces.",
       features: [
         "Hulp bij aanmeldformulieren",
         "Ondersteuning tijdens intake",
@@ -118,17 +118,17 @@ const DienstenPage = () => {
                   {
                     step: "1",
                     title: "Aanvraag indienen",
-                    description: "Vertel ons over jouw wensen en behoeften via ons eenvoudige formulier."
+                    description: "Vertel ons over uw wensen en behoeften via ons eenvoudige formulier."
                   },
                   {
                     step: "2", 
                     title: "Persoonlijk advies",
-                    description: "Onze experts analyseren jouw situatie en zoeken de beste rijscholen."
+                    description: "Onze experts analyseren uw situatie en zoeken de beste rijscholen."
                   },
                   {
                     step: "3",
                     title: "Directe begeleiding",
-                    description: "Je ontvangt persoonlijk advies en hulp bij de complete aanmelding."
+                    description: "U ontvangt persoonlijk advies en hulp bij de complete aanmelding."
                   }
                 ].map((item, index) => (
                   <div key={index} className="text-center">
@@ -151,7 +151,7 @@ const DienstenPage = () => {
               Klaar om te starten?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Krijg binnen 24 uur persoonlijk advies voor slechts €40
+              Krijg binnen 24 uur persoonlijk advies
             </p>
             <Button asChild variant="hero" size="lg">
               <Link to="/aanvraag">Start nu je offerte</Link>

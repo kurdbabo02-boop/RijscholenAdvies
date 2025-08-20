@@ -5,6 +5,9 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Car, Shield, Star, Clock, CheckCircle, Users, Award, ArrowRight, Search, Target, Heart } from "lucide-react";
 import heroImage from "@/assets/real-instructor-photo.jpg";
+import teamBackground from "@/assets/team-background.jpg";
+import ctaBackground from "@/assets/cta-background.jpg";
+
 const Index = () => {
   const features = [{
     icon: Search,
@@ -23,7 +26,7 @@ const Index = () => {
     title: "Doelgericht",
     description: "Ons doel is Uw rijbewijs: snel, efficiënt en met plezier leren rijden."
   }];
-  const benefits = ["Vergelijking van prijzen en lesaanbod", "Gecertificeerde rijscholen met hoge slaagkans", "Persoonlijk advies op maat", "Gratis nazorg en ondersteuning", "Direct contact met rijscholen"];
+  const benefits = ["Vergelijking van prijzen en lesaanbod", "Gecertificeerde rijscholen met hoge slaagkans", "Persoonlijk advies op maat", "Gratis nazorg en ondersteuning", "Wij leggen contact met rijscholen voor u"];
   const testimonials = [{
     name: "Emma van Dijk",
     location: "Amsterdam",
@@ -72,9 +75,9 @@ const Index = () => {
             <div className="space-y-8 animate-slide-up">
               <div className="space-y-6">
                 <h1 className="text-4xl md:text-6xl font-bold leading-tight mt-8">
-                  <span className="text-primary">Wij</span> de beste
-                  <span className="text-primary"> rijscholen  </span>
-                  <br />die bij U past
+                  <span className="text-primary">Ons team</span> zoekt
+                  <span className="text-primary"> de beste rijschool </span>
+                  <br />voor U
                 </h1>
                 <p className="text-lg text-muted-foreground leading-relaxed">Persoonlijk advies voor de goedkoopste én beste rijschool in uw omgeving. Wij helpen u ook direct bij aanmelding.</p>
               </div>
@@ -96,12 +99,12 @@ const Index = () => {
               {/* Quick stats */}
               <div className="grid grid-cols-2 gap-4 pt-8">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">Goedkoopste</div>
-                  <div className="text-sm text-muted-foreground">Rijscholen </div>
+                  <div className="text-2xl font-bold text-primary">Persoonlijk</div>
+                  <div className="text-sm text-muted-foreground">Advies op maat</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">Beste</div>
-                  <div className="text-sm text-muted-foreground">Rijscholen</div>
+                  <div className="text-2xl font-bold text-primary">Kwaliteit</div>
+                  <div className="text-sm text-muted-foreground">Gegarandeerd</div>
                 </div>
               </div>
             </div>
@@ -278,13 +281,13 @@ const Index = () => {
       {/* Stats - moved above footer */}
       <section className="py-12 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/src/assets/real-team-photo.jpg" alt="Professioneel rijschool adviesteam" className="w-full h-full object-cover" />
+          <img src={teamBackground} alt="Professioneel rijschool adviesteam" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-primary/80"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">Onze team </h2>
-            <p className="opacity-90 text-white">Ons team staat altijd voor U klaar</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">Professioneel adviesteam</h2>
+            <p className="opacity-90 text-white">Maandag t/m vrijdag 8:00-17:30 voor U beschikbaar</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -297,24 +300,28 @@ const Index = () => {
       </section>
 
       {/* CTA Section - moved higher */}
-      <section className="py-12 bg-background">
-        <div className="container mx-auto px-4">
-          <Card className="max-w-3xl mx-auto shadow-hero">
+      <section className="py-12 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={ctaBackground} alt="Professioneel rijschool advies" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-background/90"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <Card className="max-w-3xl mx-auto shadow-hero bg-background/95">
             <CardContent className="py-12 text-center">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Klaar om de beste rijschool te vinden?</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Laat ons de beste rijschool voor U zoeken!</h2>
               <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-                Ontdek Uw perfecte rijschool. Start vandaag nog!
+                Persoonlijk advies op maat. Start vandaag nog!
               </p>
               
               <div className="flex gap-3 justify-center">
                 <Button asChild variant="hero" size="sm" className="flex-1 max-w-[200px]">
                   <Link to="/aanvraag">
-                    Start offerte
+                    Vraag offerte aan
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="sm" className="flex-1 max-w-[200px]">
-                  <Link to="/contact">
-                    Direct contact
+                  <Link to="/over-ons">
+                    Meer info
                   </Link>
                 </Button>
               </div>

@@ -29,8 +29,8 @@ const BevestigingPage = () => {
 
       if (error) throw error;
 
-      // Open Stripe checkout in a new tab
-      window.open(data.url, '_blank');
+      // Redirect directly to Stripe checkout
+      window.location.href = data.url;
     } catch (error) {
       console.error('Payment error:', error);
       alert('Er is een fout opgetreden bij het starten van de betaling. Probeer het opnieuw.');
@@ -54,7 +54,7 @@ const BevestigingPage = () => {
               </div>
               <CardTitle className="text-2xl">Betaling</CardTitle>
               <CardDescription>
-                U bent bijna klaar! Betaal veilig €34,50 voor persoonlijk rijschooladvies.
+                U bent bijna klaar! Betaal veilig voor persoonlijk rijschooladvies.
               </CardDescription>
             </CardHeader>
             
@@ -111,16 +111,27 @@ const BevestigingPage = () => {
               </div>
 
               {/* Price breakdown */}
-              <div className="bg-gradient-primary/5 rounded-lg p-6">
+              <div className="bg-gradient-primary/5 rounded-lg p-6 space-y-3">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="font-semibold">Totaal te betalen</div>
-                    <div className="text-sm text-muted-foreground">Eenmalige kosten voor persoonlijk advies</div>
+                    <div className="font-semibold">Persoonlijk advies</div>
+                    <div className="text-sm text-muted-foreground">Eenmalige kosten</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-primary">€34,50</div>
-                    <div className="text-sm text-muted-foreground">excl. BTW</div>
-                    <div className="text-xs text-muted-foreground">BTW: €7,25</div>
+                    <div className="text-lg font-semibold">€33,50</div>
+                    <div className="text-xs text-muted-foreground">excl. BTW</div>
+                  </div>
+                </div>
+                
+                <div className="flex justify-between items-center text-sm">
+                  <div className="text-muted-foreground">BTW (21%)</div>
+                  <div>€8,40</div>
+                </div>
+                
+                <div className="border-t pt-3">
+                  <div className="flex justify-between items-center">
+                    <div className="font-semibold">Totaal te betalen</div>
+                    <div className="text-2xl font-bold text-primary">€41,90</div>
                   </div>
                 </div>
               </div>

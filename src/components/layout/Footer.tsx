@@ -115,8 +115,7 @@ export const Footer = () => {
               <div className="flex items-start gap-3">
                 <Clock className="h-4 w-4 text-background/60 mt-0.5" />
                 <div className="text-sm text-background/80">
-                  Maandag t/m vrijdag 8:00 - 17:30<br />
-                  Voor persoonlijk advies en ondersteuning
+                  Maandag t/m vrijdag 8:00 - 17:30
                 </div>
               </div>
             </div>
