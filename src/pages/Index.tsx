@@ -89,7 +89,7 @@ const Index = () => {
                     <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="sm" className="flex-1">
+                <Button asChild variant="outline" size="sm" className="flex-1 text-blue-900 hover:text-blue-900">
                   <Link to="/over-ons">
                     Meer info
                   </Link>
@@ -199,7 +199,7 @@ const Index = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  Wat bieden wij aan?
+              Waarom ons advies?
                 </h2>
                 <p className="text-muted-foreground mb-8">
                   Professioneel en persoonlijk advies van rijschoolexperts voor de goedkoopste én beste rijscholen.
@@ -290,7 +290,7 @@ const Index = () => {
             <p className="opacity-90 text-white">Maandag t/m vrijdag 8:00-17:30 voor U beschikbaar</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-3 gap-4 md:grid-cols-4 md:gap-6">
             {[{
               number: "Persoonlijk",
               label: "Advies op maat"
@@ -331,7 +331,7 @@ const Index = () => {
                     Vraag offerte aan
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="sm" className="flex-1 max-w-[200px]">
+                <Button asChild variant="outline" size="sm" className="flex-1 max-w-[200px] text-blue-900 hover:text-blue-900">
                   <Link to="/over-ons">
                     Meer info
                   </Link>

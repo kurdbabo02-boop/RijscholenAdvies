@@ -220,7 +220,7 @@ const AanvraagPage = () => {
               {formData.rijbewijsType && !['B', 'BE'].includes(formData.rijbewijsType) && (
                 <div className="p-4 bg-muted/50 rounded-lg border">
                   <p className="text-sm text-muted-foreground">
-                    Voor {formData.rijbewijsType} rijbewijs is er geen keuze tussen automaat en schakel. 
+                    Dit type rijles voorkeuren is niet voor dit type rijbewijs nodig. 
                     Wij vinden automatisch de juiste rijschool voor u.
                   </p>
                 </div>
@@ -261,7 +261,7 @@ const AanvraagPage = () => {
                 </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 md:grid-cols-1 gap-4">
               <div className="flex items-center gap-3 p-4 bg-primary/5 rounded-lg border border-primary/10">
                 <Shield className="h-8 w-8 text-primary" />
                 <div>

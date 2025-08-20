@@ -37,7 +37,7 @@ const OverOnsPage = () => {
     <div className="min-h-screen bg-gradient-subtle">
       <Header />
       
-      <main className="container mx-auto px-4 py-8 pt-24">
+      <main className="container mx-auto px-4 py-8 pt-16">
         {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -168,7 +168,7 @@ const OverOnsPage = () => {
               className="absolute inset-0 bg-cover bg-center opacity-30"
               style={{ backgroundImage: `url(${teamBackground})` }}
             />
-            <div className="absolute inset-0 bg-gradient-primary opacity-90" />
+            <div className="absolute inset-0 bg-gradient-primary opacity-60" />
             <CardContent className="relative py-12 text-white">
               <h2 className="text-3xl font-bold mb-4">
                 Klaar om te starten?
@@ -182,7 +182,7 @@ const OverOnsPage = () => {
                     Vraag offerte aan
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="text-white border-white hover:bg-white hover:text-primary">
+                <Button asChild variant="outline" size="lg" className="text-blue-900 border-white hover:bg-white hover:text-blue-900">
                   <Link to="/over-ons">
                     Meer info
                   </Link>
