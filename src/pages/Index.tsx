@@ -50,17 +50,17 @@ const Index = () => {
     type: "Schakel"
   }];
   const stats = [{
-    number: "24/7",
-    label: "Professioneel beschikbaar"
+    number: "Kwaliteit",
+    label: "Gecertificeerde rijscholen"
   }, {
-    number: "Beste",
-    label: "Rijscholen geselecteerd"
+    number: "Persoonlijk",
+    label: "Advies op maat"
   }, {
-    number: "Goedkoopste",
-    label: "Prijzen gegarandeerd"
+    number: "Snel",
+    label: "Direct contact"
   }, {
-    number: "Direct hulp",
-    label: "Bij aanmelding"
+    number: "Betrouwbaar",
+    label: "Al sinds 2014"
   }];
   return <div className="min-h-screen bg-gradient-subtle">
       <Header />
@@ -76,7 +76,7 @@ const Index = () => {
                   <span className="text-primary"> rijscholen  </span>
                   <br />die bij U past
                 </h1>
-                <p className="text-lg text-muted-foreground leading-relaxed">Persoonlijk advies voor de goedkoopste én beste rijschool in uw buurt. Wij helpen u ook direct bij aanmelding.</p>
+                <p className="text-lg text-muted-foreground leading-relaxed">Persoonlijk advies voor de goedkoopste én beste rijschool in uw omgeving. Wij helpen u ook direct bij aanmelding.</p>
               </div>
 
               <div className="flex gap-3">
@@ -114,8 +114,8 @@ const Index = () => {
                     <Star className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <div className="font-semibold">Goedkoopste én beste</div>
-                    <div className="text-sm text-muted-foreground">Rijscholen voor U</div>
+                    <div className="font-semibold">Kwaliteit rijscholen</div>
+                    <div className="text-sm text-muted-foreground">Alleen de beste voor U</div>
                   </div>
                 </div>
               </div>
@@ -129,7 +129,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Waarom kiezen voor ons advies?
+              Wat bieden wij aan?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Snel en betrouwbaar de juiste rijschool vinden
@@ -196,7 +196,7 @@ const Index = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  Waarom kiezen voor ons advies?
+                  Wat bieden wij aan?
                 </h2>
                 <p className="text-muted-foreground mb-8">
                   Professioneel en persoonlijk advies van rijschoolexperts voor de goedkoopste én beste rijscholen.
@@ -301,7 +301,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <Card className="max-w-3xl mx-auto shadow-hero">
             <CardContent className="py-12 text-center">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Zullen wij uw rijsch</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Klaar om de beste rijschool te vinden?</h2>
               <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
                 Ontdek Uw perfecte rijschool. Start vandaag nog!
               </p>

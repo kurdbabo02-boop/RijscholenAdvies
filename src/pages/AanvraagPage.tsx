@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -9,7 +8,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Car, Clock, Shield, Star } from "lucide-react";
+import { Car, Clock, Shield, Star, Bike, Truck, Bus, Tractor, Phone } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 interface FormData {
   naam: string;
@@ -22,6 +23,7 @@ interface FormData {
 
 const AanvraagPage = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [formData, setFormData] = useState<FormData>({
     naam: "",
     email: "",
@@ -32,16 +34,41 @@ const AanvraagPage = () => {
   });
 
   const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const totalSteps = 3;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
     } else {
-      // Navigate to confirmation with form data
-      navigate("/bevestiging", { state: { formData } });
+      setIsSubmitting(true);
+      try {
+        // Send email notification
+        const { error } = await supabase.functions.invoke('send-contact-email', {
+          body: { ...formData }
+        });
+
+        if (error) throw error;
+
+        toast({
+          title: "Aanvraag verzonden!",
+          description: "Ons team neemt vandaag nog contact met u op.",
+        });
+
+        // Navigate to confirmation with form data
+        navigate("/bevestiging", { state: { formData } });
+      } catch (error) {
+        console.error('Error sending email:', error);
+        toast({
+          title: "Er is iets misgegaan",
+          description: "Probeer het opnieuw of neem telefonisch contact op.",
+          variant: "destructive"
+        });
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -55,6 +82,24 @@ const AanvraagPage = () => {
     "Arnhem", "Zaanstad", "Haarlemmermeer", "Enschede", "Amersfoort", "Zwolle",
     "Leiden", "Maastricht", "Dordrecht", "Zoetermeer", "Emmen", "Venlo",
     "Deventer", "Delft", "Leeuwarden", "Alkmaar", "Heerlen", "Hilversum"
+  ];
+
+  const rijbewijsTypes = [
+    { value: "AM", label: "AM - Bromfiets / Scooter / Brommobiel", icon: Bike },
+    { value: "A1", label: "A1 - Lichte motorfiets", icon: Bike },
+    { value: "A2", label: "A2 - Middelzware motorfiets", icon: Bike },
+    { value: "A", label: "A - Zware motorfiets", icon: Bike },
+    { value: "B", label: "B - Personenauto", icon: Car },
+    { value: "BE", label: "BE - Auto met aanhanger", icon: Car },
+    { value: "C1", label: "C1 - Kleine vrachtwagen", icon: Truck },
+    { value: "C1E", label: "C1E - Kleine vrachtwagen met aanhanger", icon: Truck },
+    { value: "C", label: "C - Vrachtwagen", icon: Truck },
+    { value: "CE", label: "CE - Vrachtwagen met aanhanger", icon: Truck },
+    { value: "D1", label: "D1 - Kleine bus", icon: Bus },
+    { value: "D1E", label: "D1E - Kleine bus met aanhanger", icon: Bus },
+    { value: "D", label: "D - Bus", icon: Bus },
+    { value: "DE", label: "DE - Bus met aanhanger", icon: Bus },
+    { value: "T", label: "T - Tractor / Landbouwvoertuigen", icon: Tractor }
   ];
 
   const renderStep = () => {
@@ -105,7 +150,7 @@ const AanvraagPage = () => {
               <Label>Stad *</Label>
               <Select value={formData.stad} onValueChange={(value) => handleInputChange("stad", value)}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Selecteer Uw stad" />
+                  <SelectValue placeholder="Selecteer uw stad" />
                 </SelectTrigger>
                 <SelectContent>
                   {stedenDorpen.map((stad) => (
@@ -124,21 +169,27 @@ const AanvraagPage = () => {
                   <SelectValue placeholder="Selecteer het type rijbewijs" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="B">Rijbewijs B - Personenauto</SelectItem>
-                  <SelectItem value="AM">Rijbewijs AM - Bromfiets</SelectItem>
-                  <SelectItem value="A1">Rijbewijs A1 - Lichte motorfiets</SelectItem>
-                  <SelectItem value="A2">Rijbewijs A2 - Middelzware motorfiets</SelectItem>
-                  <SelectItem value="A">Rijbewijs A - Zware motorfiets</SelectItem>
+                  {rijbewijsTypes.map((type) => {
+                    const IconComponent = type.icon;
+                    return (
+                      <SelectItem key={type.value} value={type.value} className="flex items-center gap-2">
+                        <div className="flex items-center gap-2">
+                          <IconComponent className="h-4 w-4" />
+                          {type.label}
+                        </div>
+                      </SelectItem>
+                    );
+                  })}
                 </SelectContent>
               </Select>
             </div>
             
             <div className="space-y-4">
-              <Label>Type rijles *</Label>
+              <Label>Type rijles voorkeuren *</Label>
               <RadioGroup 
                 value={formData.typeRijles} 
                 onValueChange={(value) => handleInputChange("typeRijles", value)}
-                className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+                className="grid grid-cols-1 gap-4"
               >
                 <div className="flex items-center space-x-3 border-2 rounded-lg p-4 hover:border-primary/50 transition-all duration-200">
                   <RadioGroupItem value="automaat" id="automaat" />
@@ -154,6 +205,13 @@ const AanvraagPage = () => {
                     <div className="text-sm text-muted-foreground">Traditioneel, meer controle</div>
                   </Label>
                 </div>
+                <div className="flex items-center space-x-3 border-2 rounded-lg p-4 hover:border-primary/50 transition-all duration-200">
+                  <RadioGroupItem value="nog-niet-zeker" id="nog-niet-zeker" />
+                  <Label htmlFor="nog-niet-zeker" className="flex-1 cursor-pointer">
+                    <div className="font-medium text-foreground">Nog niet zeker</div>
+                    <div className="text-sm text-muted-foreground">Neem contact op en wij helpen u kiezen welke het beste bij u past - gratis hulp</div>
+                  </Label>
+                </div>
               </RadioGroup>
             </div>
           </div>
@@ -163,7 +221,7 @@ const AanvraagPage = () => {
         return (
           <div className="space-y-6">
               <div className="bg-muted/30 rounded-lg p-6 border">
-              <h3 className="font-semibold mb-4 text-foreground">Controleer Uw gegevens</h3>
+              <h3 className="font-semibold mb-4 text-foreground">Controleer uw gegevens</h3>
                 <div className="space-y-2 text-sm">
                 <div><span className="font-medium text-foreground">Naam:</span> <span className="text-muted-foreground">{formData.naam}</span></div>
                 <div><span className="font-medium text-foreground">E-mail:</span> <span className="text-muted-foreground">{formData.email}</span></div>
@@ -186,8 +244,8 @@ const AanvraagPage = () => {
               <div className="flex items-center gap-3 p-4 bg-secondary/5 rounded-lg border border-secondary/10">
                 <Clock className="h-8 w-8 text-secondary" />
                 <div>
-                  <div className="font-medium text-foreground">Snel advies</div>
-                  <div className="text-sm text-muted-foreground">Binnen 24 uur persoonlijk advies</div>
+                  <div className="font-medium text-foreground">Direct advies</div>
+                  <div className="text-sm text-muted-foreground">Ons team neemt vandaag nog contact op</div>
                 </div>
               </div>
               
@@ -197,6 +255,17 @@ const AanvraagPage = () => {
                   <div className="font-medium text-foreground">Beste kwaliteit</div>
                   <div className="text-sm text-muted-foreground">Goedkoopste én beste rijscholen</div>
                 </div>
+              </div>
+            </div>
+
+            {/* Contact info for urgent questions */}
+            <div className="bg-primary/5 rounded-lg p-4 border border-primary/10">
+              <div className="flex items-center gap-3 mb-2">
+                <Phone className="h-5 w-5 text-primary" />
+                <div className="font-medium text-foreground">Voor spoedvragen</div>
+              </div>
+              <div className="text-sm text-muted-foreground">
+                Bel direct <span className="font-medium text-primary">+31 638901956</span> - ook buiten kantooruren bereikbaar voor dringende vragen
               </div>
             </div>
           </div>
@@ -251,9 +320,9 @@ const AanvraagPage = () => {
                 {currentStep === 3 && "Bevestiging"}
               </CardTitle>
               <CardDescription>
-                {currentStep === 1 && "Deel Uw contactgegevens met ons zodat wij U persoonlijk kunnen helpen"}
-                {currentStep === 2 && "Vertel ons over Uw rijlesvoorkeuren en wensen"}
-                {currentStep === 3 && "Controleer en bevestig Uw aanvraag voor persoonlijk advies"}
+                {currentStep === 1 && "Deel uw contactgegevens met ons zodat wij u persoonlijk kunnen helpen"}
+                {currentStep === 2 && "Vertel ons over uw rijlesvoorkeuren en wensen"}
+                {currentStep === 3 && "Controleer en bevestig uw aanvraag voor persoonlijk advies"}
               </CardDescription>
             </CardHeader>
             
@@ -268,17 +337,18 @@ const AanvraagPage = () => {
                       variant="outline" 
                       onClick={() => setCurrentStep(currentStep - 1)}
                       className="flex-1"
+                      disabled={isSubmitting}
                     >
                       Vorige
                     </Button>
                   )}
                   <Button 
                     type="submit" 
-                    disabled={!isStepValid()}
+                    disabled={!isStepValid() || isSubmitting}
                     className="flex-1"
                     variant={currentStep === totalSteps ? "default" : "default"}
                   >
-                    {currentStep === totalSteps ? "Naar bevestiging" : "Volgende"}
+                    {isSubmitting ? "Versturen..." : (currentStep === totalSteps ? "Naar betaling" : "Volgende")}
                   </Button>
                 </div>
               </form>

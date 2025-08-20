@@ -47,7 +47,7 @@ export const Footer = () => {
             </Link>
             <p className="text-sm text-background/80 leading-relaxed">
               Al sinds 2014 helpen wij mensen bij het vinden van de beste rijschool. 
-              Professioneel advies voor Uw perfecte match.
+              Wij zoeken en vinden de beste rijscholen voor u.
             </p>
             
             {/* Social links */}
@@ -106,16 +106,16 @@ export const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-background/60" />
-                <span className="text-sm text-background/80">+31 685719049</span>
+                <span className="text-sm text-background/80">+31 638901956</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-background/60" />
-                <span className="text-sm text-background/80">info@rijschooladvies.nl</span>
+                <span className="text-sm text-background/80">info@rijscholenadvies.nl</span>
               </div>
               <div className="flex items-start gap-3">
                 <Clock className="h-4 w-4 text-background/60 mt-0.5" />
                 <div className="text-sm text-background/80">
-                  Dagelijks 24/7 bereikbaar<br />
+                  Maandag t/m vrijdag 8:00 - 17:30<br />
                   Voor persoonlijk advies en ondersteuning
                 </div>
               </div>
@@ -153,7 +153,7 @@ export const Footer = () => {
             <div className="flex justify-center items-center gap-8 opacity-60">
               <div className="text-xs">Gecertificeerd KVK</div>
               <div className="text-xs">SSL beveiligd</div>
-              <div className="text-xs">24/7 bereikbaar</div>
+              <div className="text-xs">Maandag t/m vrijdag 8:00-17:30</div>
             </div>
           </div>
         </div>

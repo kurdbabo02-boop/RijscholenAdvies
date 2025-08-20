@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AanvraagPage from "./pages/AanvraagPage";
 import BevestigingPage from "./pages/BevestigingPage";
+import BetalingGeluktPage from "./pages/BetalingGeluktPage";
 import ContactPage from "./pages/ContactPage";
 import OverOnsPage from "./pages/OverOnsPage";
 import DienstenPage from "./pages/DienstenPage";
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/aanvraag" element={<AanvraagPage />} />
           <Route path="/bevestiging" element={<BevestigingPage />} />
+          <Route path="/betaling-gelukt" element={<BetalingGeluktPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/over-ons" element={<OverOnsPage />} />
           <Route path="/diensten" element={<DienstenPage />} />

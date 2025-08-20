@@ -10,8 +10,8 @@ import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 const ContactPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle contact form submission
-    alert("Bedankt voor je bericht! We nemen binnen 24 uur contact met je op.");
+    // Show success message
+    alert("Bedankt voor uw bericht! Ons team neemt vandaag nog contact met u op.");
   };
 
   return (
@@ -37,7 +37,7 @@ const ContactPage = () => {
                     Contactgegevens
                   </CardTitle>
                   <CardDescription>
-                    Neem direct contact op - wij zijn 24/7 bereikbaar
+                    Heeft u vragen? Neem contact op voor spoed ook buiten kantooruren beschikbaar
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -48,7 +48,7 @@ const ContactPage = () => {
                       </div>
                       <div>
                         <div className="font-medium">Telefoon</div>
-                        <div className="text-muted-foreground">+31 685719049</div>
+                        <div className="text-muted-foreground">+31 638901956</div>
                       </div>
                     </div>
                     
@@ -58,7 +58,7 @@ const ContactPage = () => {
                       </div>
                       <div>
                         <div className="font-medium">E-mail</div>
-                        <div className="text-muted-foreground">info@rijschooladvies.nl</div>
+                        <div className="text-muted-foreground">info@rijscholenadvies.nl</div>
                       </div>
                     </div>
                     
@@ -69,8 +69,9 @@ const ContactPage = () => {
                       <div>
                         <div className="font-medium">Bereikbaarheid</div>
                         <div className="text-muted-foreground">
-                          Dagelijks 24/7 beschikbaar voor persoonlijk advies<br />
-                          Telefonisch en digitaal bereikbaar
+                          Maandag t/m vrijdag 8:00 - 17:30<br />
+                          Voor persoonlijk advies en ondersteuning<br />
+                          Voor spoed ook buiten kantooruren bereikbaar
                         </div>
                       </div>
                     </div>
@@ -110,7 +111,7 @@ const ContactPage = () => {
               <CardHeader>
                 <CardTitle>Stuur ons een bericht</CardTitle>
                 <CardDescription>
-                  Wij beantwoorden Uw vraag binnen 24 uur
+                  Ons team beantwoordt uw vraag direct
                 </CardDescription>
               </CardHeader>
               <CardContent>

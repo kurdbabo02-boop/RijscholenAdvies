@@ -8,11 +8,11 @@ const FAQPage = () => {
   const faqData = [
     {
       question: "Wat kost het advies?",
-      answer: "Ons persoonlijk advies kost €40. Hiervoor ontvang je een volledig op maat gemaakt advies, vergelijking van de beste rijscholen in jouw regio, en persoonlijke begeleiding bij de aanmelding."
+      answer: "Ons persoonlijk advies kost €34,50. Hiervoor ontvang u een volledig op maat gemaakt advies, vergelijking van de beste rijscholen in uw omgeving, en persoonlijke begeleiding bij de aanmelding."
     },
     {
       question: "Hoe snel ontvang ik het advies?",
-      answer: "Binnen 24 uur na je aanvraag nemen wij contact met je op. Ons team is 24/7 bereikbaar en garandeert een reactietijd van maximaal 30 minuten voor urgente vragen."
+      answer: "Direct na uw aanvraag nemen wij contact met u op. Ons team is bereikbaar van maandag t/m vrijdag van 8:00 tot 17:30. Voor urgente vragen zijn wij ook buiten kantooruren beschikbaar."
     },
     {
       question: "Welke rijscholen bevelen jullie aan?",
@@ -23,28 +23,28 @@ const FAQPage = () => {
       answer: "Absoluut. Wij helpen al meer dan 10 jaar mensen bij het vinden van de perfecte rijschool. Ons team bestaat uit rijschoolexperts met uitgebreide kennis van de sector en een groot netwerk van betrouwbare rijscholen."
     },
     {
-      question: "Voor welke rijbewijzen kunnen jullie helpen?",
-      answer: "Wij kunnen adviseren voor alle gangbare rijbewijzen: B (personenauto), AM (bromfiets), A1, A2 en A (motorfietsen). Voor zowel handgeschakelde als automatische transmissie."
+      question: "Voor welke rijbewijzen kunnen wij helpen?",
+      answer: "Wij kunnen adviseren voor alle rijbewijzen: AM (bromfiets/scooter), A1/A2/A (motor), B (auto), BE (auto met aanhanger), C1/C1E/C/CE (vrachtwagens), D1/D1E/D/DE (bussen), en T (tractor/landbouwvoertuigen). Voor zowel handgeschakelde als automatische transmissie."
     },
     {
       question: "Wat gebeurt er na het advies?",
       answer: "Na ons advies ontvang je direct de contactgegevens van de aanbevolen rijscholen. Wij helpen je ook bij het aanmeldingsproces en bieden gratis nazorg. Je bent nergens toe verplicht en kunt vrijblijvend contact opnemen."
     },
     {
-      question: "Werken jullie landelijk?",
-      answer: "Ja, wij dekken heel Nederland af. Ons netwerk van rijscholen is beschikbaar in alle steden en dorpen, van Amsterdam tot Groningen en van Rotterdam tot Maastricht."
+      question: "Werken wij landelijk?",
+      answer: "Ja, wij hebben contact met rijscholen door heel Nederland. Ons netwerk van rijscholen is beschikbaar in alle steden en dorpen."
     },
     {
       question: "Kan ik het advies ook telefonisch krijgen?",
-      answer: "Zeker! Na je online aanvraag plannen we graag een persoonlijk gesprek. Je kunt ons ook direct bellen op +31 685719049 voor vragen of om je aanvraag telefonisch door te nemen."
+      answer: "Zeker! Na uw online aanvraag plannen wij graag een persoonlijk gesprek. U kunt ons ook direct bellen op +31 638901956 voor vragen of om uw aanvraag telefonisch door te nemen."
     },
     {
       question: "Zijn er extra kosten na het advies?",
-      answer: "Nee, er zijn geen verborgen kosten. Voor €40 krijg je het complete advies en alle begeleiding. Er zijn geen automatische verlengingen of extra kosten."
+      answer: "Nee, er zijn geen verborgen kosten. Voor €34,50 krijgt u het complete advies en alle begeleiding. Er zijn geen automatische verlengingen of extra kosten."
     },
     {
       question: "Wat als ik niet tevreden ben?",
-      answer: "Jouw tevredenheid staat voorop. Mocht je niet tevreden zijn met ons advies, dan zoeken we samen naar een oplossing. Ons doel is dat je de perfecte rijschool vindt die bij jou past."
+      answer: "Uw tevredenheid staat voorop. Mocht u niet tevreden zijn met ons advies, dan zoeken wij samen naar een oplossing. Ons doel is dat u de perfecte rijschool vindt die bij u past."
     }
   ];
 

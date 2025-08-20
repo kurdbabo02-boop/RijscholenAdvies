@@ -34,11 +34,11 @@ export const Header = () => {
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span>+31 685719049</span>
+                <span>+31 638901956</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <span>info@rijschooladvies.nl</span>
+                <span>info@rijscholenadvies.nl</span>
               </div>
             </div>
             <div className="text-xs opacity-90">Maandag-Vrijdag  8:00/17:00</div>
@@ -109,17 +109,17 @@ export const Header = () => {
                 <div className="pt-6 border-t space-y-4">
                   <div className="flex items-center gap-3">
                     <Phone className="h-5 w-5 text-primary" />
-                    <span>+31 685719049</span>
+                    <span>+31 638901956</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail className="h-5 w-5 text-primary" />
-                    <span>info@rijschooladvies.nl</span>
+                    <span>info@rijscholenadvies.nl</span>
                   </div>
                 </div>
 
                 <Button asChild variant="hero" className="mt-4">
                   <Link to="/aanvraag" onClick={() => setIsOpen(false)}>
-                    Start je aanvraag
+                    Vraag je offerte aan
                   </Link>
                 </Button>
               </div>
