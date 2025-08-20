@@ -132,14 +132,14 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Hoe kunnen wij u helpen?
+              Wat bieden wij aan?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Snel en betrouwbaar de juiste rijschool vinden
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8">
             {features.map((feature, index) => <Card key={index} className="shadow-smooth hover:shadow-xl transition-all duration-300 group">
                 <CardHeader className="text-center p-3 md:p-6">
                   <div className="mx-auto mb-3 md:mb-4 h-8 w-8 md:h-12 md:w-12 rounded-lg bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -167,7 +167,7 @@ const Index = () => {
             <p className="text-lg text-muted-foreground">3 stappen naar het best passend rijschool</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-3 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
             {[{
             step: "1",
             title: "Vertel over uzelf",

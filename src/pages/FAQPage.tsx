@@ -28,7 +28,7 @@ const FAQPage = () => {
     },
     {
       question: "Wat gebeurt er na het advies?",
-      answer: "Na ons advies ontvangt u direct de contactgegevens van de aanbevolen rijscholen. Wij helpen u ook bij het aanmeldingsproces en bieden gratis nazorg. U bent nergens toe verplicht en kunt vrijblijvend contact opnemen."
+      answer: "Na ons advies ontvang je direct de contactgegevens van de aanbevolen rijscholen. Wij helpen je ook bij het aanmeldingsproces en bieden gratis nazorg. Je bent nergens toe verplicht en kunt vrijblijvend contact opnemen."
     },
     {
       question: "Werken wij landelijk?",

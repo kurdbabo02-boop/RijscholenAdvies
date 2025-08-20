@@ -147,7 +147,7 @@ export const Footer = () => {
         <div className="border-t border-background/20 py-6">
           <div className="text-center">
             <div className="text-sm text-background/60 mb-4">
-              Vertrouwd door 2,500+ tevreden klanten
+              Vertrouwd door 10,000+ tevreden klanten
             </div>
             <div className="flex justify-center items-center gap-8 opacity-60">
               <div className="text-xs">Gecertificeerd KVK</div>

@@ -79,7 +79,7 @@ const ContactPage = () => {
       
       <main className="container mx-auto px-4 py-8 pt-24">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 mt-16">
+          <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4">Contact opnemen</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Heeft U vragen over ons advies? Wij helpen U graag verder!

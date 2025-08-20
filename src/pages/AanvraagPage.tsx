@@ -220,7 +220,7 @@ const AanvraagPage = () => {
               {formData.rijbewijsType && !['B', 'BE'].includes(formData.rijbewijsType) && (
                 <div className="p-4 bg-muted/50 rounded-lg border">
                   <p className="text-sm text-muted-foreground">
-                    Dit type rijbewijs heeft geen keuze tussen automaat en schakel. 
+                    Voor {formData.rijbewijsType} rijbewijs is er geen keuze tussen automaat en schakel. 
                     Wij vinden automatisch de juiste rijschool voor u.
                   </p>
                 </div>
