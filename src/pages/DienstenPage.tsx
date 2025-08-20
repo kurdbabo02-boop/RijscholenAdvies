@@ -79,7 +79,7 @@ const DienstenPage = () => {
         {/* Services Grid */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
               {services.map((service, index) => (
                 <Card key={index} className="shadow-smooth">
                   <CardHeader>
@@ -114,7 +114,7 @@ const DienstenPage = () => {
               <h2 className="text-3xl font-bold text-center mb-12">
                 Hoe werkt ons advies?
               </h2>
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[
                   {
                     step: "1",
@@ -162,7 +162,7 @@ const DienstenPage = () => {
               <Button asChild variant="secondary" size="lg">
                 <Link to="/aanvraag">Vraag offerte aan</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="text-white border-white hover:bg-white hover:text-primary">
+              <Button asChild variant="outline" size="lg" className="text-primary border-primary bg-white hover:bg-primary hover:text-white">
                 <Link to="/over-ons">Meer info</Link>
               </Button>
             </div>
