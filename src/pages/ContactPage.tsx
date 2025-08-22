@@ -146,7 +146,8 @@ const ContactPage = () => {
                   <div>
                     <div className="font-medium mb-2">Hoe snel krijgt U advies?</div>
                     <div className="text-sm text-muted-foreground">
-                      Binnen 24 uur na Uw aanvraag en betaling ontvangt U ons professioneel advies.
+                      Ons team neemt direct na Uw aanvraag en betaling contact met U op voor de bet gepaste advies.
+                     
                     </div>
                   </div>
                   <div>
