@@ -45,7 +45,7 @@ export const Header = () => {
               </div>
             </div>
             <div className="flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full">
-              <span className="font-medium">Maandag-Vrijdag 8:00-17:30</span>
+              <span className="font-medium">Maandag t/m vrijdag 8:00-17:30</span>
             </div>
           </div>
         </div>
