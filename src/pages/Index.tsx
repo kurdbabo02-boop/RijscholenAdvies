@@ -16,7 +16,7 @@ const Index = () => {
   }, {
     icon: Shield,
     title: "Alleen kwaliteit",
-    description: "Alle rijscholen in ons netwerk zijn gecertificeerd en goedkoopste én beste."
+    description: "Alle rijscholen in ons netwerk zijn gecertificeerd, goedkoopste én beste."
   }, {
     icon: Clock,
     title: "Snel advies",
@@ -78,7 +78,7 @@ const Index = () => {
                   Ons <span className="text-primary">team</span> zoekt de <span className="text-primary">beste</span> rijschool 
                   <br />voor U
                 </h1>
-                <p className="text-lg text-muted-foreground leading-relaxed">Goedkoop én in één keer slagen — wij regelen uw rijopleiding én aanmelding!</p>
+                <p className="text-lg text-muted-foreground leading-relaxed">Goedkoop én in één keer slagen, wij regelen uw rijopleiding én aanmelding!</p>
               </div>
 
               <div className="flex gap-3">
@@ -134,7 +134,7 @@ const Index = () => {
               Wat bieden wij aan?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Snel en betrouwbaar de juiste rijschool vinden
+              Wij leren u niet autorijden, wij leren u goed autorijden. 
             </p>
           </div>
 
@@ -178,7 +178,7 @@ const Index = () => {
           }, {
             step: "3",
             title: "Begint met lessen",
-            description: "Direct starten bij beste rijschool!"
+            description: "Begin direct bij de goedkoopste én kansrijkste rijschool!"
           }].map((item, index) => <div key={index} className="text-center relative">
                 <div className="mx-auto mb-3 md:mb-6 h-12 w-12 md:h-16 md:w-16 rounded-full bg-gradient-primary flex items-center justify-center text-white text-lg md:text-xl font-bold">
                   {item.step}
@@ -249,7 +249,7 @@ const Index = () => {
               Wat zeggen onze klanten?
             </h2>
             <p className="text-lg text-muted-foreground">
-              Meer dan 2,500 tevreden klanten
+              Meer dan 2,500 tevreden klanten!
             </p>
           </div>
 
@@ -322,7 +322,7 @@ const Index = () => {
             <CardContent className="py-12 text-center">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Klaar om te starten?</h2>
               <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-                Ons professionele team helpt U persoonlijk bij het vinden van de perfecte rijschool in uw omgeving.
+                Onze team helpt u persoonlijk bij het vinden van de perfecte rijschool in uw omgeving.
               </p>
               
               <div className="flex gap-3 justify-center">
