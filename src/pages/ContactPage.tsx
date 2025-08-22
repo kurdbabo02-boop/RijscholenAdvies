@@ -6,77 +6,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 
 const ContactPage = () => {
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Send contact email
-    try {
-      const { error } = await supabase.functions.invoke('send-contact-email', {
-        body: {
-          naam: (e.target as any).voornaam.value + ' ' + (e.target as any).achternaam.value,
-          email: (e.target as any).email.value,
-          telefoon: (e.target as any).telefoon.value,
-          onderwerp: (e.target as any).onderwerp.value,
-          bericht: (e.target as any).bericht.value
-        }
-      });
-
-      if (error) throw error;
-
-      // Show success message in UI instead of popup
-      const successMessage = document.createElement('div');
-      successMessage.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-50 border border-green-200 text-green-800 px-6 py-4 rounded-lg shadow-lg z-50';
-      successMessage.innerHTML = `
-        <div class="flex items-center gap-3">
-          <svg class="h-5 w-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          <div>
-            <div class="font-medium">Bericht succesvol verzonden!</div>
-            <div class="text-sm">Ons team neemt vandaag nog zo spoedig mogelijk contact met u op via telefoon of e-mail.</div>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(successMessage);
-      
-      // Reset form
-      (e.target as HTMLFormElement).reset();
-      
-      // Remove success message after 5 seconds
-      setTimeout(() => {
-        document.body.removeChild(successMessage);
-      }, 5000);
-      
-    } catch (error) {
-      console.error('Error sending email:', error);
-      const errorMessage = document.createElement('div');
-      errorMessage.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-red-50 border border-red-200 text-red-800 px-6 py-4 rounded-lg shadow-lg z-50';
-      errorMessage.innerHTML = `
-        <div class="flex items-center gap-3">
-          <svg class="h-5 w-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          <div>
-            <div class="font-medium">Er is iets misgegaan</div>
-            <div class="text-sm">Probeer het opnieuw of bel ons direct.</div>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(errorMessage);
-      
-      setTimeout(() => {
-        document.body.removeChild(errorMessage);
-      }, 5000);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-subtle">
       <Header />
-      
+
       <main className="container mx-auto px-4 py-8 pt-32">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
@@ -110,7 +45,7 @@ const ContactPage = () => {
                         <div className="text-muted-foreground">+31 638901956</div>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center gap-4">
                       <div className="h-10 w-10 rounded-lg bg-secondary/10 flex items-center justify-center">
                         <Mail className="h-5 w-5 text-secondary" />
@@ -120,7 +55,7 @@ const ContactPage = () => {
                         <div className="text-muted-foreground">info@rijscholenadvies.nl</div>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center gap-4">
                       <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
                         <Clock className="h-5 w-5 text-primary" />
@@ -129,8 +64,7 @@ const ContactPage = () => {
                         <div className="font-medium">Bereikbaarheid</div>
                         <div className="text-muted-foreground">
                           Maandag t/m vrijdag 8:00 - 17:30<br />
-                          Voor spoed advies en ondersteuning ook buiten kantooruren bereikbaar.<br />
-                          
+                          Voor spoed advies en ondersteuning ook buiten kantooruren bereikbaar.
                         </div>
                       </div>
                     </div>
@@ -146,8 +80,7 @@ const ContactPage = () => {
                   <div>
                     <div className="font-medium mb-2">Hoe snel krijgt U advies?</div>
                     <div className="text-sm text-muted-foreground">
-                      Ons team neemt direct na Uw aanvraag en betaling contact met U op voor de bet gepaste advies.
-                     
+                      Ons team neemt direct na Uw aanvraag en betaling contact met U op voor het beste gepaste advies.
                     </div>
                   </div>
                   <div>
@@ -159,7 +92,7 @@ const ContactPage = () => {
                   <div>
                     <div className="font-medium mb-2">Wat kost het advies?</div>
                     <div className="text-sm text-muted-foreground">
-                      Ons persoonlijk advies kost €34,50. Hiervoor ontvang u een volledig op maat gemaakt advies, vergelijking van de beste rijscholen in uw omgeving, en persoonlijke begeleiding bij de aanmelding.
+                      Ons persoonlijk advies kost €34,50. Hiervoor ontvangt u een volledig op maat gemaakt advies, vergelijking van de beste rijscholen in uw omgeving, en persoonlijke begeleiding bij de aanmelding.
                     </div>
                   </div>
                 </CardContent>
@@ -175,12 +108,18 @@ const ContactPage = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  className="space-y-6"
+                >
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="voornaam">Voornaam *</Label>
                       <Input
                         id="voornaam"
+                        name="voornaam"
                         placeholder="Jan"
                         required
                       />
@@ -189,49 +128,54 @@ const ContactPage = () => {
                       <Label htmlFor="achternaam">Achternaam *</Label>
                       <Input
                         id="achternaam"
+                        name="achternaam"
                         placeholder="van der Berg"
                         required
                       />
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2">
                     <Label htmlFor="email">E-mailadres *</Label>
                     <Input
                       id="email"
+                      name="email"
                       type="email"
                       placeholder="jan@voorbeeld.nl"
                       required
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <Label htmlFor="telefoon">Telefoonnummer</Label>
                     <Input
                       id="telefoon"
+                      name="telefoon"
                       placeholder="06-12345678"
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <Label htmlFor="onderwerp">Onderwerp *</Label>
                     <Input
                       id="onderwerp"
+                      name="onderwerp"
                       placeholder="Vraag over rijschooladvies"
                       required
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <Label htmlFor="bericht">Bericht *</Label>
                     <Textarea
                       id="bericht"
+                      name="bericht"
                       placeholder="Typ hier je vraag of opmerking..."
                       rows={5}
                       required
                     />
                   </div>
-                  
+
                   <Button type="submit" variant="hero" size="lg" className="w-full">
                     Verstuur bericht
                   </Button>
@@ -241,7 +185,7 @@ const ContactPage = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );
