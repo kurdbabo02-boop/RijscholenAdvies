@@ -78,7 +78,7 @@ const Index = () => {
                   Ons <span className="text-primary">team</span> zoekt de <span className="text-primary">beste</span> rijschool 
                   <br />voor U
                 </h1>
-                <p className="text-lg text-muted-foreground leading-relaxed">Persoonlijk advies voor de goedkoopste én beste rijschool in uw omgeving. Wij helpen u ook direct bij aanmelding.</p>
+                <p className="text-lg text-muted-foreground leading-relaxed">Goedkoop én in één keer slagen — wij regelen uw rijopleiding én aanmelding!</p>
               </div>
 
               <div className="flex gap-3">
