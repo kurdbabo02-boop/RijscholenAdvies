@@ -39,7 +39,7 @@ const AanvraagPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
     } else {
@@ -50,10 +50,7 @@ const AanvraagPage = () => {
           body: { ...formData }
         });
 
-        if (emailError) {
-          console.error('Email error:', emailError);
-          // Continue with payment even if email fails
-        }
+        if (emailError) console.error('Email error:', emailError);
 
         // Create Stripe payment session
         const { data: paymentData, error: paymentError } = await supabase.functions.invoke('create-payment', {
@@ -63,7 +60,6 @@ const AanvraagPage = () => {
         if (paymentError) throw paymentError;
 
         if (paymentData?.url) {
-          // Redirect to Stripe checkout
           window.location.href = paymentData.url;
         } else {
           throw new Error("Geen betaling URL ontvangen");
@@ -126,7 +122,6 @@ const AanvraagPage = () => {
                 required
               />
             </div>
-            
             <div className="space-y-2">
               <Label htmlFor="email">E-mailadres *</Label>
               <Input
@@ -138,7 +133,6 @@ const AanvraagPage = () => {
                 required
               />
             </div>
-            
             <div className="space-y-2">
               <Label htmlFor="telefoon">Telefoonnummer *</Label>
               <Input
@@ -151,7 +145,6 @@ const AanvraagPage = () => {
             </div>
           </div>
         );
-        
       case 2:
         return (
           <div className="space-y-6">
@@ -163,14 +156,11 @@ const AanvraagPage = () => {
                 </SelectTrigger>
                 <SelectContent>
                   {stedenDorpen.map((stad) => (
-                    <SelectItem key={stad} value={stad}>
-                      {stad}
-                    </SelectItem>
+                    <SelectItem key={stad} value={stad}>{stad}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
-
             <div className="space-y-2">
               <Label>Type rijbewijs *</Label>
               <Select value={formData.rijbewijsType} onValueChange={(value) => handleInputChange("rijbewijsType", value)}>
@@ -192,16 +182,10 @@ const AanvraagPage = () => {
                 </SelectContent>
               </Select>
             </div>
-            
-            
             <div className="space-y-4">
               <Label>Type rijles voorkeuren *</Label>
               {formData.rijbewijsType && ['B', 'BE'].includes(formData.rijbewijsType) && (
-                <RadioGroup 
-                  value={formData.typeRijles} 
-                  onValueChange={(value) => handleInputChange("typeRijles", value)}
-                  className="grid grid-cols-1 gap-4"
-                >
+                <RadioGroup value={formData.typeRijles} onValueChange={(value) => handleInputChange("typeRijles", value)} className="grid grid-cols-1 gap-4">
                   <div className="flex items-center space-x-3 border-2 rounded-lg p-4 hover:border-primary/50 transition-all duration-200">
                     <RadioGroupItem value="automaat" id="automaat" />
                     <Label htmlFor="automaat" className="flex-1 cursor-pointer">
@@ -225,51 +209,43 @@ const AanvraagPage = () => {
                   </div>
                 </RadioGroup>
               )}
-              
               {formData.rijbewijsType && !['B', 'BE'].includes(formData.rijbewijsType) && (
                 <div className="p-4 bg-muted/50 rounded-lg border">
                   <p className="text-sm text-muted-foreground">
-                    Dit type rijles voorkeuren is niet voor dit type rijbewijs nodig. 
-                    Wij vinden automatisch de juiste rijschool voor u.
+                    Dit type rijles voorkeuren is niet voor dit type rijbewijs nodig. Wij vinden automatisch de juiste rijschool voor u.
                   </p>
                 </div>
               )}
-              
               {!formData.rijbewijsType && (
                 <p className="text-sm text-muted-foreground">Selecteer eerst uw rijbewijstype om de opties te zien.</p>
               )}
-              
               {formData.typeRijles === "nog-niet-zeker" && (
                 <div className="mt-4 p-4 bg-primary/5 rounded-lg border border-primary/10">
                   <p className="text-sm text-muted-foreground mb-3">
                     Twijfelt u tussen automaat of schakel? Ons team helpt u graag bij deze keuze!
                   </p>
                   <Button asChild variant="outline" size="sm">
-                    <Link to="/contact">
-                      Direct contact opnemen
-                    </Link>
+                    <Link to="/contact">Direct contact opnemen</Link>
                   </Button>
                 </div>
               )}
             </div>
           </div>
         );
-        
       case 3:
         return (
           <div className="space-y-6">
-              <div className="bg-muted/30 rounded-lg p-6 border">
+            <div className="bg-muted/30 rounded-lg p-6 border">
               <h3 className="font-semibold mb-4 text-foreground">Controleer uw gegevens</h3>
-                <div className="space-y-2 text-sm">
+              <div className="space-y-2 text-sm">
                 <div><span className="font-medium text-foreground">Naam:</span> <span className="text-muted-foreground">{formData.naam}</span></div>
                 <div><span className="font-medium text-foreground">E-mail:</span> <span className="text-muted-foreground">{formData.email}</span></div>
                 <div><span className="font-medium text-foreground">Telefoon:</span> <span className="text-muted-foreground">{formData.telefoon}</span></div>
                 <div><span className="font-medium text-foreground">Stad:</span> <span className="text-muted-foreground">{formData.stad}</span></div>
                 <div><span className="font-medium text-foreground">Rijbewijs:</span> <span className="text-muted-foreground">{formData.rijbewijsType}</span></div>
                 <div><span className="font-medium text-foreground">Type rijles:</span> <span className="text-muted-foreground">{formData.typeRijles}</span></div>
-                </div>
+              </div>
             </div>
-            
             <div className="grid grid-cols-3 md:grid-cols-1 gap-4">
               <div className="flex items-center gap-3 p-4 bg-primary/5 rounded-lg border border-primary/10">
                 <Shield className="h-8 w-8 text-primary" />
@@ -278,7 +254,6 @@ const AanvraagPage = () => {
                   <div className="text-sm text-muted-foreground">Gecertificeerde rijscholen</div>
                 </div>
               </div>
-              
               <div className="flex items-center gap-3 p-4 bg-secondary/5 rounded-lg border border-secondary/10">
                 <Clock className="h-8 w-8 text-secondary" />
                 <div>
@@ -286,7 +261,6 @@ const AanvraagPage = () => {
                   <div className="text-sm text-muted-foreground">Ons team neemt vandaag nog contact op</div>
                 </div>
               </div>
-              
               <div className="flex items-center gap-3 p-4 bg-accent/5 rounded-lg border border-accent/10">
                 <Star className="h-8 w-8 text-accent" />
                 <div>
@@ -295,8 +269,6 @@ const AanvraagPage = () => {
                 </div>
               </div>
             </div>
-
-            {/* Contact info for urgent questions */}
             <div className="bg-primary/5 rounded-lg p-4 border border-primary/10">
               <div className="flex items-center gap-3 mb-2">
                 <Phone className="h-5 w-5 text-primary" />
@@ -308,7 +280,6 @@ const AanvraagPage = () => {
             </div>
           </div>
         );
-        
       default:
         return null;
     }
@@ -333,23 +304,17 @@ const AanvraagPage = () => {
   return (
     <div className="min-h-screen bg-gradient-subtle">
       <Header />
-      
       <main className="container mx-auto px-4 py-8 pt-24">
         <div className="max-w-2xl mx-auto">
-          {/* Progress indicator */}
           <div className="mb-8">
             <div className="flex items-center justify-between mb-2 mt-8">
               <span className="text-sm font-medium text-foreground">Stap {currentStep} van {totalSteps}</span>
               <span className="text-sm text-muted-foreground">{Math.round((currentStep / totalSteps) * 100)}% voltooid</span>
             </div>
             <div className="w-full bg-muted rounded-full h-2">
-              <div 
-                className="bg-primary h-2 rounded-full transition-all duration-500 ease-out"
-                style={{ width: `${(currentStep / totalSteps) * 100}%` }}
-              ></div>
+              <div className="bg-primary h-2 rounded-full transition-all duration-500 ease-out" style={{ width: `${(currentStep / totalSteps) * 100}%` }}></div>
             </div>
           </div>
-
           <Card className="shadow-lg border animate-fade-in">
             <CardHeader className="text-center">
               <div className="mx-auto mb-4 h-12 w-12 rounded-full bg-primary flex items-center justify-center">
@@ -366,29 +331,22 @@ const AanvraagPage = () => {
                 {currentStep === 3 && "Controleer en bevestig uw aanvraag voor persoonlijk advies"}
               </CardDescription>
             </CardHeader>
-            
             <CardContent>
-             <form 
-  name="aanvraag" 
-  method="POST" 
-  data-netlify="true"
->
-  <input type="hidden" name="form-name" value="aanvraag" />
-
-  {/* jouw bestaande inputs — laat layout en styling zoals je al hebt */}
-  <Input id="voornaam" name="voornaam" placeholder="Jan" required />
-  <Input id="achternaam" name="achternaam" placeholder="Jansen" required />
-  <Input id="email" name="email" type="email" placeholder="jan@voorbeeld.nl" required />
-  <Textarea id="bericht" name="bericht" placeholder="Typ hier je aanvraag..." required />
-
-  <Button type="submit">Verstuur aanvraag</Button>
-</form>
-
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {renderStep()}
+                <div className="flex gap-4 pt-6">
+                  {currentStep > 1 && (
+                    <Button type="button" variant="outline" onClick={() => setCurrentStep(currentStep - 1)} className="flex-1" disabled={isSubmitting}>Vorige</Button>
+                  )}
+                  <Button type="submit" disabled={!isStepValid() || isSubmitting} className="flex-1" variant={currentStep === totalSteps ? "default" : "default"}>
+                    {isSubmitting ? "Versturen..." : (currentStep === totalSteps ? "Naar betaling" : "Volgende")}
+                  </Button>
+                </div>
+              </form>
             </CardContent>
           </Card>
         </div>
       </main>
-      
       <Footer />
     </div>
   );
