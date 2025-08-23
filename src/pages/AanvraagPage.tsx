@@ -42,43 +42,44 @@ const AanvraagPage = () => {
 
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
-    } else {
-      setIsSubmitting(true);
-      try {
-        // Send email notification first
-        const { error: emailError } = await supabase.functions.invoke('send-contact-email', {
-          body: { ...formData }
-        });
+      return;
+    }
 
-        if (emailError) console.error('Email error:', emailError);
+    setIsSubmitting(true);
+    try {
+      // Verstuur eerst naar Supabase (mail via Edge Function)
+      const { error: emailError } = await supabase.functions.invoke("send-contact-email", {
+        body: { ...formData },
+      });
 
-        // Create Stripe payment session
-        const { data: paymentData, error: paymentError } = await supabase.functions.invoke('create-payment', {
-          body: { ...formData }
-        });
+      if (emailError) console.error("Email error:", emailError);
 
-        if (paymentError) throw paymentError;
+      // Maak daarna de Stripe sessie aan
+      const { data: paymentData, error: paymentError } = await supabase.functions.invoke("create-payment", {
+        body: { ...formData },
+      });
 
-        if (paymentData?.url) {
-          window.location.href = paymentData.url;
-        } else {
-          throw new Error("Geen betaling URL ontvangen");
-        }
-      } catch (error) {
-        console.error('Error processing payment:', error);
-        toast({
-          title: "Betaling kon niet worden gestart",
-          description: "Probeer het opnieuw of neem telefonisch contact op.",
-          variant: "destructive"
-        });
-      } finally {
-        setIsSubmitting(false);
+      if (paymentError) throw paymentError;
+
+      if (paymentData?.url) {
+        window.location.href = paymentData.url;
+      } else {
+        throw new Error("Geen betaling URL ontvangen");
       }
+    } catch (error) {
+      console.error("Error processing payment:", error);
+      toast({
+        title: "Betaling kon niet worden gestart",
+        description: "Probeer het opnieuw of neem telefonisch contact op.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   const handleInputChange = (field: keyof FormData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const stedenDorpen = [
@@ -111,11 +112,12 @@ const AanvraagPage = () => {
     switch (currentStep) {
       case 1:
         return (
-          <div className="space-y-6">
+          <>
             <div className="space-y-2">
               <Label htmlFor="naam">Volledige naam *</Label>
               <Input
                 id="naam"
+                name="naam"
                 value={formData.naam}
                 onChange={(e) => handleInputChange("naam", e.target.value)}
                 placeholder="Bijv. Jan van der Berg"
@@ -126,6 +128,7 @@ const AanvraagPage = () => {
               <Label htmlFor="email">E-mailadres *</Label>
               <Input
                 id="email"
+                name="email"
                 type="email"
                 value={formData.email}
                 onChange={(e) => handleInputChange("email", e.target.value)}
@@ -137,20 +140,25 @@ const AanvraagPage = () => {
               <Label htmlFor="telefoon">Telefoonnummer *</Label>
               <Input
                 id="telefoon"
+                name="telefoon"
                 value={formData.telefoon}
                 onChange={(e) => handleInputChange("telefoon", e.target.value)}
                 placeholder="06-12345678"
                 required
               />
             </div>
-          </div>
+          </>
         );
       case 2:
         return (
-          <div className="space-y-6">
+          <>
             <div className="space-y-2">
               <Label>Stad *</Label>
-              <Select value={formData.stad} onValueChange={(value) => handleInputChange("stad", value)}>
+              <Select
+                value={formData.stad}
+                onValueChange={(value) => handleInputChange("stad", value)}
+                name="stad"
+              >
                 <SelectTrigger>
                   <SelectValue placeholder="Selecteer uw stad" />
                 </SelectTrigger>
@@ -163,7 +171,11 @@ const AanvraagPage = () => {
             </div>
             <div className="space-y-2">
               <Label>Type rijbewijs *</Label>
-              <Select value={formData.rijbewijsType} onValueChange={(value) => handleInputChange("rijbewijsType", value)}>
+              <Select
+                value={formData.rijbewijsType}
+                onValueChange={(value) => handleInputChange("rijbewijsType", value)}
+                name="rijbewijsType"
+              >
                 <SelectTrigger>
                   <SelectValue placeholder="Selecteer het type rijbewijs" />
                 </SelectTrigger>
@@ -171,7 +183,7 @@ const AanvraagPage = () => {
                   {rijbewijsTypes.map((type) => {
                     const IconComponent = type.icon;
                     return (
-                      <SelectItem key={type.value} value={type.value} className="flex items-center gap-2">
+                      <SelectItem key={type.value} value={type.value}>
                         <div className="flex items-center gap-2">
                           <IconComponent className="h-4 w-4" />
                           {type.label}
@@ -182,101 +194,18 @@ const AanvraagPage = () => {
                 </SelectContent>
               </Select>
             </div>
-            <div className="space-y-4">
-              <Label>Type rijles voorkeuren *</Label>
-              {formData.rijbewijsType && ['B', 'BE'].includes(formData.rijbewijsType) && (
-                <RadioGroup value={formData.typeRijles} onValueChange={(value) => handleInputChange("typeRijles", value)} className="grid grid-cols-1 gap-4">
-                  <div className="flex items-center space-x-3 border-2 rounded-lg p-4 hover:border-primary/50 transition-all duration-200">
-                    <RadioGroupItem value="automaat" id="automaat" />
-                    <Label htmlFor="automaat" className="flex-1 cursor-pointer">
-                      <div className="font-medium text-foreground">Automaat</div>
-                      <div className="text-sm text-muted-foreground">Eenvoudiger te leren, geen koppeling</div>
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-3 border-2 rounded-lg p-4 hover:border-primary/50 transition-all duration-200">
-                    <RadioGroupItem value="schakel" id="schakel" />
-                    <Label htmlFor="schakel" className="flex-1 cursor-pointer">
-                      <div className="font-medium text-foreground">Schakel</div>
-                      <div className="text-sm text-muted-foreground">Traditioneel, meer controle</div>
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-3 border-2 rounded-lg p-4 hover:border-primary/50 transition-all duration-200">
-                    <RadioGroupItem value="nog-niet-zeker" id="nog-niet-zeker" />
-                    <Label htmlFor="nog-niet-zeker" className="flex-1 cursor-pointer">
-                      <div className="font-medium text-foreground">Nog niet zeker</div>
-                      <div className="text-sm text-muted-foreground">Neem contact op en wij helpen u kiezen welke het beste bij u past - gratis hulp</div>
-                    </Label>
-                  </div>
-                </RadioGroup>
-              )}
-              {formData.rijbewijsType && !['B', 'BE'].includes(formData.rijbewijsType) && (
-                <div className="p-4 bg-muted/50 rounded-lg border">
-                  <p className="text-sm text-muted-foreground">
-                    Dit type rijles voorkeuren is niet voor dit type rijbewijs nodig. Wij vinden automatisch de juiste rijschool voor u.
-                  </p>
-                </div>
-              )}
-              {!formData.rijbewijsType && (
-                <p className="text-sm text-muted-foreground">Selecteer eerst uw rijbewijstype om de opties te zien.</p>
-              )}
-              {formData.typeRijles === "nog-niet-zeker" && (
-                <div className="mt-4 p-4 bg-primary/5 rounded-lg border border-primary/10">
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Twijfelt u tussen automaat of schakel? Ons team helpt u graag bij deze keuze!
-                  </p>
-                  <Button asChild variant="outline" size="sm">
-                    <Link to="/contact">Direct contact opnemen</Link>
-                  </Button>
-                </div>
-              )}
-            </div>
-          </div>
+          </>
         );
       case 3:
         return (
-          <div className="space-y-6">
-            <div className="bg-muted/30 rounded-lg p-6 border">
-              <h3 className="font-semibold mb-4 text-foreground">Controleer uw gegevens</h3>
-              <div className="space-y-2 text-sm">
-                <div><span className="font-medium text-foreground">Naam:</span> <span className="text-muted-foreground">{formData.naam}</span></div>
-                <div><span className="font-medium text-foreground">E-mail:</span> <span className="text-muted-foreground">{formData.email}</span></div>
-                <div><span className="font-medium text-foreground">Telefoon:</span> <span className="text-muted-foreground">{formData.telefoon}</span></div>
-                <div><span className="font-medium text-foreground">Stad:</span> <span className="text-muted-foreground">{formData.stad}</span></div>
-                <div><span className="font-medium text-foreground">Rijbewijs:</span> <span className="text-muted-foreground">{formData.rijbewijsType}</span></div>
-                <div><span className="font-medium text-foreground">Type rijles:</span> <span className="text-muted-foreground">{formData.typeRijles}</span></div>
-              </div>
-            </div>
-            <div className="grid grid-cols-3 md:grid-cols-1 gap-4">
-              <div className="flex items-center gap-3 p-4 bg-primary/5 rounded-lg border border-primary/10">
-                <Shield className="h-8 w-8 text-primary" />
-                <div>
-                  <div className="font-medium text-foreground">Betrouwbaar</div>
-                  <div className="text-sm text-muted-foreground">Gecertificeerde rijscholen</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-secondary/5 rounded-lg border border-secondary/10">
-                <Clock className="h-8 w-8 text-secondary" />
-                <div>
-                  <div className="font-medium text-foreground">Direct advies</div>
-                  <div className="text-sm text-muted-foreground">Ons team neemt vandaag nog contact op</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-accent/5 rounded-lg border border-accent/10">
-                <Star className="h-8 w-8 text-accent" />
-                <div>
-                  <div className="font-medium text-foreground">Beste kwaliteit</div>
-                  <div className="text-sm text-muted-foreground">Goedkoopste én beste rijscholen</div>
-                </div>
-              </div>
-            </div>
-            <div className="bg-primary/5 rounded-lg p-4 border border-primary/10">
-              <div className="flex items-center gap-3 mb-2">
-                <Phone className="h-5 w-5 text-primary" />
-                <div className="font-medium text-foreground">Voor spoedvragen</div>
-              </div>
-              <div className="text-sm text-muted-foreground">
-                Bel direct <span className="font-medium text-primary">+31 638901956</span> - ook buiten kantooruren bereikbaar voor dringende vragen
-              </div>
+          <div className="bg-muted/30 rounded-lg p-6 border">
+            <h3 className="font-semibold mb-4 text-foreground">Controleer uw gegevens</h3>
+            <div className="space-y-2 text-sm">
+              <div><strong>Naam:</strong> {formData.naam}</div>
+              <div><strong>E-mail:</strong> {formData.email}</div>
+              <div><strong>Telefoon:</strong> {formData.telefoon}</div>
+              <div><strong>Stad:</strong> {formData.stad}</div>
+              <div><strong>Rijbewijs:</strong> {formData.rijbewijsType}</div>
             </div>
           </div>
         );
@@ -290,14 +219,9 @@ const AanvraagPage = () => {
       case 1:
         return formData.naam && formData.email && formData.telefoon;
       case 2:
-        return formData.stad && formData.rijbewijsType && (
-          (['B', 'BE'].includes(formData.rijbewijsType) && formData.typeRijles) || 
-          !['B', 'BE'].includes(formData.rijbewijsType)
-        );
-      case 3:
-        return true;
+        return formData.stad && formData.rijbewijsType;
       default:
-        return false;
+        return true;
     }
   };
 
@@ -306,15 +230,6 @@ const AanvraagPage = () => {
       <Header />
       <main className="container mx-auto px-4 py-8 pt-24">
         <div className="max-w-2xl mx-auto">
-          <div className="mb-8">
-            <div className="flex items-center justify-between mb-2 mt-8">
-              <span className="text-sm font-medium text-foreground">Stap {currentStep} van {totalSteps}</span>
-              <span className="text-sm text-muted-foreground">{Math.round((currentStep / totalSteps) * 100)}% voltooid</span>
-            </div>
-            <div className="w-full bg-muted rounded-full h-2">
-              <div className="bg-primary h-2 rounded-full transition-all duration-500 ease-out" style={{ width: `${(currentStep / totalSteps) * 100}%` }}></div>
-            </div>
-          </div>
           <Card className="shadow-lg border animate-fade-in">
             <CardHeader className="text-center">
               <div className="mx-auto mb-4 h-12 w-12 rounded-full bg-primary flex items-center justify-center">
@@ -326,20 +241,31 @@ const AanvraagPage = () => {
                 {currentStep === 3 && "Bevestiging"}
               </CardTitle>
               <CardDescription>
-                {currentStep === 1 && "Deel uw contactgegevens met ons zodat wij u persoonlijk kunnen helpen"}
-                {currentStep === 2 && "Vertel ons over uw rijlesvoorkeuren en wensen"}
-                {currentStep === 3 && "Controleer en bevestig uw aanvraag voor persoonlijk advies"}
+                {currentStep === 1 && "Deel uw contactgegevens"}
+                {currentStep === 2 && "Kies uw voorkeuren"}
+                {currentStep === 3 && "Bevestig uw aanvraag"}
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form
+                name="aanvraag"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                <input type="hidden" name="form-name" value="aanvraag" />
+                <input type="hidden" name="bot-field" />
                 {renderStep()}
                 <div className="flex gap-4 pt-6">
                   {currentStep > 1 && (
-                    <Button type="button" variant="outline" onClick={() => setCurrentStep(currentStep - 1)} className="flex-1" disabled={isSubmitting}>Vorige</Button>
+                    <Button type="button" variant="outline" onClick={() => setCurrentStep(currentStep - 1)} disabled={isSubmitting} className="flex-1">
+                      Vorige
+                    </Button>
                   )}
-                  <Button type="submit" disabled={!isStepValid() || isSubmitting} className="flex-1" variant={currentStep === totalSteps ? "default" : "default"}>
-                    {isSubmitting ? "Versturen..." : (currentStep === totalSteps ? "Naar betaling" : "Volgende")}
+                  <Button type="submit" disabled={!isStepValid() || isSubmitting} className="flex-1">
+                    {isSubmitting ? "Versturen..." : currentStep === totalSteps ? "Naar betaling" : "Volgende"}
                   </Button>
                 </div>
               </form>
