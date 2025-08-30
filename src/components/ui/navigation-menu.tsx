@@ -133,3 +133,23 @@ export {
     </Link>
   </NavigationMenuLink>
 </NavigationMenuItem>
+
+<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuLink asChild>
+        <Link to="/" className="px-4 py-2 hover:underline">
+          Home
+        </Link>
+      </NavigationMenuLink>
+    </NavigationMenuItem>
+
+    <NavigationMenuItem>
+      <NavigationMenuLink asChild>
+        <Link to="/klachten" className="px-4 py-2 hover:underline">
+          Klachten
+        </Link>
+      </NavigationMenuLink>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>
