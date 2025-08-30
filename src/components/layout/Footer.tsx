@@ -26,11 +26,15 @@ export const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: "Facebook", icon: Facebook, href: "#" },
-    { name: "Twitter", icon: Twitter, href: "#" },
-    { name: "Instagram", icon: Instagram, href: "#" },
-    { name: "LinkedIn", icon: Linkedin, href: "#" }
-  ];
+  { 
+    name: "Facebook", 
+    icon: Facebook, 
+    href: "https://www.facebook.com/profile.php?id=61579752631864&locale=nl_NL" 
+  },
+  { name: "Twitter", icon: Twitter, href: "#" },
+  { name: "Instagram", icon: Instagram, href: "#" },
+  { name: "LinkedIn", icon: Linkedin, href: "#" }
+];
 
   return (
     <footer className="bg-foreground text-background">
