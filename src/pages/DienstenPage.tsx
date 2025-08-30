@@ -67,7 +67,7 @@ const DienstenPage = () => {
                 Onze Diensten
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Professioneel advies en begeleiding bij het vinden van de perfecte rijschool
+                Bewezen Beste, Betaalbaar Beter.
               </p>
               <Button asChild variant="hero" size="lg">
                 <Link to="/aanvraag">Vraag offerte aan</Link>
@@ -156,7 +156,7 @@ const DienstenPage = () => {
               Klaar om te starten?
             </h2>
             <p className="text-xl mb-8 opacity-90 text-white">
-              Ons professionele team helpt u graag met persoonlijk advies
+              Onze team helpt u graag met persoonlijk advies
             </p>
             <div className="flex gap-3 justify-center">
               <Button asChild variant="secondary" size="lg">
