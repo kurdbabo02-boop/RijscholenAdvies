@@ -6,94 +6,57 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-interface PaymentRequest {
-  naam: string;
-  email: string;
-  telefoon: string;
-  stad: string;
-  rijbewijsType: string;
-  typeRijles: string;
-}
-
-const handler = async (req: Request): Promise<Response> => {
+serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    console.log("Payment request received");
-    
-    const paymentData: PaymentRequest = await req.json();
-    console.log("Payment data:", paymentData);
+    const { formData } = await req.json();
 
     // Initialize Stripe
     const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY") || "", {
       apiVersion: "2023-10-16",
     });
 
-    // Check if a Stripe customer record exists for this email
-    const customers = await stripe.customers.list({ 
-      email: paymentData.email, 
-      limit: 1 
-    });
-    
-    let customerId;
-    if (customers.data.length > 0) {
-      customerId = customers.data[0].id;
-      console.log("Existing customer found:", customerId);
-    } else {
-      console.log("Creating new customer for:", paymentData.email);
-    }
-
-    // Create description based on the service details
-    const description = `Rijschooladvies voor ${paymentData.rijbewijsType} rijbewijs in ${paymentData.stad}`;
-
-    // Create a one-time payment session - €41.90 total (€34.50 + €8.40 BTW)
+    // Create a one-time payment session
     const session = await stripe.checkout.sessions.create({
-      customer: customerId,
-      customer_email: customerId ? undefined : paymentData.email,
+      customer_email: formData.email,
       line_items: [
         {
           price_data: {
             currency: "eur",
             product_data: { 
               name: "Persoonlijk Rijschooladvies",
-              description: description
+              description: `Rijschooladvies voor ${formData.rijbewijsType} rijles in ${formData.stad}`
             },
-            unit_amount: 4190, // €41.90 in cents
+            unit_amount: 3450, // €34,50 in cents
           },
           quantity: 1,
         },
       ],
       mode: "payment",
       success_url: `${req.headers.get("origin")}/betaling-gelukt?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.headers.get("origin")}/aanvraag`,
+      cancel_url: `${req.headers.get("origin")}/bevestiging`,
       metadata: {
-        naam: paymentData.naam,
-        telefoon: paymentData.telefoon,
-        stad: paymentData.stad,
-        rijbewijsType: paymentData.rijbewijsType,
-        typeRijles: paymentData.typeRijles || "Niet gespecificeerd"
+        customer_name: formData.naam,
+        customer_phone: formData.telefoon,
+        city: formData.stad,
+        license_type: formData.rijbewijsType,
+        lesson_type: formData.typeRijles,
       }
     });
-
-    console.log("Stripe session created:", session.id);
 
     return new Response(JSON.stringify({ url: session.url }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
     });
-  } catch (error: any) {
-    console.error("Error in create-payment function:", error);
-    return new Response(
-      JSON.stringify({ error: error.message }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
-    );
+  } catch (error) {
+    console.error("Payment creation error:", error);
+    return new Response(JSON.stringify({ error: error.message }), {
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+      status: 500,
+    });
   }
-};
-
-serve(handler);
+});

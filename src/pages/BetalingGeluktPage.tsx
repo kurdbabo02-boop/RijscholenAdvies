@@ -55,7 +55,7 @@ const BetalingGeluktPage = () => {
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center gap-3">
                     <CheckCircle className="h-4 w-4 text-success" />
-                    <span>Betaling van €41,90 is succesvol verwerkt</span>
+                    <span>Betaling van €34,50 is succesvol verwerkt</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="h-4 w-4 text-success" />
