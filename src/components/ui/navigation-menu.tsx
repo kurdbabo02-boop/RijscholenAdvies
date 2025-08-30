@@ -126,3 +126,10 @@ export {
   NavigationMenuIndicator,
   NavigationMenuViewport,
 }
+<NavigationMenuItem>
+  <NavigationMenuLink asChild>
+    <Link to="/klachten" className="px-4 py-2 hover:underline">
+      Klachten
+    </Link>
+  </NavigationMenuLink>
+</NavigationMenuItem>
