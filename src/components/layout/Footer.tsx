@@ -31,7 +31,11 @@ export const Footer = () => {
     icon: Facebook, 
     href: "https://www.facebook.com/profile.php?id=61579752631864&locale=nl_NL" 
   },
-  { name: "Twitter", icon: Twitter, href: "#" },
+  { 
+    name: "TikTok", 
+    icon: TikTokIcon, 
+    href: "#" 
+  },
   { name: "Instagram", icon: Instagram, href: "#" },
   { name: "LinkedIn", icon: Linkedin, href: "#" }
 ];
@@ -164,3 +168,17 @@ export const Footer = () => {
     </footer>
   );
 };
+
+const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    viewBox="0 0 448 512"
+  >
+    <path d="M448,209.9c-17.5,0-34.5-2.9-50.2-8.2c-9.4-3.2-18.3-7.3-26.8-12.3v163.1c0,82.5-66.9,149.5-149.5,149.5
+    S72,435,72,352.5S138.9,203,221.5,203c7.1,0,14.1.5,21,1.4v76.6c-6.9-2.3-14.2-3.5-21.9-3.5c-39,0-70.7,31.7-70.7,70.7
+    s31.7,70.7,70.7,70.7s70.7-31.7,70.7-70.7V0h75.9c1.3,9.2,3.5,18.2,6.6,26.8c7.5,21.4,20.3,40.1,37.5,55.3
+    c17.2,15.1,38.1,25.3,60.9,29.7c7.8,1.5,15.8,2.3,24,2.3V209.9z"/>
+  </svg>
+);
