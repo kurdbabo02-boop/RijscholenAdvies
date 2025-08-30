@@ -129,8 +129,8 @@ const ContactPage = () => {
                         <div className="font-medium">Bereikbaarheid</div>
                         <div className="text-muted-foreground">
                           Maandag t/m vrijdag 8:00 - 17:30<br />
-                          Voor persoonlijk advies en ondersteuning<br />
-                          Voor spoed ook buiten kantooruren bereikbaar
+                          Voor spoed advies en ondersteuning ook buiten kantooruren bereikbaar.<br />
+                          
                         </div>
                       </div>
                     </div>
@@ -146,7 +146,8 @@ const ContactPage = () => {
                   <div>
                     <div className="font-medium mb-2">Hoe snel krijgt U advies?</div>
                     <div className="text-sm text-muted-foreground">
-                      Binnen 24 uur na Uw aanvraag en betaling ontvangt U ons professioneel advies.
+                      Ons team neemt direct na Uw aanvraag en betaling contact met U op voor de bet gepaste advies.
+                     
                     </div>
                   </div>
                   <div>
@@ -156,9 +157,9 @@ const ContactPage = () => {
                     </div>
                   </div>
                   <div>
-                    <div className="font-medium mb-2">Kunt U Uw geld terugkrijgen?</div>
+                    <div className="font-medium mb-2">Wat kost het advies?</div>
                     <div className="text-sm text-muted-foreground">
-                      Ja, binnen 14 dagen volledige geld-terug-garantie zonder vragen gesteld.
+                      Ons persoonlijk advies kost €34,50. Hiervoor ontvang u een volledig op maat gemaakt advies, vergelijking van de beste rijscholen in uw omgeving, en persoonlijke begeleiding bij de aanmelding.
                     </div>
                   </div>
                 </CardContent>
