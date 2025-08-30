@@ -48,3 +48,14 @@ const App = () => (
 );
 
 export default App;
+import KlachtenPage from "./pages/KlachtenPage"; // <--- nieuw import
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/advies" element={<AdviesPage />} />
+      <Route path="/klachten" element={<KlachtenPage />} /> {/* nieuw */}
+    </Routes>
+  );
+}
