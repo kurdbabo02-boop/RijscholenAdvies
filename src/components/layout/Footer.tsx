@@ -46,7 +46,7 @@ export const Footer = () => {
               Rijschool Adviesbureau
             </Link>
             <p className="text-sm text-background/80 leading-relaxed">
-              Al sinds 2014 helpen wij mensen bij het vinden van de beste rijschool. 
+              Al sinds 2025 helpen wij mensen bij het vinden van de beste rijschool. 
               Wij zoeken en vinden de beste rijscholen voor u.
             </p>
             
