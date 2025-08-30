@@ -15,7 +15,7 @@ import ContactPage from "./pages/ContactPage";
 import OverOnsPage from "./pages/OverOnsPage";
 import DienstenPage from "./pages/DienstenPage";
 import FAQPage from "./pages/FAQPage";
-import KlachtenPage from "./pages/KlachtenPage"; // nieuwe page
+import KlachtenPage from "./pages/KlachtenPage";
 
 // NavigationMenu
 import {
@@ -23,12 +23,12 @@ import {
   NavigationMenuList,
   NavigationMenuItem,
   NavigationMenuLink,
-} from "@/components/ui/navigation-menu"; // pas pad aan
+} from "@/components/ui/navigation-menu";
 
 const queryClient = new QueryClient();
 
 // Subcomponent voor content
-function AppContent() {
+function RootContent() {
   useScrollToTop();
 
   return (
@@ -72,7 +72,7 @@ function AppContent() {
         <Route path="/over-ons" element={<OverOnsPage />} />
         <Route path="/diensten" element={<DienstenPage />} />
         <Route path="/faq" element={<FAQPage />} />
-        <Route path="/klachten" element={<KlachtenPage />} /> {/* nieuwe route */}
+        <Route path="/klachten" element={<KlachtenPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
@@ -86,7 +86,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <AppContent />
+        <RootContent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
