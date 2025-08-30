@@ -34,7 +34,7 @@ export const Footer = () => {
   { 
     name: "TikTok", 
     icon: TikTokIcon, 
-    href: "#" 
+    href: "https://www.tiktok.com/@rijscholenadvies.nl" 
   },
   { name: "Instagram", icon: Instagram, href: "#" },
   { name: "LinkedIn", icon: Linkedin, href: "#" }
