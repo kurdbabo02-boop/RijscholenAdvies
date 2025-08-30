@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 
-// Pages
+// Pagina's
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AanvraagPage from "./pages/AanvraagPage";
@@ -17,7 +17,7 @@ import DienstenPage from "./pages/DienstenPage";
 import FAQPage from "./pages/FAQPage";
 import KlachtenPage from "./pages/KlachtenPage";
 
-// NavigationMenu
+// Navigatiemenu
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -27,13 +27,13 @@ import {
 
 const queryClient = new QueryClient();
 
-// Subcomponent voor content
+// Subcomponent voor de inhoud en routering
 function RootContent() {
   useScrollToTop();
 
   return (
     <>
-      {/* Navigation Menu */}
+      {/* Navigatiemenu */}
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
@@ -79,7 +79,7 @@ function RootContent() {
   );
 }
 
-// Hoofd App component
+// Hoofdcomponent App
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
