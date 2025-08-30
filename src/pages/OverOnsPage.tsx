@@ -11,7 +11,7 @@ const OverOnsPage = () => {
   const stats = [
     { number: "Persoonlijk", label: "Advies op maat", icon: Phone },
     { number: "Kwaliteit", label: "Gecertificeerde rijscholen", icon: Clock },
-    { number: "Betrouwbaar", label: "Expertise sinds 2014", icon: Award },
+    { number: "Betrouwbaar", label: "Expertise sinds 2025", icon: Award },
     { number: "Direct hulp", label: "Bij aanmelding", icon: Target }
   ];
 
@@ -76,7 +76,7 @@ const OverOnsPage = () => {
             </CardHeader>
             <CardContent className="space-y-6">
               <p className="text-muted-foreground leading-relaxed">
-                In 2014 startten we Rijscholen Adviesbureau vanuit een simpele frustratie: 
+                In 2025 startten we Rijscholen Adviesbureau vanuit een simpele frustratie: 
                 het was veel te moeilijk om een goede rijschool te vinden. Te veel keuzes, 
                 onduidelijke prijzen en geen objectief advies.
               </p>
