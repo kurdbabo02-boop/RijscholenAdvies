@@ -368,22 +368,31 @@ const AanvraagPage = () => {
             </CardHeader>
             
             <CardContent>
-             <form 
-  name="aanvraag" 
-  method="POST" 
-  data-netlify="true"
->
-  <input type="hidden" name="form-name" value="aanvraag" />
-
-  {/* jouw bestaande inputs — laat layout en styling zoals je al hebt */}
-  <Input id="voornaam" name="voornaam" placeholder="Jan" required />
-  <Input id="achternaam" name="achternaam" placeholder="Jansen" required />
-  <Input id="email" name="email" type="email" placeholder="jan@voorbeeld.nl" required />
-  <Textarea id="bericht" name="bericht" placeholder="Typ hier je aanvraag..." required />
-
-  <Button type="submit">Verstuur aanvraag</Button>
-</form>
-
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {renderStep()}
+                
+                <div className="flex gap-4 pt-6">
+                  {currentStep > 1 && (
+                    <Button 
+                      type="button" 
+                      variant="outline" 
+                      onClick={() => setCurrentStep(currentStep - 1)}
+                      className="flex-1"
+                      disabled={isSubmitting}
+                    >
+                      Vorige
+                    </Button>
+                  )}
+                  <Button 
+                    type="submit" 
+                    disabled={!isStepValid() || isSubmitting}
+                    className="flex-1"
+                    variant={currentStep === totalSteps ? "default" : "default"}
+                  >
+                    {isSubmitting ? "Versturen..." : (currentStep === totalSteps ? "Naar betaling" : "Volgende")}
+                  </Button>
+                </div>
+              </form>
             </CardContent>
           </Card>
         </div>
