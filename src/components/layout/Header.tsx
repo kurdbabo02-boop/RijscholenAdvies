@@ -25,6 +25,9 @@ export const Header = () => {
   }, {
     name: "Contact",
     href: "/contact"
+  }, {
+    name: "Klachten",
+    href: "/klachten"
   }];
   const isActive = (path: string) => location.pathname === path;
   

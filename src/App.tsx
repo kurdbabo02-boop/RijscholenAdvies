@@ -10,6 +10,7 @@ import AanvraagPage from "./pages/AanvraagPage";
 import BevestigingPage from "./pages/BevestigingPage";
 import BetalingGeluktPage from "./pages/BetalingGeluktPage";
 import ContactPage from "./pages/ContactPage";
+import KlachtenPage from "./pages/KlachtenPage";
 import OverOnsPage from "./pages/OverOnsPage";
 import DienstenPage from "./pages/DienstenPage";
 import FAQPage from "./pages/FAQPage";
@@ -26,6 +27,7 @@ function AppContent() {
       <Route path="/bevestiging" element={<BevestigingPage />} />
       <Route path="/betaling-gelukt" element={<BetalingGeluktPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/klachten" element={<KlachtenPage />} />
       <Route path="/over-ons" element={<OverOnsPage />} />
       <Route path="/diensten" element={<DienstenPage />} />
       <Route path="/faq" element={<FAQPage />} />
