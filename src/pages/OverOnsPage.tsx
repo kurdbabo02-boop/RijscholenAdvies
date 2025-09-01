@@ -65,35 +65,7 @@ const OverOnsPage = () => {
           ))}
         </div>
 
-        {/* Our Story */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <Card className="shadow-smooth">
-            <CardHeader className="text-center">
-              <CardTitle className="text-3xl mb-4">Ons verhaal</CardTitle>
-              <CardDescription className="text-lg">
-                Hoe het allemaal begon
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <p className="text-muted-foreground leading-relaxed">
-                In 2025 startten we Rijscholen Adviesbureau vanuit een simpele frustratie: 
-                het was veel te moeilijk om een goede rijschool te vinden. Te veel keuzes, 
-                onduidelijke prijzen en geen objectief advies.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                We besloten dit probleem op te lossen door een onafhankelijk platform te creëren 
-                waar wij voor mensen de beste rijschool zoeken en hen persoonlijk begeleiden. 
-                Veel rijscholen proberen mensen op te lichten met verborgen kosten en valse beloften - 
-                daarom bieden wij eerlijk, onafhankelijk advies zonder commerciële belangen.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Vandaag de dag hebben we meer dan 2.500 mensen geholpen bij het behalen van 
-                hun rijbewijs. En daar zijn we trots op!
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-
+       
         {/* Our Values */}
         <div className="mb-16">
           <div className="text-center mb-12">
