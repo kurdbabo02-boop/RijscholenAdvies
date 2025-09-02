@@ -6,7 +6,7 @@ exports.handler = async (event) => {
       payment_method_types: ["card"],
       line_items: [
         {
-          price: "39,40", // Vervang door jouw Stripe Price ID
+          price: "prod_Synw5CQxDuaEej", // Vervang door jouw Stripe Price ID
           quantity: 1,
         },
       ],
