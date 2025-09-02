@@ -12,7 +12,7 @@ exports.handler = async (event) => {
       ],
       mode: "payment",
       success_url: "https://rijscholenadvies.nl/betaling-gelukt",
-      cancel_url: "https://rijscholenadvies/cancel",
+      cancel_url: "https://rijscholenadvies.nl/Not-found",
     });
 
     return {
