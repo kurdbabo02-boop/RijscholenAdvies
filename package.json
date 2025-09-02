@@ -82,3 +82,13 @@
     "vite": "^5.4.19"
   }
 }
+
+{
+  "dependencies": {
+    "stripe": "^16.0.0"
+  },
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  }
+}
