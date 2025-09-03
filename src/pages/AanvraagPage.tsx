@@ -52,26 +52,17 @@ const AanvraagPage = () => {
 
         if (emailError) {
           console.error('Email error:', emailError);
-          // Continue with payment even if email fails
+          // Continue even if email fails
         }
 
-        // Create Stripe payment session
-        const { data: paymentData, error: paymentError } = await supabase.functions.invoke('create-payment', {
-          body: { ...formData }
+        // Navigate to confirmation page with form data
+        navigate('/bevestiging', { 
+          state: { formData } 
         });
-
-        if (paymentError) throw paymentError;
-
-        if (paymentData?.url) {
-          // Redirect to Stripe checkout
-          window.location.href = paymentData.url;
-        } else {
-          throw new Error("Geen betaling URL ontvangen");
-        }
       } catch (error) {
-        console.error('Error processing payment:', error);
+        console.error('Error sending email:', error);
         toast({
-          title: "Betaling kon niet worden gestart",
+          title: "Fout bij versturen",
           description: "Probeer het opnieuw of neem telefonisch contact op.",
           variant: "destructive"
         });

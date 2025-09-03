@@ -22,13 +22,26 @@ const BevestigingPage = () => {
   }, [location.state, navigate]);
 
   const handlePayment = async () => {
+    console.log("Starting payment process with data:", formData);
     try {
+      console.log("Calling Supabase function create-payment...");
       const { data, error } = await supabase.functions.invoke('create-payment', {
         body: formData
       });
 
-      if (error) throw error;
+      console.log("Supabase function response:", { data, error });
 
+      if (error) {
+        console.error("Supabase function error:", error);
+        throw error;
+      }
+
+      if (!data?.url) {
+        console.error("No URL returned from payment function");
+        throw new Error("No payment URL received");
+      }
+
+      console.log("Redirecting to Stripe checkout:", data.url);
       // Redirect directly to Stripe checkout
       window.location.href = data.url;
     } catch (error) {
