@@ -24,7 +24,7 @@ const BevestigingPage = () => {
   const handlePayment = async () => {
     try {
       const { data, error } = await supabase.functions.invoke('create-payment', {
-        body: { formData }
+        body: formData
       });
 
       if (error) throw error;
