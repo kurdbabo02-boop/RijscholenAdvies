@@ -294,7 +294,7 @@ const AanvraagPage = () => {
                 <div className="font-medium text-foreground">Voor spoedvragen</div>
               </div>
               <div className="text-sm text-muted-foreground">
-                Bel direct <span className="font-medium text-primary">+31 638901956</span> - ook buiten kantooruren bereikbaar voor dringende vragen
+                Bel direct <span className="font-medium text-primary">‪+31 6 84646176‬</span> - ook buiten kantooruren bereikbaar voor dringende vragen
               </div>
             </div>
           </div>
