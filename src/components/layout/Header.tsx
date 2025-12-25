@@ -40,7 +40,7 @@ export const Header = () => {
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span className="font-medium">+31 638901956</span>
+                <span className="font-medium">‪+31 6 84646176‬</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
