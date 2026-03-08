@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Car, Shield, Star, Clock, CheckCircle, ArrowRight, Search, Target, Heart, Users } from "lucide-react";
+import { Car, Shield, Star, Clock, CheckCircle, ArrowRight, Search, Target, Heart } from "lucide-react";
 import heroImage from "@/assets/real-instructor-photo.jpg";
 import teamBackground from "@/assets/team-background.jpg";
 
@@ -52,7 +52,7 @@ const Index = () => {
       location: "Rotterdam",
       text: "Goede service, zij hebben de tijd genomen om mijn wensen te begrijpen.",
       rating: 4,
-      type: "B - Schakel"
+      type: "B - Handschakeling"
     },
     {
       name: "Sophie Vermeer",
@@ -66,91 +66,71 @@ const Index = () => {
       location: "Eindhoven",
       text: "Snelle reactie en deskundig advies. Kreeg binnen 2 dagen contact met een geschikte rijschool.",
       rating: 4,
-      type: "A2 - Motor"
+      type: "A2 - Motorfiets"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-subtle">
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-28 md:pt-32 pb-20 overflow-hidden bg-gradient-subtle">
-        {/* Decorative blobs */}
-        <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
-        
-        <div className="container mx-auto px-4 relative">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section className="relative pt-20 pb-16 overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-slide-up">
-              <div className="inline-flex items-center gap-2 bg-primary/5 text-primary text-sm font-medium px-4 py-2 rounded-full">
-                <Star className="h-4 w-4 fill-primary" />
-                Persoonlijk rijschooladvies
-              </div>
-              
-              <div className="space-y-5">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-balance">
-                  Wij vinden de{" "}
-                  <span className="text-primary">beste rijschool</span>
-                  {" "}voor u
+              <div className="space-y-6">
+                <h1 className="text-4xl md:text-6xl font-bold leading-tight mt-8">
+                  Ons <span className="text-primary">team</span> zoekt de <span className="text-primary">beste</span> rijschool 
+                  <br />voor u
                 </h1>
-                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg">
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   Goedkoop én in één keer slagen — wij regelen uw rijopleiding én aanmelding!
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button asChild variant="hero" size="lg" className="group">
+              <div className="flex gap-3">
+                <Button asChild variant="hero" size="sm" className="group flex-1">
                   <Link to="/aanvraag">
                     Vraag advies aan
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link to="/diensten">
-                    Bekijk diensten
+                <Button asChild variant="outline" size="sm" className="flex-1">
+                  <Link to="/over-ons">
+                    Meer info
                   </Link>
                 </Button>
               </div>
 
-              {/* Trust badges */}
-              <div className="flex items-center gap-6 pt-4">
-                <div className="flex items-center gap-2">
-                  <div className="flex -space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-accent text-accent" />
-                    ))}
-                  </div>
-                  <span className="text-sm text-muted-foreground font-medium">Tevreden klanten</span>
+              {/* Quick stats */}
+              <div className="grid grid-cols-2 gap-4 pt-8">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">Persoonlijk</div>
+                  <div className="text-sm text-muted-foreground">Advies op maat</div>
                 </div>
-                <div className="h-4 w-px bg-border" />
-                <div className="flex items-center gap-1.5">
-                  <Shield className="h-4 w-4 text-secondary" />
-                  <span className="text-sm text-muted-foreground font-medium">Gecertificeerd</span>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">Kwaliteit</div>
+                  <div className="text-sm text-muted-foreground">Gegarandeerd</div>
                 </div>
               </div>
             </div>
 
-            <div className="relative animate-fade-in">
-              <div className="relative rounded-3xl overflow-hidden shadow-float">
-                <img 
-                  src={heroImage} 
-                  alt="Professionele rijinstructeur tijdens rijles" 
-                  className="object-cover w-full h-[420px] md:h-[480px]" 
-                  loading="eager"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
-              </div>
-              
-              {/* Floating card */}
-              <div className="absolute -bottom-6 -left-4 md:-left-6 bg-background rounded-2xl p-4 shadow-float animate-float">
+            <div className="relative animate-float">
+              <img 
+                src={heroImage} 
+                alt="Professionele rijinstructeur tijdens rijles" 
+                className="rounded-2xl shadow-hero object-cover w-full h-[400px]" 
+                loading="eager"
+              />
+              <div className="absolute -bottom-6 -left-6 bg-background rounded-xl p-4 shadow-xl">
                 <div className="flex items-center gap-3">
-                  <div className="h-11 w-11 rounded-xl bg-gradient-secondary flex items-center justify-center">
-                    <CheckCircle className="h-5 w-5 text-white" />
+                  <div className="h-12 w-12 rounded-full bg-gradient-secondary flex items-center justify-center">
+                    <Star className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <div className="font-semibold text-sm">Kwaliteit gegarandeerd</div>
-                    <div className="text-xs text-muted-foreground">Alleen de beste rijscholen</div>
+                    <div className="font-semibold">Kwaliteit rijscholen</div>
+                    <div className="text-sm text-muted-foreground">Alleen de beste voor u</div>
                   </div>
                 </div>
               </div>
@@ -160,13 +140,9 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-background">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 bg-secondary/5 text-secondary text-sm font-medium px-4 py-2 rounded-full mb-4">
-              <Users className="h-4 w-4" />
-              Onze aanpak
-            </div>
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Wat bieden wij aan?
             </h2>
@@ -175,17 +151,17 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="shadow-card hover:shadow-float transition-all duration-300 group border-0 rounded-2xl">
-                <CardHeader className="text-center p-4 md:p-6 pb-2">
-                  <div className="mx-auto mb-3 h-12 w-12 rounded-2xl bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 group-hover:scale-105 transition-all duration-300">
-                    <feature.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
+              <Card key={index} className="shadow-smooth hover:shadow-xl transition-all duration-300 group">
+                <CardHeader className="text-center p-3 md:p-6">
+                  <div className="mx-auto mb-3 md:mb-4 h-8 w-8 md:h-12 md:w-12 rounded-lg bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon className="h-4 w-4 md:h-6 md:w-6 text-white" />
                   </div>
-                  <CardTitle className="text-sm md:text-base">{feature.title}</CardTitle>
+                  <CardTitle className="text-sm md:text-lg">{feature.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="p-4 md:p-6 pt-0">
-                  <p className="text-muted-foreground text-center text-xs md:text-sm leading-relaxed">
+                <CardContent className="p-3 md:p-6 pt-0">
+                  <p className="text-muted-foreground text-center text-xs md:text-sm">
                     {feature.description}
                   </p>
                 </CardContent>
@@ -196,33 +172,40 @@ const Index = () => {
       </section>
 
       {/* How it works */}
-      <section className="py-20 bg-gradient-subtle">
+      <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Zo werkt het
             </h2>
-            <p className="text-lg text-muted-foreground">3 eenvoudige stappen naar de beste rijschool</p>
+            <p className="text-lg text-muted-foreground">3 stappen naar de best passende rijschool</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
             {[
-              { step: "1", title: "Vertel over uzelf", description: "Vul uw voorkeuren in via ons eenvoudige formulier", icon: "📝" },
-              { step: "2", title: "Ontvang advies", description: "Dezelfde dag nog persoonlijk advies van ons team", icon: "💬" },
-              { step: "3", title: "Begin met lessen", description: "Start bij de best passende rijschool!", icon: "🚗" }
+              {
+                step: "1",
+                title: "Vertel over uzelf",
+                description: "Deel uw voorkeuren"
+              },
+              {
+                step: "2",
+                title: "Ontvang advies",
+                description: "Dezelfde dag nog persoonlijk advies"
+              },
+              {
+                step: "3",
+                title: "Begin met lessen",
+                description: "Bij de goedkoopste én beste rijschool!"
+              }
             ].map((item, index) => (
               <div key={index} className="text-center relative">
-                <div className="mb-5">
-                  <div className="text-4xl mb-3">{item.icon}</div>
-                  <div className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-primary text-white text-sm font-bold">
-                    {item.step}
-                  </div>
+                <div className="mx-auto mb-3 md:mb-6 h-12 w-12 md:h-16 md:w-16 rounded-full bg-gradient-primary flex items-center justify-center text-white text-lg md:text-xl font-bold">
+                  {item.step}
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.description}</p>
-                {index < 2 && (
-                  <ArrowRight className="hidden md:block absolute top-12 -right-6 h-5 w-5 text-muted-foreground/40" />
-                )}
+                <h3 className="text-sm font-semibold mb-2 md:mb-3 md:text-lg">{item.title}</h3>
+                <p className="text-muted-foreground text-xs md:text-sm">{item.description}</p>
+                {index < 2 && <ArrowRight className="hidden md:block absolute top-8 -right-4 h-6 w-6 text-muted-foreground" />}
               </div>
             ))}
           </div>
@@ -230,54 +213,47 @@ const Index = () => {
       </section>
 
       {/* What you get */}
-      <section className="py-20 bg-background">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="inline-flex items-center gap-2 bg-accent/5 text-accent text-sm font-medium px-4 py-2 rounded-full mb-4">
-                  <Heart className="h-4 w-4" />
-                  Waarom wij?
-                </div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  Persoonlijk advies dat werkt
+                  Waarom ons advies?
                 </h2>
-                <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
+                <p className="text-muted-foreground mb-8">
                   Professioneel en persoonlijk advies van rijschoolexperts voor de goedkoopste én beste rijscholen.
                 </p>
                 
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-center gap-3 bg-success/5 rounded-xl px-4 py-3">
+                    <div key={index} className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-success flex-shrink-0" />
-                      <span className="text-sm font-medium">{benefit}</span>
+                      <span>{benefit}</span>
                     </div>
                   ))}
                 </div>
 
                 <Button asChild variant="hero" size="lg" className="mt-8">
-                  <Link to="/aanvraag">
-                    Vraag advies aan
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  <Link to="/aanvraag">Vraag advies aan</Link>
                 </Button>
               </div>
 
-              <Card className="shadow-card border-0 rounded-2xl overflow-hidden">
-                <CardContent className="p-8">
-                  <div className="text-center space-y-6">
-                    <div className="mx-auto h-16 w-16 rounded-2xl bg-primary/5 flex items-center justify-center">
-                      <Heart className="h-8 w-8 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2">Persoonlijke begeleiding</h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Ons team staat altijd voor u klaar met persoonlijk advies 
-                        en volledige ondersteuning bij het vinden van de perfecte rijschool.
-                      </p>
-                    </div>
-                    <div className="bg-muted/50 rounded-2xl p-6">
-                      <div className="text-3xl font-bold text-primary mb-1">100%</div>
+              <Card className="shadow-smooth">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Heart className="h-5 w-5 text-accent" />
+                    Persoonlijke begeleiding
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    Ons team staat altijd voor u klaar met persoonlijk advies 
+                    en volledige ondersteuning bij het vinden van de perfecte rijschool.
+                  </p>
+                  <div className="bg-muted/50 rounded-lg p-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-primary mb-2">100%</div>
                       <div className="text-sm text-muted-foreground">Persoonlijke service</div>
                     </div>
                   </div>
@@ -289,9 +265,9 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gradient-subtle">
+      <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Wat zeggen onze klanten?
             </h2>
@@ -300,24 +276,27 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="shadow-card hover:shadow-float transition-all duration-300 border-0 rounded-2xl">
-                <CardContent className="p-5">
-                  <div className="flex items-center gap-0.5 mb-4">
+              <Card key={index} className="shadow-smooth hover:shadow-xl transition-all duration-300">
+                <CardContent className="pt-4 md:pt-6 p-3 md:p-6">
+                  <div className="flex items-center gap-1 mb-3 md:mb-4">
                     {[...Array(Math.floor(testimonial.rating))].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+                      <Star key={i} className="h-3 w-3 md:h-4 md:w-4 fill-accent text-accent" />
                     ))}
+                    {testimonial.rating % 1 !== 0 && (
+                      <Star className="h-3 w-3 md:h-4 md:w-4 fill-accent text-accent opacity-50" />
+                    )}
                   </div>
-                  <p className="text-muted-foreground mb-5 italic text-sm leading-relaxed">
+                  <p className="text-muted-foreground mb-4 md:mb-6 italic text-xs md:text-sm">
                     "{testimonial.text}"
                   </p>
-                  <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                  <div className="flex items-center justify-between">
                     <div>
-                      <div className="font-semibold text-sm">{testimonial.name}</div>
+                      <div className="font-semibold text-xs md:text-sm">{testimonial.name}</div>
                       <div className="text-xs text-muted-foreground">{testimonial.location}</div>
                     </div>
-                    <div className="text-xs bg-primary/5 text-primary font-medium px-2.5 py-1 rounded-lg">
+                    <div className="text-xs bg-muted px-2 py-1 rounded">
                       {testimonial.type}
                     </div>
                   </div>
@@ -329,27 +308,27 @@ const Index = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-16 relative overflow-hidden">
+      <section className="py-12 relative overflow-hidden">
         <div className="absolute inset-0">
           <img src={teamBackground} alt="Professioneel rijschool adviesteam" className="w-full h-full object-cover" loading="lazy" />
-          <div className="absolute inset-0 bg-primary/85 backdrop-blur-sm"></div>
+          <div className="absolute inset-0 bg-primary/80"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Professioneel adviesteam</h2>
-            <p className="text-white/70">Ma t/m vr 8:00 - 17:30 voor u beschikbaar</p>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">Professioneel adviesteam</h2>
+            <p className="opacity-90 text-white">Maandag t/m vrijdag 8:00-17:30 voor u beschikbaar</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
               { number: "Persoonlijk", label: "Advies op maat" },
               { number: "Kwaliteit", label: "Gecertificeerde rijscholen" },
               { number: "Betrouwbaar", label: "Ervaren team" },
               { number: "Direct hulp", label: "Bij aanmelding" }
             ].map((stat, index) => (
-              <div key={index} className="text-center bg-white/10 rounded-2xl p-5 backdrop-blur-sm">
-                <div className="text-xl md:text-2xl font-bold text-white mb-1">{stat.number}</div>
-                <div className="text-sm text-white/70">{stat.label}</div>
+              <div key={index} className="text-center">
+                <div className="text-2xl md:text-3xl font-bold mb-1 text-white">{stat.number}</div>
+                <div className="text-sm opacity-80 text-white">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -357,37 +336,35 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <Card className="max-w-3xl mx-auto shadow-float border-0 rounded-3xl overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5">
-            <CardContent className="py-14 px-8 text-center">
-              <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-primary/10 mb-6">
-                <Car className="h-7 w-7 text-primary" />
-              </div>
+      <section className="py-12 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={teamBackground} alt="Professioneel rijschool advies" className="w-full h-full object-cover" loading="lazy" />
+          <div className="absolute inset-0 bg-background/90"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <Card className="max-w-3xl mx-auto shadow-hero bg-background/95">
+            <CardContent className="py-12 text-center">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Klaar om te starten?</h2>
-              <p className="text-muted-foreground mb-8 max-w-lg mx-auto text-lg">
+              <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
                 Ons team helpt u persoonlijk bij het vinden van de perfecte rijschool in uw omgeving.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button asChild variant="hero" size="lg">
+              <div className="flex gap-3 justify-center">
+                <Button asChild variant="hero" size="sm" className="flex-1 max-w-[200px]">
                   <Link to="/aanvraag">
                     Vraag advies aan
-                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="outline" size="sm" className="flex-1 max-w-[200px]">
                   <Link to="/contact">
                     Contact opnemen
                   </Link>
                 </Button>
               </div>
 
-              <div className="flex items-center justify-center gap-4 mt-6 text-xs text-muted-foreground">
-                <span className="flex items-center gap-1"><CheckCircle className="h-3.5 w-3.5 text-success" /> Geen verborgen kosten</span>
-                <span className="flex items-center gap-1"><CheckCircle className="h-3.5 w-3.5 text-success" /> Persoonlijke service</span>
-                <span className="flex items-center gap-1"><CheckCircle className="h-3.5 w-3.5 text-success" /> Geld-terug-garantie</span>
-              </div>
+              <p className="text-xs text-muted-foreground mt-4">
+                ✓ Geen verborgen kosten ✓ Persoonlijke service ✓ Geld-terug-garantie
+              </p>
             </CardContent>
           </Card>
         </div>
