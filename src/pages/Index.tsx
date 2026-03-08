@@ -116,7 +116,7 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="relative animate-float">
+            <div className="relative">
               <img 
                 src={heroImage} 
                 alt="Professionele rijinstructeur tijdens rijles" 
