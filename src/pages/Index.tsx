@@ -17,7 +17,7 @@ const Index = () => {
     {
       icon: Shield,
       title: "Alleen kwaliteit",
-      description: "Alle rijscholen in ons netwerk zijn gecertificeerd — goedkoopst én het best."
+      description: "Alle rijscholen in ons netwerk zijn gecertificeerd, goedkoopst én het best."
     },
     {
       icon: Clock,
