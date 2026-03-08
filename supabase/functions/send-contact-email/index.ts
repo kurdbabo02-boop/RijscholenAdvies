@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
+import { Resend } from "https://esm.sh/resend@2.0.0";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
@@ -79,7 +79,7 @@ const handler = async (req: Request): Promise<Response> => {
           
           <p>Heeft u nog vragen? Neem gerust contact met ons op:</p>
           <ul>
-            <li><strong>Telefoon:</strong> +31 638901956</li>
+            <li><strong>Telefoon:</strong> +31 6 84646176</li>
             <li><strong>E-mail:</strong> info@rijscholenadvies.nl</li>
             <li><strong>Bereikbaarheid:</strong> Maandag t/m vrijdag van 8:00 tot 17:30</li>
           </ul>

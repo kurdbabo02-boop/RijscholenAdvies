@@ -8,11 +8,11 @@ const FAQPage = () => {
   const faqData = [
     {
       question: "Wat kost het advies?",
-      answer: "Ons persoonlijk advies kost €34,50. Hiervoor ontvang u een volledig op maat gemaakt advies, vergelijking van de beste rijscholen in uw omgeving, en persoonlijke begeleiding bij de aanmelding."
+      answer: "Ons persoonlijk advies kost €34,50 exclusief BTW (€41,90 inclusief BTW). Hiervoor ontvangt u een volledig op maat gemaakt advies, vergelijking van de beste rijscholen in uw omgeving, en persoonlijke begeleiding bij de aanmelding."
     },
     {
       question: "Hoe snel ontvang ik het advies?",
-      answer: "Direct na uw aanvraag nemen wij contact met u op. Ons team is bereikbaar van maandag t/m vrijdag van 8:00 tot 17:30. Voor urgente vragen zijn wij ook buiten kantooruren beschikbaar."
+      answer: "Ons team neemt dezelfde dag nog contact met u op na uw aanvraag. Wij zijn bereikbaar van maandag t/m vrijdag van 8:00 tot 17:30. Voor urgente vragen zijn wij ook buiten kantooruren beschikbaar."
     },
     {
       question: "Welke rijscholen bevelen jullie aan?",
@@ -20,31 +20,31 @@ const FAQPage = () => {
     },
     {
       question: "Is jullie advies betrouwbaar?",
-      answer: "Absoluut. Wij helpen al meer dan 10 jaar mensen bij het vinden van de perfecte rijschool. Ons team bestaat uit rijschoolexperts met uitgebreide kennis van de sector en een groot netwerk van betrouwbare rijscholen."
+      answer: "Absoluut. Ons team bestaat uit rijschoolexperts met uitgebreide kennis van de sector en een groot netwerk van betrouwbare rijscholen door heel Nederland."
     },
     {
-      question: "Voor welke rijbewijzen kunnen wij helpen?",
+      question: "Voor welke rijbewijzen kunnen jullie helpen?",
       answer: "Wij kunnen adviseren voor alle rijbewijzen: AM (bromfiets/scooter), A1/A2/A (motor), B (auto), BE (auto met aanhanger), C1/C1E/C/CE (vrachtwagens), D1/D1E/D/DE (bussen), en T (tractor/landbouwvoertuigen). Voor zowel handgeschakelde als automatische transmissie."
     },
     {
       question: "Wat gebeurt er na het advies?",
-      answer: "Na ons advies ontvang je direct de contactgegevens van de aanbevolen rijscholen. Wij helpen je ook bij het aanmeldingsproces en bieden gratis nazorg. Je bent nergens toe verplicht en kunt vrijblijvend contact opnemen."
+      answer: "Na ons advies ontvangt u direct de contactgegevens van de aanbevolen rijscholen. Wij helpen u ook bij het aanmeldingsproces en bieden gratis nazorg. U bent nergens toe verplicht."
     },
     {
-      question: "Werken wij landelijk?",
-      answer: "Ja, wij hebben contact met rijscholen door heel Nederland. Ons netwerk van rijscholen is beschikbaar in alle steden en dorpen."
+      question: "Werken jullie landelijk?",
+      answer: "Ja, wij hebben contact met rijscholen door heel Nederland. Ons netwerk is beschikbaar in alle grote steden en omliggende gebieden."
     },
     {
       question: "Kan ik het advies ook telefonisch krijgen?",
-      answer: "Zeker! Na uw online aanvraag plannen wij graag een persoonlijk gesprek. U kunt ons ook direct bellen op +31 638901956 voor vragen of om uw aanvraag telefonisch door te nemen."
+      answer: "Zeker! Na uw online aanvraag plannen wij graag een persoonlijk gesprek. U kunt ons ook direct bellen op +31 6 84646176 voor vragen of om uw aanvraag telefonisch door te geven."
     },
     {
       question: "Zijn er extra kosten na het advies?",
-      answer: "Nee, er zijn geen verborgen kosten. Voor €34,50 krijgt u het complete advies en alle begeleiding. Er zijn geen automatische verlengingen of extra kosten."
+      answer: "Nee, er zijn geen verborgen kosten. Voor €41,90 (incl. BTW) krijgt u het complete advies en alle begeleiding. Er zijn geen automatische verlengingen of extra kosten."
     },
     {
       question: "Wat als ik niet tevreden ben?",
-      answer: "Uw tevredenheid staat voorop. Mocht u niet tevreden zijn met ons advies, dan zoeken wij samen naar een oplossing. Ons doel is dat u de perfecte rijschool vindt die bij u past."
+      answer: "Uw tevredenheid staat voorop. Binnen 14 dagen bieden wij een volledige geld-terug-garantie. Mocht u niet tevreden zijn, dan zoeken wij samen naar een oplossing."
     }
   ];
 
@@ -94,14 +94,14 @@ const FAQPage = () => {
               Nog meer vragen?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Neem direct contact op - wij helpen u graag verder!
+              Neem direct contact op — wij helpen u graag verder!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="hero" size="lg">
-                <Link to="/contact">Direct contact</Link>
+                <Link to="/contact">Contact opnemen</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link to="/aanvraag">Vraag offerte aan</Link>
+                <Link to="/aanvraag">Vraag advies aan</Link>
               </Button>
             </div>
           </div>

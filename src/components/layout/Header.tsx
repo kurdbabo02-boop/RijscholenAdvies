@@ -7,28 +7,15 @@ import { Menu, Phone, Mail } from "lucide-react";
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const navigation = [{
-    name: "Home",
-    href: "/"
-  }, {
-    name: "Aanvraag",
-    href: "/aanvraag"
-  }, {
-    name: "Diensten",
-    href: "/diensten"
-  }, {
-    name: "Over ons",
-    href: "/over-ons"
-  }, {
-    name: "FAQ",
-    href: "/faq"
-  }, {
-    name: "Contact",
-    href: "/contact"
-  }, {
-    name: "Klachten",
-    href: "/klachten"
-  }];
+  const navigation = [
+    { name: "Home", href: "/" },
+    { name: "Aanvraag", href: "/aanvraag" },
+    { name: "Diensten", href: "/diensten" },
+    { name: "Over ons", href: "/over-ons" },
+    { name: "FAQ", href: "/faq" },
+    { name: "Contact", href: "/contact" },
+    { name: "Klachten", href: "/klachten" }
+  ];
   const isActive = (path: string) => location.pathname === path;
   
   return (
@@ -38,14 +25,14 @@ export const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2">
+              <a href="tel:+31684646176" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                 <Phone className="h-4 w-4" />
-                <span className="font-medium">‪+31 6 84646176‬</span>
-              </div>
-              <div className="flex items-center gap-2">
+                <span className="font-medium">+31 6 84646176</span>
+              </a>
+              <a href="mailto:info@rijscholenadvies.nl" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                 <Mail className="h-4 w-4" />
                 <span className="font-medium">info@rijscholenadvies.nl</span>
-              </div>
+              </a>
             </div>
             <div className="flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full">
               <span className="font-medium">Maandag t/m vrijdag 8:00-17:30</span>
@@ -64,6 +51,7 @@ export const Header = () => {
                 src="/lovable-uploads/9d5189c0-637f-48f8-9867-db0fb78cbe94.png" 
                 alt="Rijscholen Advies Logo" 
                 className="h-24 w-auto"
+                loading="eager"
               />
             </Link>
             
@@ -97,7 +85,7 @@ export const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button asChild variant="hero">
-              <Link to="/aanvraag">Vraag offerte aan</Link>
+              <Link to="/aanvraag">Vraag advies aan</Link>
             </Button>
           </div>
 
@@ -135,19 +123,19 @@ export const Header = () => {
 
                 {/* Mobile contact info */}
                 <div className="pt-6 border-t space-y-4">
-                  <div className="flex items-center gap-3">
+                  <a href="tel:+31684646176" className="flex items-center gap-3">
                     <Phone className="h-5 w-5 text-primary" />
-                    <span>+31 638901956</span>
-                  </div>
-                  <div className="flex items-center gap-3">
+                    <span>+31 6 84646176</span>
+                  </a>
+                  <a href="mailto:info@rijscholenadvies.nl" className="flex items-center gap-3">
                     <Mail className="h-5 w-5 text-primary" />
                     <span>info@rijscholenadvies.nl</span>
-                  </div>
+                  </a>
                 </div>
 
                 <Button asChild variant="hero" className="mt-4">
                   <Link to="/aanvraag" onClick={() => setIsOpen(false)}>
-                    Vraag je offerte aan
+                    Vraag advies aan
                   </Link>
                 </Button>
               </div>

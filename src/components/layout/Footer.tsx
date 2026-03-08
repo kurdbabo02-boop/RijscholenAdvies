@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Car, Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Car, Phone, Mail, Clock, Facebook, Instagram, Linkedin } from "lucide-react";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -7,14 +7,16 @@ export const Footer = () => {
   const quickLinks = [
     { name: "Home", href: "/" },
     { name: "Aanvraag indienen", href: "/aanvraag" },
+    { name: "Diensten", href: "/diensten" },
     { name: "Over ons", href: "/over-ons" },
+    { name: "FAQ", href: "/faq" },
     { name: "Contact", href: "/contact" }
   ];
 
   const serviceLinks = [
-    { name: "Rijschooladvies", href: "/aanvraag" },
-    { name: "Veelgestelde vragen", href: "/contact" },
-    { name: "Klantbeoordelingen", href: "/over-ons" },
+    { name: "Rijschooladvies", href: "/diensten" },
+    { name: "Veelgestelde vragen", href: "/faq" },
+    { name: "Klachten", href: "/klachten" },
     { name: "Prijzen", href: "/aanvraag" }
   ];
 
@@ -26,19 +28,19 @@ export const Footer = () => {
   ];
 
   const socialLinks = [
-  { 
-    name: "Facebook", 
-    icon: Facebook, 
-    href: "https://www.facebook.com/profile.php?id=61579752631864&locale=nl_NL" 
-  },
-  { 
-    name: "TikTok", 
-    icon: TikTokIcon, 
-    href: "https://www.tiktok.com/@rijscholenadvies.nl" 
-  },
-  { name: "Instagram", icon: Instagram, href: "#" },
-  { name: "LinkedIn", icon: Linkedin, href: "#" }
-];
+    { 
+      name: "Facebook", 
+      icon: Facebook, 
+      href: "https://www.facebook.com/profile.php?id=61579752631864&locale=nl_NL" 
+    },
+    { 
+      name: "TikTok", 
+      icon: TikTokIcon, 
+      href: "https://www.tiktok.com/@rijscholenadvies.nl" 
+    },
+    { name: "Instagram", icon: Instagram, href: "#" },
+    { name: "LinkedIn", icon: Linkedin, href: "#" }
+  ];
 
   return (
     <footer className="bg-foreground text-background">
@@ -51,11 +53,11 @@ export const Footer = () => {
               <div className="h-8 w-8 rounded-lg bg-gradient-primary flex items-center justify-center">
                 <Car className="h-5 w-5 text-white" />
               </div>
-              Rijschool Adviesbureau
+              Rijscholen Advies
             </Link>
             <p className="text-sm text-background/80 leading-relaxed">
-              Al sinds 2025 helpen wij mensen bij het vinden van de beste rijschool. 
-              Wij zoeken en vinden de beste rijscholen voor u.
+              Wij helpen u bij het vinden van de beste én goedkoopste rijschool. 
+              Persoonlijk advies op maat, gecertificeerde rijscholen en begeleiding bij aanmelding.
             </p>
             
             {/* Social links */}
@@ -64,6 +66,8 @@ export const Footer = () => {
                 <a
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="h-8 w-8 rounded-lg bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
                   aria-label={social.name}
                 >
@@ -73,7 +77,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Navigation links - horizontal layout for mobile too */}
+          {/* Navigation links */}
           <div className="col-span-2 grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-6">
             {/* Quick links */}
             <div className="space-y-2 md:space-y-3">
@@ -112,14 +116,14 @@ export const Footer = () => {
           <div className="space-y-3">
             <h3 className="font-semibold">Contact</h3>
             <div className="space-y-3">
-              <div className="flex items-center gap-3">
+              <a href="tel:+31684646176" className="flex items-center gap-3 hover:text-background/100 transition-colors">
                 <Phone className="h-4 w-4 text-background/60" />
-                <span className="text-sm text-background/80">+31 638901956</span>
-              </div>
-              <div className="flex items-center gap-3">
+                <span className="text-sm text-background/80">+31 6 84646176</span>
+              </a>
+              <a href="mailto:info@rijscholenadvies.nl" className="flex items-center gap-3 hover:text-background/100 transition-colors">
                 <Mail className="h-4 w-4 text-background/60" />
                 <span className="text-sm text-background/80">info@rijscholenadvies.nl</span>
-              </div>
+              </a>
               <div className="flex items-start gap-3">
                 <Clock className="h-4 w-4 text-background/60 mt-0.5" />
                 <div className="text-sm text-background/80">
@@ -134,7 +138,7 @@ export const Footer = () => {
         <div className="border-t border-background/20 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-sm text-background/60">
-              © {currentYear} Rijschool Adviesbureau. Alle rechten voorbehouden.
+              © {currentYear} Rijscholen Advies. Alle rechten voorbehouden.
             </div>
             
             <nav className="flex flex-wrap gap-6">
@@ -155,10 +159,10 @@ export const Footer = () => {
         <div className="border-t border-background/20 py-6">
           <div className="text-center">
             <div className="text-sm text-background/60 mb-4">
-              Vertrouwd door 2,500+ tevreden klanten
+              Vertrouwd door tevreden klanten door heel Nederland
             </div>
             <div className="flex justify-center items-center gap-8 opacity-60">
-              <div className="text-xs">Gecertificeerd KVK</div>
+              <div className="text-xs">Geregistreerd KVK</div>
               <div className="text-xs">SSL beveiligd</div>
               <div className="text-xs">Maandag t/m vrijdag 8:00-17:30</div>
             </div>

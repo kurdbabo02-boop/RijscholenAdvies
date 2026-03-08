@@ -1,17 +1,16 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Shield, Users, Award, Target, Heart, Star, Clock, Phone } from "lucide-react";
+import { Shield, Award, Target, Heart, Clock, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
-import calmingBackground from "@/assets/calming-background.jpg";
 import teamBackground from "@/assets/team-background.jpg";
 
 const OverOnsPage = () => {
   const stats = [
     { number: "Persoonlijk", label: "Advies op maat", icon: Phone },
     { number: "Kwaliteit", label: "Gecertificeerde rijscholen", icon: Clock },
-    { number: "Betrouwbaar", label: "Expertise sinds 2025", icon: Award },
+    { number: "Betrouwbaar", label: "Ervaren team", icon: Award },
     { number: "Direct hulp", label: "Bij aanmelding", icon: Target }
   ];
 
@@ -24,12 +23,12 @@ const OverOnsPage = () => {
     {
       icon: Heart,
       title: "Persoonlijk advies",
-      description: "Elk advies is op maat, gebaseerd op jouw specifieke wensen en situatie."
+      description: "Elk advies is op maat, gebaseerd op uw specifieke wensen en situatie."
     },
     {
       icon: Target,
       title: "Resultaatgericht",
-      description: "Ons doel is jouw rijbewijs halen: snel, efficiënt en met plezier."
+      description: "Ons doel is uw rijbewijs halen: snel, efficiënt en met plezier."
     }
   ];
 
@@ -42,11 +41,11 @@ const OverOnsPage = () => {
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Wij zoeken de beste
-            <span className="text-primary"> rijschool voor U</span>
+            <span className="text-primary"> rijschool voor u</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Wij verbinden U met de goedkoopste én beste rijscholen én helpen U persoonlijk bij de aanmelding. 
-            Ons professionele team helpt U graag verder.
+            Wij verbinden u met de goedkoopste én beste rijscholen én helpen u persoonlijk bij de aanmelding. 
+            Ons professionele team helpt u graag verder.
           </p>
         </div>
 
@@ -65,7 +64,6 @@ const OverOnsPage = () => {
           ))}
         </div>
 
-       
         {/* Our Values */}
         <div className="mb-16">
           <div className="text-center mb-12">
@@ -75,7 +73,7 @@ const OverOnsPage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8">
             {values.map((value, index) => (
               <Card key={index} className="shadow-smooth hover:shadow-xl transition-all duration-300 group">
                 <CardHeader className="text-center p-3 md:p-6">
@@ -94,7 +92,6 @@ const OverOnsPage = () => {
           </div>
         </div>
 
-
         {/* CTA Section */}
         <div className="text-center">
           <Card className="relative overflow-hidden shadow-hero">
@@ -108,17 +105,17 @@ const OverOnsPage = () => {
                 Klaar om te starten?
               </h2>
               <p className="text-lg mb-8 opacity-90">
-                Ons professionele team staat voor U klaar met persoonlijk advies en volledige begeleiding.
+                Ons professionele team staat voor u klaar met persoonlijk advies en volledige begeleiding.
               </p>
               <div className="flex gap-3 justify-center">
                 <Button asChild variant="secondary" size="lg">
                   <Link to="/aanvraag">
-                    Vraag offerte aan
+                    Vraag advies aan
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="text-blue-900 border-white hover:bg-white hover:text-blue-900">
-                  <Link to="/over-ons">
-                    Meer info
+                <Button asChild variant="outline" size="lg" className="text-white border-white hover:bg-white hover:text-foreground">
+                  <Link to="/contact">
+                    Contact opnemen
                   </Link>
                 </Button>
               </div>

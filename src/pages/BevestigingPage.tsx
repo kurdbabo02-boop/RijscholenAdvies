@@ -11,48 +11,35 @@ const BevestigingPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [formData, setFormData] = useState(null);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
     if (location.state?.formData) {
       setFormData(location.state.formData);
     } else {
-      // Redirect to form if no data
       navigate("/aanvraag");
     }
   }, [location.state, navigate]);
 
   const handlePayment = async () => {
-    console.log("Starting payment process with data:", formData);
+    setIsProcessing(true);
     try {
-      console.log("Calling Supabase function create-payment...");
       const { data, error } = await supabase.functions.invoke('create-payment', {
         body: formData
       });
 
-      console.log("Supabase function response:", { data, error });
+      if (error) throw error;
+      if (!data?.url) throw new Error("No payment URL received");
 
-      if (error) {
-        console.error("Supabase function error:", error);
-        throw error;
-      }
-
-      if (!data?.url) {
-        console.error("No URL returned from payment function");
-        throw new Error("No payment URL received");
-      }
-
-      console.log("Redirecting to Stripe checkout:", data.url);
-      // Redirect directly to Stripe checkout
       window.location.href = data.url;
     } catch (error) {
       console.error('Payment error:', error);
       alert('Er is een fout opgetreden bij het starten van de betaling. Probeer het opnieuw.');
+      setIsProcessing(false);
     }
   };
 
-  if (!formData) {
-    return null;
-  }
+  if (!formData) return null;
 
   return (
     <div className="min-h-screen bg-gradient-subtle">
@@ -75,16 +62,14 @@ const BevestigingPage = () => {
               {/* Order summary */}
               <div className="bg-muted/50 rounded-lg p-6">
                 <h3 className="font-semibold mb-4">Uw aanvraag</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Car className="h-4 w-4 text-primary" />
-                    </div>
-                    <div>
-                      <div className="font-medium">Persoonlijk Rijschooladvies</div>
-                      <div className="text-sm text-muted-foreground">
-                        {formData.typeRijles} rijles in {formData.stad}
-                      </div>
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Car className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <div className="font-medium">Persoonlijk Rijschooladvies</div>
+                    <div className="text-sm text-muted-foreground">
+                      {formData.typeRijles} rijles in {formData.stad}
                     </div>
                   </div>
                 </div>
@@ -98,47 +83,39 @@ const BevestigingPage = () => {
                     <div className="h-8 w-8 rounded-full bg-secondary/10 flex items-center justify-center">
                       <Car className="h-4 w-4 text-secondary" />
                     </div>
-                    <div>
-                      <div className="font-medium">{formData.naam}</div>
-                    </div>
+                    <div className="font-medium">{formData.naam}</div>
                   </div>
-                  
                   <div className="flex items-center gap-3">
                     <div className="h-8 w-8 rounded-full bg-accent/10 flex items-center justify-center">
                       <Mail className="h-4 w-4 text-accent" />
                     </div>
-                    <div>
-                      <div className="text-sm">{formData.email}</div>
-                    </div>
+                    <div className="text-sm">{formData.email}</div>
                   </div>
-                  
                   <div className="flex items-center gap-3">
                     <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
                       <Phone className="h-4 w-4 text-primary" />
                     </div>
-                    <div>
-                      <div className="text-sm">{formData.telefoon}</div>
-                    </div>
+                    <div className="text-sm">{formData.telefoon}</div>
                   </div>
                 </div>
               </div>
 
               {/* Price breakdown */}
-              <div className="bg-gradient-primary/5 rounded-lg p-6 space-y-3">
+              <div className="bg-primary/5 rounded-lg p-6 space-y-3">
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="font-semibold">Persoonlijk advies</div>
                     <div className="text-sm text-muted-foreground">Eenmalige kosten</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-lg font-semibold">€33,50</div>
+                    <div className="text-lg font-semibold">€34,50</div>
                     <div className="text-xs text-muted-foreground">excl. BTW</div>
                   </div>
                 </div>
                 
                 <div className="flex justify-between items-center text-sm">
                   <div className="text-muted-foreground">BTW (21%)</div>
-                  <div>€8,40</div>
+                  <div>€7,40</div>
                 </div>
                 
                 <div className="border-t pt-3">
@@ -155,13 +132,13 @@ const BevestigingPage = () => {
                 <div className="grid gap-3">
                   {[
                     "Persoonlijk advies van rijschoolexperts",
-                    "3 best passende rijscholen in uw omgeving",
+                    "Best passende rijscholen in uw omgeving",
                     "Vergelijking van prijzen en lesaanbod",
                     "Wij leggen contact met rijscholen voor u",
                     "Gratis nazorg en ondersteuning"
                   ].map((benefit, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-success" />
+                      <CheckCircle className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm">{benefit}</span>
                     </div>
                   ))}
@@ -175,15 +152,17 @@ const BevestigingPage = () => {
                   variant="hero"
                   size="lg"
                   className="w-full"
+                  disabled={isProcessing}
                 >
                   <CreditCard className="h-5 w-5 mr-2" />
-                  Veilig betalen met iDEAL of creditcard
+                  {isProcessing ? "Bezig met verwerken..." : "Veilig betalen met iDEAL of creditcard"}
                 </Button>
                 
                 <Button 
                   variant="outline" 
                   onClick={() => navigate("/aanvraag")} 
                   className="w-full"
+                  disabled={isProcessing}
                 >
                   Gegevens wijzigen
                 </Button>
