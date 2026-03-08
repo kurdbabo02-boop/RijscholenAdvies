@@ -14,6 +14,8 @@ import KlachtenPage from "./pages/KlachtenPage";
 import OverOnsPage from "./pages/OverOnsPage";
 import DienstenPage from "./pages/DienstenPage";
 import FAQPage from "./pages/FAQPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import AlgemeneVoorwaardenPage from "./pages/AlgemeneVoorwaardenPage";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +33,8 @@ function AppContent() {
       <Route path="/over-ons" element={<OverOnsPage />} />
       <Route path="/diensten" element={<DienstenPage />} />
       <Route path="/faq" element={<FAQPage />} />
+      <Route path="/privacy" element={<PrivacyPage />} />
+      <Route path="/algemene-voorwaarden" element={<AlgemeneVoorwaardenPage />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>
