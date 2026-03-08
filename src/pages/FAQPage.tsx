@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
+import { HelpCircle, ArrowRight } from "lucide-react";
 
 const FAQPage = () => {
   const faqData = [
@@ -24,11 +25,11 @@ const FAQPage = () => {
     },
     {
       question: "Voor welke rijbewijzen kunnen jullie helpen?",
-      answer: "Wij kunnen adviseren voor alle rijbewijzen: AM (bromfiets/scooter), A1/A2/A (motor), B (auto), BE (auto met aanhanger), C1/C1E/C/CE (vrachtwagens), D1/D1E/D/DE (bussen), en T (tractor/landbouwvoertuigen). Voor zowel handgeschakelde als automatische transmissie."
+      answer: "Wij kunnen adviseren voor alle rijbewijzen: AM (bromfiets/scooter), A1/A2/A (motor), B (auto), BE (auto met aanhanger), C1/C1E/C/CE (vrachtwagens), D1/D1E/D/DE (bussen), en T (tractor/landbouwvoertuigen)."
     },
     {
       question: "Wat gebeurt er na het advies?",
-      answer: "Na ons advies ontvangt u direct de contactgegevens van de aanbevolen rijscholen. Wij helpen u ook bij het aanmeldingsproces en bieden gratis nazorg. U bent nergens toe verplicht."
+      answer: "Na ons advies ontvangt u direct de contactgegevens van de aanbevolen rijscholen. Wij helpen u ook bij het aanmeldingsproces en bieden gratis nazorg."
     },
     {
       question: "Werken jullie landelijk?",
@@ -36,31 +37,35 @@ const FAQPage = () => {
     },
     {
       question: "Kan ik het advies ook telefonisch krijgen?",
-      answer: "Zeker! Na uw online aanvraag plannen wij graag een persoonlijk gesprek. U kunt ons ook direct bellen op +31 6 84646176 voor vragen of om uw aanvraag telefonisch door te geven."
+      answer: "Zeker! Na uw online aanvraag plannen wij graag een persoonlijk gesprek. U kunt ons ook direct bellen op +31 6 84646176."
     },
     {
       question: "Zijn er extra kosten na het advies?",
-      answer: "Nee, er zijn geen verborgen kosten. Voor €41,90 (incl. BTW) krijgt u het complete advies en alle begeleiding. Er zijn geen automatische verlengingen of extra kosten."
+      answer: "Nee, er zijn geen verborgen kosten. Voor €41,90 (incl. BTW) krijgt u het complete advies en alle begeleiding. Geen automatische verlengingen."
     },
     {
       question: "Wat als ik niet tevreden ben?",
-      answer: "Uw tevredenheid staat voorop. Binnen 14 dagen bieden wij een volledige geld-terug-garantie. Mocht u niet tevreden zijn, dan zoeken wij samen naar een oplossing."
+      answer: "Binnen 14 dagen bieden wij een volledige geld-terug-garantie. Uw tevredenheid staat voorop."
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-subtle">
+    <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="pt-24">
+      <main className="pt-28 md:pt-32">
         {/* Hero Section */}
-        <section className="py-16">
+        <section className="py-16 bg-gradient-subtle">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center gap-2 bg-primary/5 text-primary text-sm font-medium px-4 py-2 rounded-full mb-4">
+                <HelpCircle className="h-4 w-4" />
+                FAQ
+              </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 Veelgestelde Vragen
               </h1>
-              <p className="text-xl text-muted-foreground mb-8">
+              <p className="text-xl text-muted-foreground">
                 Alle antwoorden op uw vragen over ons rijschooladvies
               </p>
             </div>
@@ -70,14 +75,18 @@ const FAQPage = () => {
         {/* FAQ Section */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <Accordion type="single" collapsible className="space-y-4">
+            <div className="max-w-3xl mx-auto">
+              <Accordion type="single" collapsible className="space-y-3">
                 {faqData.map((faq, index) => (
-                  <AccordionItem key={index} value={`item-${index}`} className="bg-background border rounded-lg px-6">
-                    <AccordionTrigger className="text-left font-semibold">
+                  <AccordionItem 
+                    key={index} 
+                    value={`item-${index}`} 
+                    className="bg-card border-0 shadow-card rounded-2xl px-6 data-[state=open]:shadow-float transition-all duration-200"
+                  >
+                    <AccordionTrigger className="text-left font-semibold hover:no-underline py-5">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
+                    <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -88,17 +97,18 @@ const FAQPage = () => {
         </section>
 
         {/* Contact CTA */}
-        <section className="py-16 bg-background">
+        <section className="py-16 bg-gradient-subtle">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-6">
-              Nog meer vragen?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <h2 className="text-3xl font-bold mb-4">Nog meer vragen?</h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-lg mx-auto">
               Neem direct contact op — wij helpen u graag verder!
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild variant="hero" size="lg">
-                <Link to="/contact">Contact opnemen</Link>
+                <Link to="/contact">
+                  Contact opnemen
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link to="/aanvraag">Vraag advies aan</Link>
