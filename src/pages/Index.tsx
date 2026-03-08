@@ -147,7 +147,7 @@ const Index = () => {
               Wat bieden wij aan?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Wij helpen u niet alleen een rijschool te vinden — wij vinden de beste voor u.
+              Wij helpen u niet alleen een rijschool te vinden, wij vinden de beste voor u.
             </p>
           </div>
 

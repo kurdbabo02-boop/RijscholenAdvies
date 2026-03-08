@@ -75,7 +75,7 @@ const KlachtenPage = () => {
                     Contactgegevens
                   </CardTitle>
                   <CardDescription>
-                    Heeft u een klacht? Neem contact op — ook buiten kantooruren bereikbaar
+                    Heeft u een klacht? Neem contact op, ook buiten kantooruren bereikbaar
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
