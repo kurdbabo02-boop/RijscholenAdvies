@@ -12,11 +12,7 @@ const BetalingGeluktPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time for better UX
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
+    const timer = setTimeout(() => setIsLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -54,15 +50,15 @@ const BetalingGeluktPage = () => {
                 <h3 className="font-semibold mb-4 text-success">Uw aanvraag is ontvangen</h3>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="h-4 w-4 text-success" />
+                    <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
                     <span>Betaling van €41,90 is succesvol verwerkt</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="h-4 w-4 text-success" />
+                    <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
                     <span>Uw persoonlijke rijschooladvies wordt voorbereid</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="h-4 w-4 text-success" />
+                    <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
                     <span>Ons team neemt vandaag nog contact met u op</span>
                   </div>
                 </div>
@@ -74,12 +70,12 @@ const BetalingGeluktPage = () => {
                 <div className="grid gap-3">
                   {[
                     "Ons team analyseert uw wensen en zoekt de beste rijscholen",
-                    "U ontvangt binnen enkele uren uw persoonlijke advies",
+                    "U ontvangt uw persoonlijke advies",
                     "Wij helpen u bij contact leggen met de gekozen rijschool",
                     "Gratis nazorg en ondersteuning tijdens uw leerproces"
                   ].map((step, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm font-bold mt-0.5">
+                      <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm font-bold mt-0.5 flex-shrink-0">
                         {index + 1}
                       </div>
                       <span className="text-sm">{step}</span>
@@ -92,25 +88,25 @@ const BetalingGeluktPage = () => {
               <div className="bg-muted/50 rounded-lg p-6">
                 <h3 className="font-semibold mb-4">Contact voor vragen</h3>
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3">
+                  <a href="tel:+31684646176" className="flex items-center gap-3 group">
                     <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
                       <Phone className="h-4 w-4 text-primary" />
                     </div>
                     <div>
-                      <div className="font-medium">+31 638901956</div>
+                      <div className="font-medium group-hover:text-primary transition-colors">+31 6 84646176</div>
                       <div className="text-sm text-muted-foreground">Voor dringende vragen</div>
                     </div>
-                  </div>
+                  </a>
                   
-                  <div className="flex items-center gap-3">
+                  <a href="mailto:info@rijscholenadvies.nl" className="flex items-center gap-3 group">
                     <div className="h-8 w-8 rounded-full bg-secondary/10 flex items-center justify-center">
                       <Mail className="h-4 w-4 text-secondary" />
                     </div>
                     <div>
-                      <div className="font-medium">info@rijscholenadvies.nl</div>
+                      <div className="font-medium group-hover:text-primary transition-colors">info@rijscholenadvies.nl</div>
                       <div className="text-sm text-muted-foreground">Voor algemene vragen</div>
                     </div>
-                  </div>
+                  </a>
                   
                   <div className="flex items-center gap-3">
                     <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
@@ -127,15 +123,11 @@ const BetalingGeluktPage = () => {
               {/* Action buttons */}
               <div className="pt-6 space-y-4">
                 <Button asChild variant="hero" size="lg" className="w-full">
-                  <Link to="/">
-                    Terug naar homepage
-                  </Link>
+                  <Link to="/">Terug naar homepage</Link>
                 </Button>
                 
                 <Button asChild variant="outline" className="w-full">
-                  <Link to="/contact">
-                    Contact opnemen
-                  </Link>
+                  <Link to="/contact">Contact opnemen</Link>
                 </Button>
               </div>
 
