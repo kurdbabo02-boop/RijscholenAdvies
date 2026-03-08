@@ -85,7 +85,7 @@ const Index = () => {
                   <br />voor u
                 </h1>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Goedkoop én in één keer slagen — wij regelen uw rijopleiding én aanmelding!
+                  Goedkoop én in één keer slagen, wij regelen uw rijopleiding én aanmelding!
                 </p>
               </div>
 
