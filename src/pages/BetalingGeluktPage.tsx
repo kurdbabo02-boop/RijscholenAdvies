@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { CheckCircle, Phone, Mail, Clock } from "lucide-react";
+import { CheckCircle, Phone, Mail, Clock, PartyPopper } from "lucide-react";
 
 const BetalingGeluktPage = () => {
   const [searchParams] = useSearchParams();
@@ -20,8 +20,8 @@ const BetalingGeluktPage = () => {
     return (
       <div className="min-h-screen bg-gradient-subtle flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary mx-auto"></div>
-          <p className="mt-4 text-muted-foreground">Betaling wordt verwerkt...</p>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-muted-foreground">Betaling wordt verwerkt...</p>
         </div>
       </div>
     );
@@ -31,110 +31,69 @@ const BetalingGeluktPage = () => {
     <div className="min-h-screen bg-gradient-subtle">
       <Header />
       
-      <main className="container mx-auto px-4 py-8 pt-24">
-        <div className="max-w-2xl mx-auto">
-          <Card className="shadow-smooth animate-fade-in">
-            <CardHeader className="text-center">
-              <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-gradient-secondary flex items-center justify-center">
-                <CheckCircle className="h-8 w-8 text-white" />
+      <main className="container mx-auto px-4 py-8 pt-28 md:pt-32">
+        <div className="max-w-xl mx-auto">
+          <Card className="shadow-card border-0 rounded-2xl animate-fade-in">
+            <CardHeader className="text-center pb-2">
+              <div className="mx-auto mb-4 h-16 w-16 rounded-2xl bg-success/5 flex items-center justify-center">
+                <PartyPopper className="h-8 w-8 text-success" />
               </div>
               <CardTitle className="text-2xl text-success">Betaling gelukt!</CardTitle>
-              <CardDescription>
+              <CardDescription className="text-base">
                 Uw betaling is succesvol verwerkt. Wij nemen vandaag nog contact met u op.
               </CardDescription>
             </CardHeader>
             
-            <CardContent className="space-y-6">
-              {/* Success confirmation */}
-              <div className="bg-success/5 border border-success/20 rounded-lg p-6">
-                <h3 className="font-semibold mb-4 text-success">Uw aanvraag is ontvangen</h3>
-                <div className="space-y-3 text-sm">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
-                    <span>Betaling van €41,90 is succesvol verwerkt</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
-                    <span>Uw persoonlijke rijschooladvies wordt voorbereid</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
-                    <span>Ons team neemt vandaag nog contact met u op</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* What happens next */}
-              <div className="space-y-4">
-                <h3 className="font-semibold">Wat gebeurt er nu?</h3>
-                <div className="grid gap-3">
-                  {[
-                    "Ons team analyseert uw wensen en zoekt de beste rijscholen",
-                    "U ontvangt uw persoonlijke advies",
-                    "Wij helpen u bij contact leggen met de gekozen rijschool",
-                    "Gratis nazorg en ondersteuning tijdens uw leerproces"
-                  ].map((step, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm font-bold mt-0.5 flex-shrink-0">
-                        {index + 1}
-                      </div>
-                      <span className="text-sm">{step}</span>
+            <CardContent className="space-y-5">
+              <div className="bg-success/5 rounded-2xl p-5">
+                <div className="space-y-2.5 text-sm">
+                  {["Betaling van €41,90 is succesvol verwerkt", "Uw persoonlijke rijschooladvies wordt voorbereid", "Ons team neemt vandaag nog contact met u op"].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
+                      <span>{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Contact information */}
-              <div className="bg-muted/50 rounded-lg p-6">
-                <h3 className="font-semibold mb-4">Contact voor vragen</h3>
-                <div className="space-y-3">
-                  <a href="tel:+31684646176" className="flex items-center gap-3 group">
-                    <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Phone className="h-4 w-4 text-primary" />
-                    </div>
-                    <div>
-                      <div className="font-medium group-hover:text-primary transition-colors">+31 6 84646176</div>
-                      <div className="text-sm text-muted-foreground">Voor dringende vragen</div>
-                    </div>
+              <div className="space-y-3">
+                <h3 className="font-semibold text-sm">Wat gebeurt er nu?</h3>
+                {["Ons team analyseert uw wensen", "U ontvangt uw persoonlijke advies", "Wij helpen u bij contact met de rijschool", "Gratis nazorg en ondersteuning"].map((step, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="h-6 w-6 rounded-full bg-primary/5 flex items-center justify-center text-primary text-xs font-bold mt-0.5 flex-shrink-0">{i + 1}</div>
+                    <span className="text-sm">{step}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="bg-muted/30 rounded-2xl p-5">
+                <h3 className="font-semibold text-sm mb-3">Contact voor vragen</h3>
+                <div className="space-y-2.5">
+                  <a href="tel:+31684646176" className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
+                    <Phone className="h-4 w-4 text-primary" /><span>+31 6 84646176</span>
                   </a>
-                  
-                  <a href="mailto:info@rijscholenadvies.nl" className="flex items-center gap-3 group">
-                    <div className="h-8 w-8 rounded-full bg-secondary/10 flex items-center justify-center">
-                      <Mail className="h-4 w-4 text-secondary" />
-                    </div>
-                    <div>
-                      <div className="font-medium group-hover:text-primary transition-colors">info@rijscholenadvies.nl</div>
-                      <div className="text-sm text-muted-foreground">Voor algemene vragen</div>
-                    </div>
+                  <a href="mailto:info@rijscholenadvies.nl" className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
+                    <Mail className="h-4 w-4 text-secondary" /><span>info@rijscholenadvies.nl</span>
                   </a>
-                  
-                  <div className="flex items-center gap-3">
-                    <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Clock className="h-4 w-4 text-primary" />
-                    </div>
-                    <div>
-                      <div className="font-medium">Maandag t/m vrijdag</div>
-                      <div className="text-sm text-muted-foreground">8:00 - 17:30</div>
-                    </div>
+                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <Clock className="h-4 w-4" /><span>Ma t/m vr 8:00 - 17:30</span>
                   </div>
                 </div>
               </div>
 
-              {/* Action buttons */}
-              <div className="pt-6 space-y-4">
+              <div className="pt-4 space-y-3">
                 <Button asChild variant="hero" size="lg" className="w-full">
                   <Link to="/">Terug naar homepage</Link>
                 </Button>
-                
                 <Button asChild variant="outline" className="w-full">
                   <Link to="/contact">Contact opnemen</Link>
                 </Button>
               </div>
 
               {sessionId && (
-                <div className="text-center text-xs text-muted-foreground pt-4">
-                  Referentienummer: {sessionId.slice(-8).toUpperCase()}
-                </div>
+                <p className="text-center text-xs text-muted-foreground">
+                  Referentie: {sessionId.slice(-8).toUpperCase()}
+                </p>
               )}
             </CardContent>
           </Card>
