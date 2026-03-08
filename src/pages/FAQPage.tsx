@@ -94,7 +94,7 @@ const FAQPage = () => {
               Nog meer vragen?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Neem direct contact op — wij helpen u graag verder!
+              Neem direct contact op, wij helpen u graag verder!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="hero" size="lg">

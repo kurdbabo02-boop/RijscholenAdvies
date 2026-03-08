@@ -75,7 +75,7 @@ const ContactPage = () => {
                     Contactgegevens
                   </CardTitle>
                   <CardDescription>
-                    Neem contact op — voor spoed ook buiten kantooruren bereikbaar
+                    Neem contact op, voor spoed ook buiten kantooruren bereikbaar
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">

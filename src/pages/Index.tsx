@@ -17,7 +17,7 @@ const Index = () => {
     {
       icon: Shield,
       title: "Alleen kwaliteit",
-      description: "Alle rijscholen in ons netwerk zijn gecertificeerd — goedkoopst én het best."
+      description: "Alle rijscholen in ons netwerk zijn gecertificeerd, goedkoopst én het best."
     },
     {
       icon: Clock,
@@ -85,7 +85,7 @@ const Index = () => {
                   <br />voor u
                 </h1>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Goedkoop én in één keer slagen — wij regelen uw rijopleiding én aanmelding!
+                  Goedkoop én in één keer slagen, wij regelen uw rijopleiding én aanmelding!
                 </p>
               </div>
 
@@ -147,7 +147,7 @@ const Index = () => {
               Wat bieden wij aan?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Wij helpen u niet alleen een rijschool te vinden — wij vinden de beste voor u.
+              Wij helpen u niet alleen een rijschool te vinden, wij vinden de beste voor u.
             </p>
           </div>
 
