@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Car, Shield, Star, Clock, CheckCircle, ArrowRight, Search, Target, Heart } from "lucide-react";
-import heroImage from "@/assets/real-instructor-photo.jpg";
+import heroImage from "@/assets/hero-driving-lesson.jpg";
 import teamBackground from "@/assets/team-background.jpg";
 
 const Index = () => {
