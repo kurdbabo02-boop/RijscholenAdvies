@@ -20,10 +20,7 @@ const BevestigingPage = () => {
     }
   }, [location.state, navigate]);
 
-  const copyToClipboard = (text: string, label: string) => {
-    navigator.clipboard.writeText(text.replace(/\s/g, ""));
-    toast.success(`${label} gekopieerd!`);
-  };
+
 
   if (!formData) return null;
 
