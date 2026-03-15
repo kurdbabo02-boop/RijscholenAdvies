@@ -4,11 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { CheckCircle, Car, Copy, Mail, Phone, Landmark } from "lucide-react";
-import { toast } from "sonner";
+import { CheckCircle, Car, Mail, Phone, Landmark } from "lucide-react";
 
-const IBAN = "NL44 INGB 0733 7202 26";
-const TENAAMSTELLING = "hr M Kamal";
 
 const BevestigingPage = () => {
   const location = useLocation();
@@ -23,10 +20,7 @@ const BevestigingPage = () => {
     }
   }, [location.state, navigate]);
 
-  const copyToClipboard = (text: string, label: string) => {
-    navigator.clipboard.writeText(text.replace(/\s/g, ""));
-    toast.success(`${label} gekopieerd!`);
-  };
+
 
   if (!formData) return null;
 
@@ -64,55 +58,6 @@ const BevestigingPage = () => {
                 </div>
               </div>
 
-              {/* Bank details */}
-              <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 space-y-4">
-                <h3 className="font-semibold flex items-center gap-2">
-                  <Landmark className="h-5 w-5 text-primary" />
-                  Bankgegevens
-                </h3>
-                
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="text-sm text-muted-foreground">IBAN</div>
-                      <div className="font-mono font-semibold text-lg">{IBAN}</div>
-                    </div>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => copyToClipboard(IBAN, "IBAN")}
-                    >
-                      <Copy className="h-4 w-4 mr-1" />
-                      Kopieer
-                    </Button>
-                  </div>
-
-                  <div>
-                    <div className="text-sm text-muted-foreground">Ten name van</div>
-                    <div className="font-semibold">{TENAAMSTELLING}</div>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="text-sm text-muted-foreground">Bedrag</div>
-                      <div className="font-semibold text-lg text-primary">€41,90</div>
-                    </div>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => copyToClipboard("41.90", "Bedrag")}
-                    >
-                      <Copy className="h-4 w-4 mr-1" />
-                      Kopieer
-                    </Button>
-                  </div>
-
-                  <div>
-                    <div className="text-sm text-muted-foreground">Omschrijving</div>
-                    <div className="font-medium">Rijschooladvies - {formData.naam}</div>
-                  </div>
-                </div>
-              </div>
 
               {/* Price breakdown */}
               <div className="bg-muted/50 rounded-lg p-6 space-y-3">
