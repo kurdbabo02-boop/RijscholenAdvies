@@ -4,8 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { CheckCircle, Car, Copy, Mail, Phone, Landmark } from "lucide-react";
-import { toast } from "sonner";
+import { CheckCircle, Car, Mail, Phone, Landmark } from "lucide-react";
 
 
 const BevestigingPage = () => {
