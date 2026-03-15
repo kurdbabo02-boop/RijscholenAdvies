@@ -7,8 +7,6 @@ import { Footer } from "@/components/layout/Footer";
 import { CheckCircle, Car, Copy, Mail, Phone, Landmark } from "lucide-react";
 import { toast } from "sonner";
 
-const IBAN = "NL44 INGB 0733 7202 26";
-const TENAAMSTELLING = "hr M Kamal";
 
 const BevestigingPage = () => {
   const location = useLocation();
